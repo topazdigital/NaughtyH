@@ -76,7 +76,7 @@ sshpass -p "$SSH_ROOT_PASSWORD" ssh \
    echo '[server] Installing dependencies...'
    pnpm install --frozen-lockfile
    echo '[server] Building frontend...'
-   pnpm --filter @workspace/rich-dating-network run build
+   pnpm --filter @workspace/naughty-haughty run build
    echo '[server] Building API server...'
    pnpm --filter @workspace/api-server run build
    echo '[server] Restarting PM2...'
