@@ -58,7 +58,7 @@ router.get("/", requireAuth, async (req: any, res) => {
       // referrals table may not exist yet — return empty data gracefully
     }
 
-    const siteUrl = await getConfig("site_url", "https://richdatingnetwork.com")
+    const siteUrl = await getConfig("site_url", "https://naughtyhaughty.com")
     const referralUrl = `${siteUrl}/ref/${code}`
 
     // Reward tiers from config (or defaults)

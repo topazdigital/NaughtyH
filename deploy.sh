@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================
-# Rich Dating Network — Server Deployment Script
+# NaughtyHaughty — Server Deployment Script
 # Run this on your DirectAdmin server after git pull:
 #   bash deploy.sh
 #
@@ -26,7 +26,7 @@ cd "$(dirname "$0")"
 # fresh version runs completely from the start.
 if [[ "$1" != "--skip-pull" ]]; then
   echo "==============================="
-  echo "  Rich Dating Network Deploy"
+  echo "  NaughtyHaughty Deploy"
   echo "==============================="
   echo "[0/7] Pulling latest code from GitHub..."
   git stash --quiet 2>/dev/null || true
@@ -39,7 +39,7 @@ fi
 
 # ── Script body (runs after re-exec with updated code) ─────
 echo "==============================="
-echo "  Rich Dating Network Deploy"
+echo "  NaughtyHaughty Deploy"
 echo "==============================="
 echo "[0/7] Code already up to date ✓"
 
@@ -192,7 +192,7 @@ echo "==============================="
 echo "  Deployment Complete! ✓"
 echo "==============================="
 echo "  Node.js: http://localhost:7080"
-echo "  Site:    https://richdatingnetwork.com"
+echo "  Site:    https://naughtyhaughty.com"
 echo ""
 echo "  Status:  pm2 status"
 echo "  Logs:    pm2 logs rdn-api --lines 50"

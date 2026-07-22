@@ -303,7 +303,7 @@ router.post("/users/:id/send-email", requireAuth, requireAdmin, async (req, res)
       title: subject.trim(),
       emoji: "📩",
       bodyHtml: `<p style="margin:0 0 16px">Hi ${(user.name || "there").replace(/</g, "&lt;")},</p>${html}`,
-      footerNote: "This message was sent to you by the Rich Dating Network team.",
+      footerNote: "This message was sent to you by the NaughtyHaughty team.",
     })
 
     const sent = await sendEmail({ to: user.email, subject: subject.trim(), html: wrapped })
@@ -1179,7 +1179,7 @@ router.post("/check-smtp", requireAuth, requireAdmin, async (req, res) => {
     if (raw.includes("535") || raw.toLowerCase().includes("incorrect authentication") || raw.toLowerCase().includes("invalid login")) {
       const probeLines = smtpLog.filter(l => l.includes("AUTH"))
       const authMethods = probeLines.length ? `\nServer advertised: ${probeLines.join("; ")}` : ""
-      msg = `${raw}${authMethods}\n\n💡 The server rejected your credentials. Check the SMTP debug log below for the exact server response. Common fixes:\n• Verify username is the full email address (contact@richdatingnetwork.com)\n• Reset the email account password in DirectAdmin → Email Accounts\n• Try port 465 with TLS=Yes instead of 587`
+      msg = `${raw}${authMethods}\n\n💡 The server rejected your credentials. Check the SMTP debug log below for the exact server response. Common fixes:\n• Verify username is the full email address (contact@naughtyhaughty.com)\n• Reset the email account password in DirectAdmin → Email Accounts\n• Try port 465 with TLS=Yes instead of 587`
     }
     res.json({ phase: "auth", error: msg, log: smtpLog })
   }
@@ -1204,10 +1204,10 @@ router.post("/test-email", requireAuth, requireAdmin, async (req, res) => {
     const smtpPass = bodyPass !== undefined ? bodyPass : (process.env.SMTP_PASS || await getConf("smtp_pass"))
     const smtpFromRaw = bodyFrom !== undefined ? bodyFrom : (process.env.SMTP_FROM || await getConf("smtp_from"))
     const smtpFrom = smtpFromRaw || smtpUser
-    const smtpFromName = bodyFromName || process.env.SMTP_FROM_NAME || await getConf("smtp_from_name") || "Rich Dating Network"
+    const smtpFromName = bodyFromName || process.env.SMTP_FROM_NAME || await getConf("smtp_from_name") || "NaughtyHaughty"
     const smtpSecure = bodySecure !== undefined ? (bodySecure === "1" || bodySecure === true) : ((process.env.SMTP_SECURE || await getConf("smtp_secure")) === "1")
     const smtpAuthMethod = bodyAuthMethod !== undefined ? bodyAuthMethod : (process.env.SMTP_AUTH_METHOD || await getConf("smtp_auth_method") || "")
-    const siteName = await getConf("site_name") || "Rich Dating Network"
+    const siteName = await getConf("site_name") || "NaughtyHaughty"
 
     if (!smtpHost) {
       res.status(400).json({ error: "SMTP Host is required." }); return

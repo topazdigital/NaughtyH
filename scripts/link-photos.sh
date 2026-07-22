@@ -1,11 +1,11 @@
 #!/bin/bash
 # =============================================================
-# Link old richdatingnetwork.com photos to API server uploads
-# Run from: /home/admin/domains/richdatingnetwork.com/public_html
+# Link old naughtyhaughty.com photos to API server uploads
+# Run from: /home/admin/domains/naughtyhaughty.com/public_html
 # =============================================================
 
-OLD_UPLOADS="/home/admin/domains/richdatingnetwork.com/public_html/assets/sources/uploads"
-API_UPLOADS="/home/admin/domains/richdatingnetwork.com/public_html/artifacts/api-server/uploads"
+OLD_UPLOADS="/home/admin/domains/naughtyhaughty.com/public_html/assets/sources/uploads"
+API_UPLOADS="/home/admin/domains/naughtyhaughty.com/public_html/artifacts/api-server/uploads"
 
 echo "==========================="
 echo "  Photo Import / Link"

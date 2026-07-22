@@ -65,7 +65,7 @@ Disallow: /visitors
 Disallow: /gifts
 Disallow: /boost
 
-Sitemap: https://richdatingnetwork.com/sitemap.xml
+Sitemap: https://naughtyhaughty.com/sitemap.xml
 `)
 })
 
@@ -137,12 +137,12 @@ function buildCrawlerHtml(profile: any): string {
     profile.userExtended?.occupation || profile.occupation || "";
 
   const titleParts = [name, age || null, city || null].filter(Boolean);
-  const title = titleParts.join(", ") + " | Rich Dating Network";
+  const title = titleParts.join(", ") + " | NaughtyHaughty";
 
   const locationStr =
     city && country ? `${city}, ${country}` : city || country;
   const descParts = [
-    `Meet ${name}${age ? `, ${age}` : ""}${locationStr ? ` from ${locationStr}` : ""} on Rich Dating Network.`,
+    `Meet ${name}${age ? `, ${age}` : ""}${locationStr ? ` from ${locationStr}` : ""} on NaughtyHaughty.`,
   ];
   if (occupation) descParts.push(`${occupation}.`);
   if (bio) descParts.push(bio.slice(0, 120));
@@ -150,15 +150,15 @@ function buildCrawlerHtml(profile: any): string {
   const description = descParts.join(" ").slice(0, 300);
 
   const canonical = profile.username
-    ? `https://richdatingnetwork.com/@${profile.username}`
-    : `https://richdatingnetwork.com/profile/${profile.id}`;
+    ? `https://naughtyhaughty.com/@${profile.username}`
+    : `https://naughtyhaughty.com/profile/${profile.id}`;
 
   const rawPhoto: string = profile.photo || "";
   const photoUrl = rawPhoto
     ? rawPhoto.startsWith("http")
       ? rawPhoto
-      : `https://richdatingnetwork.com${rawPhoto.startsWith("/") ? "" : "/"}${rawPhoto}`
-    : "https://richdatingnetwork.com/opengraph.jpg";
+      : `https://naughtyhaughty.com${rawPhoto.startsWith("/") ? "" : "/"}${rawPhoto}`
+    : "https://naughtyhaughty.com/opengraph.jpg";
 
   const e = (s: string) =>
     s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -173,7 +173,7 @@ function buildCrawlerHtml(profile: any): string {
     ...(occupation ? { jobTitle: occupation } : {}),
     ...(rawPhoto ? { image: photoUrl } : {}),
     url: canonical,
-    memberOf: { "@type": "Organization", name: "Rich Dating Network", url: "https://richdatingnetwork.com" },
+    memberOf: { "@type": "Organization", name: "NaughtyHaughty", url: "https://naughtyhaughty.com" },
   });
 
   return `<!DOCTYPE html>
@@ -187,15 +187,15 @@ function buildCrawlerHtml(profile: any): string {
   <link rel="canonical" href="${e(canonical)}" />
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="${e(canonical)}" />
-  <meta property="og:site_name" content="Rich Dating Network" />
+  <meta property="og:site_name" content="NaughtyHaughty" />
   <meta property="og:title" content="${e(title)}" />
   <meta property="og:description" content="${e(description)}" />
   <meta property="og:image" content="${e(photoUrl)}" />
   <meta property="og:image:width" content="800" />
   <meta property="og:image:height" content="800" />
-  <meta property="og:image:alt" content="${e(name)} — Rich Dating Network" />
+  <meta property="og:image:alt" content="${e(name)} — NaughtyHaughty" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@richdatingnet" />
+  <meta name="twitter:site" content="@naughtyhaughty" />
   <meta name="twitter:title" content="${e(title)}" />
   <meta name="twitter:description" content="${e(description)}" />
   <meta name="twitter:image" content="${e(photoUrl)}" />
@@ -204,7 +204,7 @@ function buildCrawlerHtml(profile: any): string {
 <body>
   <h1>${e(name)}${age ? `, ${age}` : ""}${city ? ` — ${e(city)}` : ""}</h1>
   ${bio ? `<p>${e(bio.slice(0, 200))}</p>` : ""}
-  <p><a href="${e(canonical)}">View full profile on Rich Dating Network</a></p>
+  <p><a href="${e(canonical)}">View full profile on NaughtyHaughty</a></p>
 </body>
 </html>`;
 }

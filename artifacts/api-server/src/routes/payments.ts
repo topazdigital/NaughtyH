@@ -206,7 +206,7 @@ router.post("/payhero/initiate", requireAuth, async (req, res) => {
   const appUrl = process.env.APP_URL
     || (process.env.REPLIT_DEV_DOMAIN ? `https://${process.env.REPLIT_DEV_DOMAIN}` : "")
     || await getConfig("app_url")
-    || "https://richdatingnetwork.com"
+    || "https://naughtyhaughty.com"
 
   const credentials = Buffer.from(`${apiUsername}:${apiPassword}`).toString("base64")
   const ref = `RDN-${req.userId}-${Date.now()}`
@@ -516,7 +516,7 @@ router.post("/paystack/initiate", requireAuth, async (req, res) => {
     const response = await fetch("https://api.paystack.co/transaction/initialize", {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${secretKey}` },
-      body: JSON.stringify({ email: userEmail, amount, reference: ref, currency, callback_url: `${process.env.APP_URL || (process.env.REPLIT_DEV_DOMAIN ? "https://" + process.env.REPLIT_DEV_DOMAIN : "https://richdatingnetwork.com")}/api/payments/paystack/verify?ref=${ref}&type=${type}&pkg=${packageId}`, metadata: { userId: req.userId, type, packageId } }),
+      body: JSON.stringify({ email: userEmail, amount, reference: ref, currency, callback_url: `${process.env.APP_URL || (process.env.REPLIT_DEV_DOMAIN ? "https://" + process.env.REPLIT_DEV_DOMAIN : "https://naughtyhaughty.com")}/api/payments/paystack/verify?ref=${ref}&type=${type}&pkg=${packageId}`, metadata: { userId: req.userId, type, packageId } }),
     })
     const data = await response.json() as any
     if (!data.status) { res.status(400).json({ error: data.message || "Paystack error" }); return }
@@ -638,7 +638,7 @@ router.post("/intasend/checkout", requireAuth, async (req, res) => {
     if (!pkg) { res.status(400).json({ error: "Invalid package" }); return }
     amount = pkg.price; description = pkg.name
   }
-  const appUrl = process.env.APP_URL || (process.env.REPLIT_DEV_DOMAIN ? `https://${process.env.REPLIT_DEV_DOMAIN}` : "https://richdatingnetwork.com")
+  const appUrl = process.env.APP_URL || (process.env.REPLIT_DEV_DOMAIN ? `https://${process.env.REPLIT_DEV_DOMAIN}` : "https://naughtyhaughty.com")
   const ref = `RDN-IS-${req.userId}-${Date.now()}`
   const isLive = secretKey.startsWith("ISSecretKey_live") || (!secretKey.includes("test") && !secretKey.includes("sandbox"))
   const baseUrl = isLive ? "https://payment.intasend.com" : "https://sandbox.intasend.com"
@@ -791,7 +791,7 @@ router.post("/pesapal/checkout", requireAuth, async (req, res) => {
     if (!pkg) { res.status(400).json({ error: "Invalid package" }); return }
     amount = pkg.price; description = pkg.name
   }
-  const appUrl = process.env.APP_URL || (process.env.REPLIT_DEV_DOMAIN ? `https://${process.env.REPLIT_DEV_DOMAIN}` : "https://richdatingnetwork.com")
+  const appUrl = process.env.APP_URL || (process.env.REPLIT_DEV_DOMAIN ? `https://${process.env.REPLIT_DEV_DOMAIN}` : "https://naughtyhaughty.com")
   const isLive = !consumerKey.includes("test") && !consumerKey.includes("sandbox") && consumerKey.length > 10
   const base = isLive ? "https://pay.pesapal.com/v3" : "https://cybqa.pesapal.com/pesapalv3"
   const ref = `RDN-PP-${req.userId}-${Date.now()}`
@@ -943,7 +943,7 @@ router.post("/paddle/checkout", requireAuth, async (req, res) => {
     amount = Math.round(pkg.price * 100)
     description = pkg.name
   }
-  const appUrl = process.env.APP_URL || (process.env.REPLIT_DEV_DOMAIN ? `https://${process.env.REPLIT_DEV_DOMAIN}` : "https://richdatingnetwork.com")
+  const appUrl = process.env.APP_URL || (process.env.REPLIT_DEV_DOMAIN ? `https://${process.env.REPLIT_DEV_DOMAIN}` : "https://naughtyhaughty.com")
   const ref = `RDN-PDL-${req.userId}-${Date.now()}`
   const isPaddleSandbox = apiKey.startsWith("pdl_test") || apiKey.includes("_test_")
   const paddleBase = isPaddleSandbox ? "https://sandbox-api.paddle.com" : "https://api.paddle.com"
@@ -956,7 +956,7 @@ router.post("/paddle/checkout", requireAuth, async (req, res) => {
           quantity: 1,
           price: {
             description,
-            product: { name: "Rich Dating Network", tax_category: "standard" },
+            product: { name: "NaughtyHaughty", tax_category: "standard" },
             unit_price: { amount: String(amount), currency_code: "USD" },
             tax_mode: "inclusive",
           }

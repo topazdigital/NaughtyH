@@ -43,7 +43,7 @@ export async function initWebPush(): Promise<string | null> {
   if (!keys) return null
 
   webpush.setVapidDetails(
-    "mailto:admin@richdatingnetwork.com",
+    "mailto:admin@naughtyhaughty.com",
     keys.publicKey,
     keys.privateKey,
   )

@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================================
-# Rich Dating Network — Push to GitHub + Deploy to Server
+# NaughtyHaughty — Push to GitHub + Deploy to Server
 #
 # ONE COMMAND that does everything:
 #   1. Pushes latest code to GitHub
@@ -12,7 +12,7 @@
 #
 # Required Replit Secrets:
 #   GITHUB_TOKEN    — GitHub personal access token (repo scope)
-#   SSH_PRIVATE_KEY — Private key to SSH into richdatingnetwork.com
+#   SSH_PRIVATE_KEY — Private key to SSH into naughtyhaughty.com
 # Optional:
 #   SSH_PORT        — SSH port (default: 22)
 # ============================================================
@@ -30,12 +30,12 @@ if [ -z "$SSH_PRIVATE_KEY" ]; then
   exit 1
 fi
 
-MSG="${1:-"Update richdatingnetwork.com"}"
+MSG="${1:-"Update naughtyhaughty.com"}"
 REMOTE="https://topazdigital:${GITHUB_TOKEN}@github.com/topazdigital/Latest-Rich.git"
 SSH_PORT="${SSH_PORT:-22}"
-SSH_HOST="richdatingnetwork.com"
+SSH_HOST="naughtyhaughty.com"
 SSH_USER="admin"
-DEPLOY_CMD="bash /home/admin/domains/richdatingnetwork.com/public_html/deploy.sh"
+DEPLOY_CMD="bash /home/admin/domains/naughtyhaughty.com/public_html/deploy.sh"
 
 # ── 1. Push to GitHub ─────────────────────────────────────
 echo ""
@@ -49,7 +49,7 @@ echo "  ✅ GitHub updated"
 # ── 2. SSH into server and deploy ────────────────────────
 echo ""
 echo "========================================"
-echo "  [2/2] Deploying to richdatingnetwork.com..."
+echo "  [2/2] Deploying to naughtyhaughty.com..."
 echo "========================================"
 
 # Write private key to a temp file (SSH requires a file, not a variable)
@@ -68,6 +68,6 @@ rm -f "$KEY_FILE"
 
 echo ""
 echo "========================================"
-echo "  ✅ All done! richdatingnetwork.com is live."
+echo "  ✅ All done! naughtyhaughty.com is live."
 echo "========================================"
 echo ""

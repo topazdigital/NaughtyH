@@ -118,7 +118,7 @@ router.post("/", requireAuth, async (req, res) => {
       // Push notification to the liked user
       import("../lib/push").then(({ sendPushToUser }) => {
         const title = superlike ? `⭐ ${me.name} super liked you!` : isMatch ? `💝 It's a match with ${me.name}!` : `💌 ${me.name} liked you`
-        const body = isMatch ? "You both liked each other — send a message!" : "View their profile on Rich Dating Network"
+        const body = isMatch ? "You both liked each other — send a message!" : "View their profile on NaughtyHaughty"
         sendPushToUser(targetId, { title, body, url: `/profile/${myId}` })
       }).catch(() => {})
     }

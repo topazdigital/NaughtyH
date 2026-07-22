@@ -53,7 +53,7 @@ router.post("/:id", requireAuth, async (req, res) => {
 
         // Email notification (fire-and-forget)
         if (target.email) {
-          const siteUrl = process.env.SITE_URL || "https://richdatingnetwork.com"
+          const siteUrl = process.env.SITE_URL || "https://naughtyhaughty.com"
           sendVisitEmail(target.email, target.name, visitor.name, `/profile/${visitor.id}`, siteUrl).catch(() => {})
         }
       }

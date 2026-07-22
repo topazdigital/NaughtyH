@@ -69,7 +69,7 @@ export async function sendEmail(opts: MailOptions): Promise<boolean> {
       return false
     }
     const smtpFrom = process.env.SMTP_FROM || await getConfig("smtp_from") || ctx.user
-    const smtpFromName = process.env.SMTP_FROM_NAME || await getConfig("smtp_from_name") || await getConfig("site_name") || "Rich Dating Network"
+    const smtpFromName = process.env.SMTP_FROM_NAME || await getConfig("smtp_from_name") || await getConfig("site_name") || "NaughtyHaughty"
 
     await ctx.transporter.sendMail({
       from: `"${smtpFromName}" <${smtpFrom}>`,
@@ -90,7 +90,7 @@ export async function sendEmail(opts: MailOptions): Promise<boolean> {
 // Wraps arbitrary body HTML in the site's branded email shell (gradient header + footer).
 // Used for admin-composed emails: contact-form replies and direct messages to a specific user.
 export function wrapBrandedHtml(opts: { title: string; emoji?: string; bodyHtml: string; siteName?: string; footerNote?: string }): string {
-  const siteName = opts.siteName || "Rich Dating Network"
+  const siteName = opts.siteName || "NaughtyHaughty"
   return `
 <!DOCTYPE html>
 <html>
@@ -118,7 +118,7 @@ export function wrapBrandedHtml(opts: { title: string; emoji?: string; bodyHtml:
 }
 
 export async function sendPasswordResetEmail(to: string, name: string, token: string, siteUrl: string): Promise<boolean> {
-  const siteName = await getConfig("site_name") || "Rich Dating Network"
+  const siteName = await getConfig("site_name") || "NaughtyHaughty"
   const resetUrl = `${siteUrl}/reset-password?token=${token}`
   return sendEmail({
     to,
@@ -155,7 +155,7 @@ export async function sendPasswordResetEmail(to: string, name: string, token: st
 }
 
 export async function sendVerificationEmail(to: string, name: string, token: string, siteUrl: string): Promise<boolean> {
-  const siteName = await getConfig("site_name") || "Rich Dating Network"
+  const siteName = await getConfig("site_name") || "NaughtyHaughty"
   const verifyUrl = `${siteUrl}/verify-email?token=${token}`
   return sendEmail({
     to,
@@ -192,7 +192,7 @@ export async function sendVerificationEmail(to: string, name: string, token: str
 }
 
 export async function sendNewMessageEmail(to: string, recipientName: string, senderName: string, preview: string, siteUrl: string): Promise<boolean> {
-  const siteName = await getConfig("site_name") || "Rich Dating Network"
+  const siteName = await getConfig("site_name") || "NaughtyHaughty"
   return sendEmail({
     to,
     subject: `💬 ${senderName} sent you a message — ${siteName}`,
@@ -227,7 +227,7 @@ export async function sendNewMessageEmail(to: string, recipientName: string, sen
 }
 
 export async function sendVisitEmail(to: string, recipientName: string, visitorName: string, profilePath: string, siteUrl: string): Promise<boolean> {
-  const siteName = await getConfig("site_name") || "Rich Dating Network"
+  const siteName = await getConfig("site_name") || "NaughtyHaughty"
   const profileUrl = `${siteUrl}${profilePath}`
   return sendEmail({
     to,
@@ -275,7 +275,7 @@ export async function sendVisitEmail(to: string, recipientName: string, visitorN
 }
 
 export async function sendLikeEmail(to: string, recipientName: string, likerName: string, isSuperlike: boolean, siteUrl: string): Promise<boolean> {
-  const siteName = await getConfig("site_name") || "Rich Dating Network"
+  const siteName = await getConfig("site_name") || "NaughtyHaughty"
   const emoji = isSuperlike ? "⭐" : "❤️"
   const action = isSuperlike ? "super liked" : "liked"
   return sendEmail({

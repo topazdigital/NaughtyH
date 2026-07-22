@@ -5,7 +5,7 @@ import { eq, and, isNotNull, ne, gt } from "drizzle-orm"
 
 const router = Router()
 
-const BASE = "https://richdatingnetwork.com"
+const BASE = "https://naughtyhaughty.com"
 
 // All places used for SEO landing pages
 const PLACES = [
@@ -236,8 +236,8 @@ function resolvePhotoAbsUrl(photo: string | null | undefined): string | null {
   let p = photo
   // Strip same-domain absolute URLs stored by legacy PHP
   if (p.startsWith('http')) {
-    const sameOrigins = ['https://richdatingnetwork.com/', 'http://richdatingnetwork.com/',
-      'https://www.richdatingnetwork.com/', 'https://test.richdatingnetwork.com/']
+    const sameOrigins = ['https://naughtyhaughty.com/', 'http://naughtyhaughty.com/',
+      'https://www.naughtyhaughty.com/', 'https://test.naughtyhaughty.com/']
     let stripped = false
     for (const o of sameOrigins) {
       if (p.startsWith(o)) { p = p.slice(o.length); stripped = true; break }
@@ -249,8 +249,8 @@ function resolvePhotoAbsUrl(photo: string | null | undefined): string | null {
   for (const pfx of prefixes) {
     if (p.startsWith(pfx)) { p = p.slice(pfx.length); break }
   }
-  if (p.startsWith('/')) return `https://richdatingnetwork.com${p}`
-  return `https://richdatingnetwork.com/api/uploads/${p}`
+  if (p.startsWith('/')) return `https://naughtyhaughty.com${p}`
+  return `https://naughtyhaughty.com/api/uploads/${p}`
 }
 
 // ── Image sitemap ─────────────────────────────────────────────────────────────
@@ -274,7 +274,7 @@ router.get("/sitemap-images-:page.xml", async (req, res) => {
       const profileUrl = u.username
         ? `${BASE}/@${u.username}`
         : `${BASE}/profile/${u.id}`
-      const title = u.name ? `${u.name} — Rich Dating Network` : 'Rich Dating Network Member'
+      const title = u.name ? `${u.name} — NaughtyHaughty` : 'NaughtyHaughty Member'
       return `  <url>\n    <loc>${profileUrl}</loc>\n    <image:image>\n      <image:loc>${imgUrl}</image:loc>\n      <image:title>${title.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</image:title>\n    </image:image>\n  </url>`
     }).filter(Boolean)
 

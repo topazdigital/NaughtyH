@@ -6,7 +6,7 @@ import { eq } from "drizzle-orm"
 
 const router = Router()
 
-const FALLBACK_CONTACT_EMAIL = "contact@richdatingnetwork.com"
+const FALLBACK_CONTACT_EMAIL = "contact@naughtyhaughty.com"
 
 async function getContactEmail(): Promise<string> {
   try {
@@ -69,7 +69,7 @@ router.post("/contact", async (req, res) => {
 <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;max-width:600px;width:100%">
 <tr><td style="background:linear-gradient(135deg,#FF192C,#ff5f6b);padding:28px 40px;text-align:center">
   <h1 style="color:#ffffff;font-size:20px;margin:0;font-weight:800">📬 New Contact Form Submission</h1>
-  <p style="color:rgba(255,255,255,0.8);font-size:13px;margin:6px 0 0">Rich Dating Network</p>
+  <p style="color:rgba(255,255,255,0.8);font-size:13px;margin:6px 0 0">NaughtyHaughty</p>
 </td></tr>
 <tr><td style="padding:32px 40px">
   <table width="100%" cellpadding="0" cellspacing="0">
@@ -98,7 +98,7 @@ router.post("/contact", async (req, res) => {
   </div>
 </td></tr>
 <tr><td style="background:#f9fafb;padding:16px 40px;text-align:center;border-top:1px solid #f3f4f6">
-  <p style="color:#9ca3af;font-size:11px;margin:0">Rich Dating Network — contact form submission</p>
+  <p style="color:#9ca3af;font-size:11px;margin:0">NaughtyHaughty — contact form submission</p>
 </td></tr>
 </table>
 </td></tr>
@@ -117,7 +117,7 @@ router.post("/contact", async (req, res) => {
     res.json({ success: true, message: "Your message has been received! We'll reply within 24–48 hours." })
   } catch (err) {
     console.error("[Contact] Error:", err)
-    res.status(500).json({ error: "Failed to send message. Please email us directly at contact@richdatingnetwork.com" })
+    res.status(500).json({ error: "Failed to send message. Please email us directly at contact@naughtyhaughty.com" })
   }
 })
 

@@ -1,10 +1,10 @@
 #!/bin/bash
 # ========================================================
-# Rich Dating Network — Complete Photo Import
+# NaughtyHaughty — Complete Photo Import
 # 1. Fixes the API server uploads symlink
 # 2. Copies photo filenames from old DB to new DB
 #
-# Run from: /home/admin/domains/richdatingnetwork.com/public_html
+# Run from: /home/admin/domains/naughtyhaughty.com/public_html
 # ========================================================
 
 OLD_DB_USER="admin_richdatingnetwork"
@@ -15,11 +15,11 @@ NEW_DB_USER="admin_testdating"
 NEW_DB_PASS='RdnDb2025secure'
 NEW_DB="admin_testdating"
 
-OLD_UPLOADS="/home/admin/domains/richdatingnetwork.com/public_html/assets/sources/uploads"
-API_UPLOADS="/home/admin/domains/richdatingnetwork.com/public_html/artifacts/api-server/uploads"
+OLD_UPLOADS="/home/admin/domains/naughtyhaughty.com/public_html/assets/sources/uploads"
+API_UPLOADS="/home/admin/domains/naughtyhaughty.com/public_html/artifacts/api-server/uploads"
 
 echo "============================================="
-echo "  Rich Dating Network — Photo Import"
+echo "  NaughtyHaughty — Photo Import"
 echo "============================================="
 
 # ── Step 1: Fix the uploads symlink ──────────────
@@ -88,7 +88,7 @@ echo "  (matching users by email address)"
 
 # Generate UPDATE statements:
 # - SUBSTRING_INDEX(photo, '/', -1) extracts just the filename from full URLs
-#   e.g. "http://richdatingnetwork.com/assets/sources/uploads/thumb_abc.jpg" → "thumb_abc.jpg"
+#   e.g. "http://naughtyhaughty.com/assets/sources/uploads/thumb_abc.jpg" → "thumb_abc.jpg"
 # Pipe them directly into the new DB
 UPDATED=$(mysql -u "$OLD_DB_USER" -p"$OLD_DB_PASS" "$OLD_DB" -N 2>/dev/null -e "
   SELECT CONCAT(
@@ -117,6 +117,6 @@ mysql -u "$NEW_DB_USER" -p"$NEW_DB_PASS" "$NEW_DB" -e \
 echo ""
 echo "============================================="
 echo "  Done!"
-echo "  → Visit https://richdatingnetwork.com"
+echo "  → Visit https://naughtyhaughty.com"
 echo "  → Photos should now appear on all profiles"
 echo "============================================="

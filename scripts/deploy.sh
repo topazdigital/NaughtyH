@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Rich Dating Network — Production Deploy Script
+# NaughtyHaughty — Production Deploy Script
 # Run this on your server after pulling from GitHub:
 #   bash scripts/deploy.sh
 #
@@ -16,7 +16,7 @@ ROOT="$(pwd)"
 
 echo ""
 echo "==========================================="
-echo "  Rich Dating Network — Deploy"
+echo "  NaughtyHaughty — Deploy"
 echo "==========================================="
 echo ""
 
