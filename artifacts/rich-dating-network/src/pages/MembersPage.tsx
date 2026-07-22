@@ -60,17 +60,17 @@ function MemberCard({ member }: { member: any }) {
 }
 
 function buildSeoTitle(gender: string, country: string, city: string): string {
-  const who = gender === 'male' ? 'Wealthy Men' : gender === 'female' ? 'Affluent Women' : 'Wealthy Singles'
+  const who = gender === 'male' ? 'Mature Men' : gender === 'female' ? 'Adventurous Women' : 'Bold Singles'
   const where = city || country
   if (where) return `${who} in ${where} | NaughtyHaughty`
   return `${who} Worldwide | NaughtyHaughty`
 }
 
 function buildSeoDescription(gender: string, country: string, city: string): string {
-  const who = gender === 'male' ? 'wealthy men and successful bachelors' : gender === 'female' ? 'affluent women and successful ladies' : 'wealthy singles, sugar daddies, sugar mummies, and affluent partners'
+  const who = gender === 'male' ? 'mature, confident men' : gender === 'female' ? 'adventurous, open-minded women' : 'mature singles and bold adults looking for real connections'
   const where = city || country
   if (where) return `Browse verified profiles of ${who} in ${where} on NaughtyHaughty. Find your perfect match today — 100% free to join.`
-  return `Browse verified profiles of ${who} worldwide on NaughtyHaughty. The #1 luxury dating platform for successful, ambitious singles. Join free today.`
+  return `Browse verified profiles of ${who} worldwide on NaughtyHaughty. The #1 adult dating platform for confident, experienced singles. Join free today.`
 }
 
 export default function MembersPage() {

@@ -10,18 +10,18 @@ declare global {
 }
 
 const FEATURES = [
-  { icon: MapPin, title: 'Location-Based Matches', desc: 'Find singles near you or explore worldwide with advanced location filters.' },
-  { icon: Shield, title: 'Verified Profiles', desc: 'Every member is verified to ensure authenticity and your safety.' },
-  { icon: Zap, title: 'Real-Time Messaging', desc: 'Instant chat with typing indicators and zero delays.' },
-  { icon: Star, title: 'Elite Matching', desc: 'Advanced algorithms connect you with compatible, successful singles.' },
+  { icon: MapPin, title: 'Local & Worldwide', desc: 'Find adventurous singles near you or discover passion across the globe.' },
+  { icon: Shield, title: 'Verified Profiles', desc: 'Every member is verified for authenticity — real people, real chemistry.' },
+  { icon: Zap, title: 'Real-Time Messaging', desc: 'Instant chat with typing indicators. No delays, no games.' },
+  { icon: Star, title: 'Smart Matching', desc: 'Advanced algorithms connect you with open-minded singles who share your vibe.' },
   { icon: Crown, title: 'VIP Features', desc: 'Stand out with superlikes, profile boosts, and priority placement.' },
-  { icon: Heart, title: 'Real Connections', desc: 'Thousands of success stories. Find meaningful love that lasts.' },
+  { icon: Heart, title: 'Real Chemistry', desc: 'Thousands of success stories. Bold, passionate connections that actually happen.' },
 ]
 
 const TESTIMONIALS = [
-  { name: 'Sarah M.', city: 'New York', text: 'Found my dream partner in just 2 weeks! The quality of members here is incredible.', rating: 5 },
-  { name: 'James K.', city: 'London', text: 'Finally a dating platform that matches serious, successful people. Worth every penny.', rating: 5 },
-  { name: 'Priya R.', city: 'Dubai', text: 'Location-based matching is genius. Met someone amazing just 10 miles away!', rating: 5 },
+  { name: 'Robert T.', city: 'Toronto', text: 'I was skeptical at first, but within a week I was chatting with amazing women. Refreshingly honest platform.', rating: 5 },
+  { name: 'David M.', city: 'London', text: 'Finally a site that doesn\'t judge. Met someone fantastic who matched my energy completely.', rating: 5 },
+  { name: 'James K.', city: 'Sydney', text: 'Location-based matching is brilliant. Met someone incredible just 15 minutes away!', rating: 5 },
 ]
 
 const STATS = [
@@ -95,7 +95,7 @@ function HeroRegisterForm() {
         </div>
         <button type="submit" disabled={loading}
           className="w-full py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/25 disabled:opacity-60"
-          style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+          style={{ background: 'linear-gradient(135deg, #4A0072, #6B1FA2)' }}>
           {loading ? <Loader2 size={16} className="animate-spin" /> : null}
           Create Free Account <ChevronRight size={16} />
         </button>
@@ -160,7 +160,7 @@ function HeroLoginForm() {
       </div>
       <button type="submit" disabled={loading}
         className="w-full py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/25 disabled:opacity-60"
-        style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+        style={{ background: 'linear-gradient(135deg, #4A0072, #6B1FA2)' }}>
         {loading ? <Loader2 size={16} className="animate-spin" /> : null}
         Sign In
       </button>
@@ -199,7 +199,7 @@ export default function LandingPage() {
               <Heart className="w-4 h-4 text-white fill-white" />
             </div>
             <span className={`text-xl font-bold transition-colors ${scrolled ? 'text-gray-900' : 'text-white'}`}>
-              Rich <span className={scrolled ? 'text-brand-500' : 'text-yellow-300'}>Dating</span> Network
+              Naughty<span className={scrolled ? 'text-brand-500' : 'text-pink-300'}>Haughty</span>
             </span>
           </div>
           <div className="flex items-center gap-1.5 sm:gap-2">
@@ -223,7 +223,7 @@ export default function LandingPage() {
           style={{
             background: heroBg
               ? 'none'
-              : 'linear-gradient(145deg, #1a0a0e 0%, #3d0d1a 40%, #7a1226 70%, #9B1438 100%)',
+              : 'linear-gradient(145deg, #0e0020 0%, #2d0042 40%, #4A0072 70%, #6B1FA2 100%)',
             minHeight: 'clamp(480px, 70vh, 100vh)',
           }}>
           {heroBg && (
@@ -234,7 +234,7 @@ export default function LandingPage() {
           )}
           {!heroBg && (
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              {['❤️', '💎', '✨', '👑', '🥂', '💝', '🌹', '💫'].map((e, i) => (
+              {['🔥', '💋', '❤️‍🔥', '😈', '🌶️', '💃', '🍾', '💫'].map((e, i) => (
                 <div key={i} className="absolute text-3xl opacity-15 animate-bounce select-none"
                   style={{ left: `${8 + i * 11}%`, top: `${15 + (i % 4) * 20}%`, animationDelay: `${i * 0.4}s`, animationDuration: `${2.5 + i * 0.3}s` }}>
                   {e}
@@ -247,22 +247,22 @@ export default function LandingPage() {
 
           <div className="relative z-10 p-6 sm:p-10 lg:p-14 xl:p-16 pt-24 lg:pt-14">
             <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6 text-sm text-white">
-              <Crown className="w-3.5 h-3.5 text-yellow-300" />
-              <span>Exclusive Luxury Dating Platform</span>
+              <span>🔥</span>
+              <span>Adults Only · 18+ Dating Platform</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl xl:text-6xl font-bold text-white mb-4 leading-[1.1]">
-              Where Affluent<br />Singles Find{' '}
-              <span className="text-yellow-300 relative">
-                Real Love
+              Where Confident Men<br />Meet{' '}
+              <span className="text-pink-300 relative">
+                Naughty Women
                 <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 8" preserveAspectRatio="none" style={{ height: '5px' }}>
-                  <path d="M0 6 Q50 0 100 4 Q150 8 200 2" stroke="#fde047" strokeWidth="3" fill="none" strokeLinecap="round" />
+                  <path d="M0 6 Q50 0 100 4 Q150 8 200 2" stroke="#f9a8d4" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
 
             <p className="text-base text-white/80 max-w-lg mb-6 leading-relaxed">
-              Join thousands of successful, verified singles. Real-time matching based on your location, lifestyle, and preferences.
+              Join thousands of mature, open-minded adults. Bold real-time matching based on your desires, location, and chemistry.
             </p>
 
             <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/70 mb-6">
@@ -311,8 +311,8 @@ export default function LandingPage() {
             {activeTab === 'register' ? (
               <>
                 <div className="mb-5">
-                  <h2 className="text-2xl font-black text-gray-900 mb-1">Join for free</h2>
-                  <p className="text-sm text-gray-500">Start your love story today — it takes 30 seconds</p>
+                  <h2 className="text-2xl font-black text-gray-900 mb-1">Join for free 🔥</h2>
+                  <p className="text-sm text-gray-500">Start meeting bold, open-minded adults — takes 30 seconds</p>
                 </div>
                 <HeroRegisterForm />
               </>
@@ -336,8 +336,8 @@ export default function LandingPage() {
             <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-600 rounded-full px-3 py-1 text-xs font-medium mb-2">
               <Star size={12} /> Why Choose Us
             </div>
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Everything You Need to Find Love</h2>
-            <p className="text-gray-500 text-xs max-w-xl mx-auto">A premium dating experience built for successful people who know what they want.</p>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Everything You Need to Find Passion</h2>
+            <p className="text-gray-500 text-xs max-w-xl mx-auto">A bold adult dating experience built for mature people who know exactly what they want.</p>
           </div>
           <div className="flex gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:overflow-visible" style={{ scrollSnapType: 'x mandatory' }}>
             {FEATURES.map((f, i) => (
@@ -362,9 +362,9 @@ export default function LandingPage() {
           <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Find Love in 3 Easy Steps</h2>
           <div className="grid grid-cols-3 gap-4 md:gap-8">
             {[
-              { step: '01', title: 'Create Profile', desc: 'Sign up free and tell us about yourself.', icon: '📝' },
-              { step: '02', title: 'Discover Matches', desc: 'See compatible singles near you or worldwide.', icon: '🔍' },
-              { step: '03', title: 'Connect & Meet', desc: 'Chat, send gifts, and plan your first date!', icon: '❤️' },
+              { step: '01', title: 'Create Profile', desc: 'Sign up free and show the real you.', icon: '😈' },
+              { step: '02', title: 'Discover Matches', desc: 'Browse bold, open-minded adults near you or worldwide.', icon: '🔥' },
+              { step: '03', title: 'Connect & Meet', desc: 'Chat, flirt, and turn sparks into something real!', icon: '💋' },
             ].map((s, i) => (
               <div key={i} className="relative">
                 {i < 2 && (
@@ -386,8 +386,8 @@ export default function LandingPage() {
       <section className="py-8 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-5 px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Real Success Stories</h2>
-            <p className="text-gray-500 text-xs">Join thousands who found their perfect match</p>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Real Stories, Real Chemistry</h2>
+            <p className="text-gray-500 text-xs">Join thousands of mature adults who found what they were looking for</p>
           </div>
           {/* Horizontally scrollable row, cards snap into place */}
           <div className="flex gap-4 overflow-x-auto px-4 pb-4" style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
@@ -455,9 +455,9 @@ export default function LandingPage() {
 
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {[
-              { label: 'Successful Men', icon: '👨‍💼', desc: 'Established professionals seeking genuine connections' },
-              { label: 'Successful Women', icon: '👩‍💼', desc: 'Independent, accomplished women open to real love' },
-              { label: 'High Achievers', icon: '💎', desc: 'Driven individuals who want a partner to match their pace' },
+              { label: 'Mature Men', icon: '🎩', desc: 'Confident, experienced men who know what they want' },
+              { label: 'Adventurous Women', icon: '💃', desc: 'Bold, open-minded women seeking real chemistry' },
+              { label: 'Passionate Adults', icon: '🔥', desc: 'Adults 18+ who are honest about their desires' },
               { label: 'Global Singles', icon: '🌍', desc: 'Members from 180+ countries, all walks of life' },
             ].map((c, i) => (
               <div key={i} className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
@@ -477,9 +477,9 @@ export default function LandingPage() {
           <div className="absolute bottom-6 left-20 w-36 h-36 bg-white/5 rounded-full blur-3xl" />
         </div>
         <div className="max-w-2xl mx-auto text-center relative z-10">
-          <div className="text-3xl mb-3">💝</div>
-          <h2 className="text-xl md:text-2xl font-bold mb-2">Ready to Find Your Perfect Match?</h2>
-          <p className="text-white/80 mb-5 text-sm">Join the most exclusive dating network for successful singles. Free to join, always.</p>
+          <div className="text-3xl mb-3">🔥</div>
+          <h2 className="text-xl md:text-2xl font-bold mb-2">Ready to Meet Someone Exciting?</h2>
+          <p className="text-white/80 mb-5 text-sm">Join thousands of mature, bold adults who stopped waiting and started living. Free to join, always.</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link href="/register"
               className="bg-white text-brand-600 font-bold px-7 py-2.5 rounded-2xl shadow-2xl hover:shadow-3xl transition-all hover:-translate-y-1 inline-flex items-center gap-2 text-sm">
@@ -517,7 +517,7 @@ export default function LandingPage() {
           </div>
           <div className="border-t border-gray-800 pt-4 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-600">
             <p>© {new Date().getFullYear()} NaughtyHaughty. All rights reserved.</p>
-            <p>Built with ❤️ for successful singles worldwide</p>
+            <p>Built 🔥 for bold, passionate adults worldwide</p>
           </div>
         </div>
       </footer>
