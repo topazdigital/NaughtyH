@@ -9,7 +9,7 @@ export default function TermsPage() {
           <div className="w-7 h-7 rounded-full gradient-brand flex items-center justify-center">
             <Heart size={14} className="text-white fill-white" />
           </div>
-          <span className="font-bold text-gray-900">Rich Dating Network</span>
+          <span className="font-bold text-gray-900">NaughtyHaughty</span>
         </Link>
       </header>
 
@@ -22,10 +22,10 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">1. Acceptance of Terms</h2>
             <p className="leading-relaxed">
-              By accessing or using the Rich Dating Network platform ("Service"), including our website at
-              richdatingnetwork.com and any associated mobile applications, you agree to be bound by these Terms of
+              By accessing or using the NaughtyHaughty platform ("Service"), including our website at
+              naughtyhaughty.com and any associated mobile applications, you agree to be bound by these Terms of
               Service ("Terms"). If you do not agree to all of these Terms, you may not access or use the Service.
-              These Terms constitute a legally binding agreement between you and Rich Dating Network Limited
+              These Terms constitute a legally binding agreement between you and NaughtyHaughty Limited
               ("Company", "we", "us", or "our").
             </p>
             <p className="leading-relaxed mt-3">
@@ -65,7 +65,7 @@ export default function TermsPage() {
               credentials and for all activity that occurs under your account.
             </p>
             <p className="leading-relaxed mt-3">
-              You must immediately notify us at support@richdatingnetwork.com of any unauthorized use of your
+              You must immediately notify us at support@naughtyhaughty.com of any unauthorized use of your
               account or any other breach of security. We cannot and will not be liable for any loss or damage
               arising from your failure to comply with this section. You may not share your account credentials
               with any third party or allow any third party to access your account.
@@ -120,7 +120,7 @@ export default function TermsPage() {
             </ul>
             <p className="leading-relaxed mt-3">
               Refund requests are reviewed on a case-by-case basis. To submit a refund request, contact
-              support@richdatingnetwork.com within 7 days of your purchase date with your payment reference number.
+              support@naughtyhaughty.com within 7 days of your purchase date with your payment reference number.
             </p>
           </section>
 
@@ -140,7 +140,7 @@ export default function TermsPage() {
             </p>
             <p className="leading-relaxed mt-3">
               All other content on the Service, including but not limited to text, graphics, logos, icons, images,
-              software, and the overall design of the platform, is the property of Rich Dating Network Limited
+              software, and the overall design of the platform, is the property of NaughtyHaughty Limited
               and is protected by copyright, trademark, and other intellectual property laws.
             </p>
           </section>
@@ -232,7 +232,7 @@ export default function TermsPage() {
               If you have any questions about these Terms, please contact us:
             </p>
             <ul className="list-none ml-0 mt-2 space-y-1">
-              <li><strong>Email:</strong> support@richdatingnetwork.com</li>
+              <li><strong>Email:</strong> support@naughtyhaughty.com</li>
               <li><strong>Support:</strong>{' '}
                 <Link href="/contact" className="text-brand-500 hover:underline">Contact Support Page</Link>
               </li>
@@ -248,7 +248,7 @@ export default function TermsPage() {
           <Link href="/privacy" className="hover:text-gray-600">Privacy Policy</Link>
           <Link href="/contact" className="hover:text-gray-600">Contact</Link>
         </div>
-        <p>© {new Date().getFullYear()} Rich Dating Network Limited. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} NaughtyHaughty Limited. All rights reserved.</p>
       </footer>
     </div>
   )

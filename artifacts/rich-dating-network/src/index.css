@@ -4,16 +4,16 @@
 
 /* ── Tailwind v4 theme: custom brand palette ──────────────────────── */
 @theme {
-  --color-brand-50:  #fff0f1;
-  --color-brand-100: #ffe0e2;
-  --color-brand-200: #ffc5c9;
-  --color-brand-300: #ff9aa1;
-  --color-brand-400: #ff5f6b;
-  --color-brand-500: #FF192C;
-  --color-brand-600: #e0001b;
-  --color-brand-700: #bc001a;
-  --color-brand-800: #9c0019;
-  --color-brand-900: #830019;
+  --color-brand-50:  #fef0f4;
+  --color-brand-100: #fddbe7;
+  --color-brand-200: #fbb7cf;
+  --color-brand-300: #f5809e;
+  --color-brand-400: #e8436c;
+  --color-brand-500: #9B1438;
+  --color-brand-600: #871130;
+  --color-brand-700: #710e28;
+  --color-brand-800: #5c0b20;
+  --color-brand-900: #480818;
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -68,7 +68,7 @@ img { max-width: 100%; height: auto; display: block; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
-::selection { background: #ffc5c9; color: #111827; }
+::selection { background: #fbb7cf; color: #111827; }
 
 input[type="range"] {
   -webkit-appearance: none;
@@ -85,19 +85,19 @@ input[type="range"]::-webkit-slider-thumb {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #FF192C;
+  background: #9B1438;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(255,25,44,0.45);
+  box-shadow: 0 2px 8px rgba(155,20,56,0.45);
   transition: transform .15s, box-shadow .15s;
 }
 input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.2);
-  box-shadow: 0 4px 12px rgba(255,25,44,0.5);
+  box-shadow: 0 4px 12px rgba(155,20,56,0.5);
 }
 input[type="range"]::-moz-range-thumb {
   width: 18px; height: 18px; border-radius: 50%;
-  background: #FF192C; cursor: pointer; border: none;
-  box-shadow: 0 2px 8px rgba(255,25,44,0.45);
+  background: #9B1438; cursor: pointer; border: none;
+  box-shadow: 0 2px 8px rgba(155,20,56,0.45);
 }
 
 select {
@@ -145,7 +145,7 @@ select {
 
 /* Gradients */
 .gradient-brand {
-  background: linear-gradient(135deg, #FF192C 0%, #ff5f6b 60%, #ff8a94 100%);
+  background: linear-gradient(135deg, #9B1438 0%, #c4546f 60%, #d47a8a 100%);
 }
 .gradient-brand-soft {
   background: linear-gradient(135deg, #fff0f1 0%, #ffe0e2 100%);
@@ -189,7 +189,7 @@ select {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #FF192C 0%, #ff5f6b 100%);
+  background: linear-gradient(135deg, #9B1438 0%, #c4546f 100%);
   color: #ffffff;
   font-weight: 700;
   padding: 0.65rem 1.35rem;
@@ -201,13 +201,13 @@ select {
   font-size: 0.9rem;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(255,25,44,0.28);
+  box-shadow: 0 4px 14px rgba(155,20,56,0.28);
   font-family: inherit;
 }
 .btn-primary:hover {
   opacity: 0.9;
   transform: translateY(-1.5px);
-  box-shadow: 0 6px 20px rgba(255,25,44,0.38);
+  box-shadow: 0 6px 20px rgba(155,20,56,0.38);
 }
 .btn-primary:active { transform: translateY(0); }
 .btn-primary:disabled {
@@ -265,8 +265,8 @@ select {
   .input-field::placeholder { color: #9ca3af; }
   .input-field:hover { background: #ffffff; }
   .input-field:focus {
-    border-color: #FF192C;
-    box-shadow: 0 0 0 3px rgba(255,25,44,0.09);
+    border-color: #9B1438;
+    box-shadow: 0 0 0 3px rgba(155,20,56,0.09);
     background: #ffffff;
   }
   .input-field:disabled {
@@ -337,12 +337,12 @@ select {
 
 /* Chat bubbles */
 .bubble-sent {
-  background: linear-gradient(135deg, #FF192C 0%, #ff5f6b 100%);
+  background: linear-gradient(135deg, #9B1438 0%, #c4546f 100%);
   color: #ffffff;
   border-radius: 1.25rem 1.25rem 0.3rem 1.25rem;
   padding: 0.65rem 0.9rem;
   word-break: break-word;
-  box-shadow: 0 2px 10px rgba(255,25,44,0.22);
+  box-shadow: 0 2px 10px rgba(155,20,56,0.22);
 }
 .bubble-received {
   background: #ffffff;
@@ -456,7 +456,7 @@ select {
 
 /* Landing page */
 .landing-hero-bg {
-  background: linear-gradient(145deg, #1a0006 0%, #4a0010 30%, #8b0020 60%, #FF192C 100%);
+  background: linear-gradient(145deg, #1a0010 0%, #4a0010 30%, #8b0020 60%, #9B1438 100%);
 }
 
 /* Shimmer text */

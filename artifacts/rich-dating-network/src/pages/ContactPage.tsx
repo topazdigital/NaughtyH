@@ -8,7 +8,7 @@ const FAQS = [
   { q: "Can I get a refund?", a: "We review requests case-by-case. Contact us within 7 days of purchase with your payment reference." },
   { q: "How do I report a fake or abusive profile?", a: "Use the Report button on any profile, or send us the username/link via this form." },
   { q: "How does premium membership work?", a: "Premium unlocks unlimited messaging, boosts, and read receipts. Subscribe via Credits → Premium." },
-  { q: "Is Rich Dating Network available in my country?", a: "Yes — available worldwide with payment options for Kenya, Nigeria, South Africa, Philippines, USA, UK, Europe and more." },
+  { q: "Is NaughtyHaughty available in my country?", a: "Yes — available worldwide with payment options for Kenya, Nigeria, South Africa, Philippines, USA, UK, Europe and more." },
 ]
 
 function FaqItem({ q, a }: { q: string; a: string }) {
@@ -70,7 +70,7 @@ export default function ContactPage() {
           <div className="w-7 h-7 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
             <Heart size={13} className="text-white fill-white" />
           </div>
-          <span className="font-bold text-gray-900 text-sm">Rich Dating Network</span>
+          <span className="font-bold text-gray-900 text-sm">NaughtyHaughty</span>
         </Link>
       </header>
 
@@ -89,8 +89,8 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 text-sm">Email Support</h3>
-                <a href="mailto:contact@richdatingnetwork.com" className="text-red-500 text-xs hover:underline break-all">
-                  contact@richdatingnetwork.com
+                <a href="mailto:support@naughtyhaughty.com" className="text-red-500 text-xs hover:underline break-all">
+                  support@naughtyhaughty.com
                 </a>
               </div>
             </div>
@@ -215,8 +215,8 @@ export default function ContactPage() {
 
                 <p className="text-xs text-gray-400 text-center">
                   Or email us at{" "}
-                  <a href="mailto:contact@richdatingnetwork.com" className="text-red-500 hover:underline">
-                    contact@richdatingnetwork.com
+                  <a href="mailto:support@naughtyhaughty.com" className="text-red-500 hover:underline">
+                    support@naughtyhaughty.com
                   </a>
                 </p>
               </form>
@@ -238,9 +238,9 @@ export default function ContactPage() {
           <Link href="/" className="hover:text-gray-600">Home</Link>
           <Link href="/terms" className="hover:text-gray-600">Terms</Link>
           <Link href="/privacy" className="hover:text-gray-600">Privacy</Link>
-          <a href="mailto:contact@richdatingnetwork.com" className="hover:text-gray-600">contact@richdatingnetwork.com</a>
+          <a href="mailto:support@naughtyhaughty.com" className="hover:text-gray-600">support@naughtyhaughty.com</a>
         </div>
-        <p>© {new Date().getFullYear()} Rich Dating Network. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} NaughtyHaughty. All rights reserved.</p>
       </footer>
     </div>
   )

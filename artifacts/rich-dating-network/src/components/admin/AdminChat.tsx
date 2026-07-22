@@ -27,7 +27,7 @@ function timeLabel(ts: number) {
 const S = {
   card: { background: "#0f172a", border: "1px solid #1e293b", borderRadius: "0.75rem", overflow: "hidden" } as React.CSSProperties,
   avatar: { width: 36, height: 36, borderRadius: "50%", objectFit: "cover" as const, background: "#1e293b", flexShrink: 0 },
-  btn: (color = "#FF192C") => ({ padding: "0.4rem 0.875rem", background: color, color: "#fff", border: "none", borderRadius: "0.5rem", fontSize: "0.72rem", fontWeight: 700, cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", gap: "0.3rem" } as React.CSSProperties),
+  btn: (color = "#9B1438") => ({ padding: "0.4rem 0.875rem", background: color, color: "#fff", border: "none", borderRadius: "0.5rem", fontSize: "0.72rem", fontWeight: 700, cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", gap: "0.3rem" } as React.CSSProperties),
   input: {
     width: "100%",
     background: "#1e293b",
@@ -254,7 +254,7 @@ export default function AdminChat() {
           <div style={{ display: "flex", gap: 0, borderBottom: "1px solid #1e293b", flexShrink: 0 }}>
             {([
               { key: "all",          label: "All",         color: "#64748b" },
-              { key: "needs_reply",  label: "🔴 Reply",    color: "#FF192C" },
+              { key: "needs_reply",  label: "🔴 Reply",    color: "#9B1438" },
               { key: "follow_up",    label: "✅ Follow Up", color: "#22c55e" },
             ] as { key: ChatFilter; label: string; color: string }[]).map(tab => {
               const count =
@@ -283,7 +283,7 @@ export default function AdminChat() {
             )
             if (loading) return (
               <div style={{ display: "flex", justifyContent: "center", padding: "3rem" }}>
-                <div style={{ width: "1.5rem", height: "1.5rem", border: "2px solid #FF192C", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+                <div style={{ width: "1.5rem", height: "1.5rem", border: "2px solid #9B1438", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
               </div>
             )
             if (visible.length === 0) return (
@@ -345,7 +345,7 @@ export default function AdminChat() {
                       {/* Waiting indicator: real user sent last msg, needs reply */}
                       {!conv.lastSenderFake && (
                         <span style={{
-                          background: "#FF192C", color: "#fff",
+                          background: "#9B1438", color: "#fff",
                           fontSize: "0.55rem", fontWeight: 800,
                           borderRadius: "999px", padding: "1px 4px", flexShrink: 0,
                         }} title="Real user is waiting for a reply">REPLY</span>
@@ -409,7 +409,7 @@ export default function AdminChat() {
             <div style={{ flex: 1, overflowY: "auto", padding: "0.75rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {msgLoading ? (
                 <div style={{ display: "flex", justifyContent: "center", padding: "2rem" }}>
-                  <div style={{ width: "1.5rem", height: "1.5rem", border: "2px solid #FF192C", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+                  <div style={{ width: "1.5rem", height: "1.5rem", border: "2px solid #9B1438", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
                 </div>
               ) : messages.length === 0 ? (
                 <div style={{ textAlign: "center", padding: "2rem", color: "#475569", fontSize: "0.8rem" }}>No messages yet</div>

@@ -65,7 +65,7 @@ export default function AdminVerifications() {
               style={{
                 padding: "0.35rem 0.875rem", borderRadius: "0.5rem", fontSize: "0.78rem",
                 fontWeight: 600, cursor: "pointer", textTransform: "capitalize", border: "none",
-                background: filter === f ? "#FF192C" : "#1e293b",
+                background: filter === f ? "#9B1438" : "#1e293b",
                 color: filter === f ? "#fff" : "#94a3b8",
               }}>
               {f}
@@ -80,7 +80,7 @@ export default function AdminVerifications() {
 
       {loading ? (
         <div style={{ display: "flex", justifyContent: "center", padding: "3rem 0" }}>
-          <div style={{ width: 32, height: 32, border: "2px solid #FF192C", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+          <div style={{ width: 32, height: 32, border: "2px solid #9B1438", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
         </div>
       ) : users.length === 0 ? (
         <div style={{ textAlign: "center", padding: "3rem 0", color: "#64748b" }}>

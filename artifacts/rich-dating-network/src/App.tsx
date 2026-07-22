@@ -338,7 +338,7 @@ function IOSInstallBanner() {
         <div className="flex items-center gap-3 mb-3">
           <div className="w-9 h-9 rounded-xl bg-brand-500 flex items-center justify-center text-lg flex-shrink-0">❤️</div>
           <div>
-            <p className="text-sm font-semibold">Install Rich Dating Network</p>
+            <p className="text-sm font-semibold">Install NaughtyHaughty</p>
             <p className="text-xs text-gray-400">Add to your home screen</p>
           </div>
         </div>
@@ -376,7 +376,7 @@ function DynamicFavicon() {
         })
       }
       if (d.site_name && !document.title.includes(d.site_name)) {
-        document.title = document.title.replace('Rich Dating Network', d.site_name)
+        document.title = document.title.replace('NaughtyHaughty', d.site_name)
       }
     }).catch(() => {})
   }, [])

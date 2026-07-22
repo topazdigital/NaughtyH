@@ -35,12 +35,12 @@ export function getPhotoUrl(photo: string | null | undefined): string {
   // With Apache proxying everything to Node.js, these would return index.html instead of the image.
   if (p.startsWith('http')) {
     const sameDomainPrefixes = [
-      'https://richdatingnetwork.com/',
-      'http://richdatingnetwork.com/',
-      'https://www.richdatingnetwork.com/',
-      'http://www.richdatingnetwork.com/',
-      'https://test.richdatingnetwork.com/',
-      'http://test.richdatingnetwork.com/',
+      'https://naughtyhaughty.com/',
+      'http://naughtyhaughty.com/',
+      'https://www.naughtyhaughty.com/',
+      'http://www.naughtyhaughty.com/',
+      'https://test.naughtyhaughty.com/',
+      'http://test.naughtyhaughty.com/',
     ]
     let stripped = false
     for (const prefix of sameDomainPrefixes) {

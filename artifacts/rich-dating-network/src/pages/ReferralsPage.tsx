@@ -79,7 +79,7 @@ export default function ReferralsPage() {
               onClick={copyLink}
               className="px-4 py-2.5 rounded-xl text-sm font-bold transition-all"
               style={{
-                background: copied ? '#16a34a' : '#FF192C',
+                background: copied ? '#16a34a' : '#9B1438',
                 color: '#fff',
                 border: 'none',
                 cursor: 'pointer',

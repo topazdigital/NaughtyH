@@ -9,104 +9,60 @@ const COUNTRY_SEO: Record<string, {
   ageGroups: string[]
   cities?: string[]
 }> = {
-  KE: {
-    siteTitle: 'Rich Dating Network Kenya',
-    keywords: ['rich sugar daddy Kenya', 'rich sugar mummy Kenya', 'wealthy singles Kenya', 'sugar mummies Nairobi', 'rich men Nairobi', 'sugar mummies Kenya', 'rich women Kenya', 'millionaire dating Kenya', 'sugar daddy Nairobi', 'wealthy men Mombasa', 'rich singles Kenya', 'sugar mummies 2024 Kenya', 'dating in Nairobi', 'dating in Mombasa', 'luxury dating Kenya'],
-    description: 'Meet wealthy, verified singles in Kenya. Find rich sugar daddies, sugar mummies, and affluent partners in Nairobi, Mombasa, Kisumu, and across Kenya.',
-    ageGroups: ['rich sugar mummies over 40 Kenya', 'young rich men Kenya', 'rich older women Kenya', 'sugar daddies 50s Kenya'],
-    cities: ['Nairobi', 'Mombasa', 'Kisumu', 'Nakuru', 'Eldoret'],
-  },
-  NG: {
-    siteTitle: 'Rich Dating Network Nigeria',
-    keywords: ['rich sugar mummy Nigeria', 'wealthy men Nigeria', 'sugar mummies Lagos', 'rich singles Abuja', 'sugar daddy Nigeria', 'millionaire dating Nigeria', 'rich women Lagos', 'wealthy singles Nigeria', 'sugar mummies Abuja', 'rich men dating Nigeria', 'dating in Lagos', 'dating in Abuja'],
-    description: 'Connect with wealthy, verified singles in Nigeria. Sugar mummies, rich men, and affluent women in Lagos, Abuja, Port Harcourt, and across Nigeria.',
-    ageGroups: ['sugar mummies over 40 Nigeria', 'rich older women Lagos', 'wealthy men Abuja', 'sugar daddy Lagos'],
-    cities: ['Lagos', 'Abuja', 'Port Harcourt', 'Kano', 'Ibadan'],
-  },
-  GH: {
-    siteTitle: 'Rich Dating Network Ghana',
-    keywords: ['rich sugar mummy Ghana', 'wealthy men Accra', 'sugar daddy Ghana', 'rich singles Ghana', 'sugar mummies Accra', 'millionaire dating Ghana', 'wealthy women Ghana', 'rich men Kumasi', 'dating in Accra'],
-    description: 'Find wealthy singles in Ghana. Rich sugar daddies, sugar mummies, and affluent partners in Accra, Kumasi, and across Ghana.',
-    ageGroups: ['sugar mummies over 40 Ghana', 'rich older women Accra', 'wealthy men Ghana'],
-    cities: ['Accra', 'Kumasi', 'Tamale'],
-  },
-  PH: {
-    siteTitle: 'Rich Dating Network Philippines',
-    keywords: ['rich foreigners Philippines', 'wealthy men Philippines', 'sugar daddy Philippines', 'rich singles Manila', 'sugar mummy Philippines', 'millionaire dating Philippines', 'wealthy expats Philippines', 'rich men Cebu', 'sugar daddy Manila', 'dating rich men Philippines'],
-    description: 'Meet wealthy, verified singles in the Philippines. Find rich foreigners, expats, and affluent Filipinos in Manila, Cebu, and across the Philippines.',
-    ageGroups: ['older rich men Philippines', 'wealthy expats Manila', 'sugar daddy Cebu'],
-    cities: ['Manila', 'Cebu', 'Davao', 'Quezon City'],
-  },
-  ZA: {
-    siteTitle: 'Rich Dating Network South Africa',
-    keywords: ['rich sugar daddy South Africa', 'wealthy singles Johannesburg', 'sugar mummy Cape Town', 'rich men dating South Africa', 'millionaire dating SA', 'affluent singles South Africa', 'sugar mummies Durban', 'dating in Johannesburg'],
-    description: 'Connect with wealthy singles in South Africa. Rich partners in Johannesburg, Cape Town, Durban, and across South Africa.',
-    ageGroups: ['sugar mummies over 40 South Africa', 'rich older men Cape Town', 'wealthy women Johannesburg'],
-    cities: ['Johannesburg', 'Cape Town', 'Durban', 'Pretoria'],
-  },
-  UG: {
-    siteTitle: 'Rich Dating Network Uganda',
-    keywords: ['rich sugar mummy Uganda', 'wealthy men Kampala', 'sugar daddy Uganda', 'millionaire dating Uganda', 'rich singles Kampala', 'affluent women Uganda', 'dating in Kampala'],
-    description: 'Meet wealthy verified singles in Uganda. Rich sugar daddies and mummies in Kampala and across Uganda.',
-    ageGroups: ['sugar mummies Uganda', 'rich men Kampala', 'wealthy older women Uganda'],
-    cities: ['Kampala', 'Entebbe', 'Jinja'],
-  },
-  TZ: {
-    siteTitle: 'Rich Dating Network Tanzania',
-    keywords: ['rich sugar daddy Tanzania', 'wealthy men Dar es Salaam', 'sugar mummy Tanzania', 'millionaire dating Tanzania', 'rich singles Tanzania', 'dating in Dar es Salaam'],
-    description: 'Find wealthy singles in Tanzania. Affluent partners in Dar es Salaam, Arusha, and across Tanzania.',
-    ageGroups: ['sugar mummies Tanzania', 'rich men Dar es Salaam'],
-    cities: ['Dar es Salaam', 'Arusha', 'Mwanza'],
-  },
   US: {
-    siteTitle: 'Rich Dating Network USA',
-    keywords: ['luxury dating USA', 'millionaire dating America', 'wealthy singles USA', 'elite dating America', 'affluent singles New York', 'rich dating site USA', 'luxury matchmaking', 'high net worth dating', 'wealthy men USA', 'successful singles America', 'dating in New York', 'dating in Los Angeles', 'dating in Miami'],
-    description: 'The premier luxury dating network for successful, affluent singles in the USA. Find your ideal wealthy partner in New York, Los Angeles, Miami, Chicago, and beyond.',
-    ageGroups: ['wealthy men over 50 USA', 'affluent women 40s America', 'successful singles 30s USA'],
-    cities: ['New York', 'Los Angeles', 'Miami', 'Chicago', 'Houston', 'Las Vegas'],
-  },
-  GB: {
-    siteTitle: 'Rich Dating Network UK',
-    keywords: ['millionaire dating UK', 'luxury singles London', 'wealthy dating UK', 'elite dating Britain', 'affluent singles Manchester', 'rich men dating UK', 'luxury matchmaking UK', 'successful singles London', 'dating in London'],
-    description: 'Meet wealthy verified singles in the UK. Affluent partners in London, Manchester, Birmingham, and across Britain.',
-    ageGroups: ['wealthy men over 50 UK', 'affluent women London', 'successful singles UK'],
-    cities: ['London', 'Manchester', 'Birmingham', 'Edinburgh'],
+    siteTitle: 'NaughtyHaughty USA',
+    keywords: ['adult dating USA', 'mature dating America', 'older men dating USA', 'senior dating USA', 'NSA dating America', 'casual adult dating USA', 'dating for men over 50 USA', 'discreet adult dating', 'mature singles USA', 'older singles New York', 'adult dating site USA', 'hookup site USA', 'older men dating younger women USA', 'dating in New York', 'dating in Los Angeles', 'dating in Chicago', 'dating in Miami', 'dating in Houston'],
+    description: 'NaughtyHaughty — the premier adult dating site for mature, confident singles across the USA. Meet real, open-minded women in New York, Los Angeles, Chicago, Miami, and beyond. Join free.',
+    ageGroups: ['men over 50 dating USA', 'mature men dating app USA', 'older men singles USA', 'dating for men 55+ America'],
+    cities: ['New York', 'Los Angeles', 'Chicago', 'Miami', 'Houston', 'Las Vegas', 'Phoenix'],
   },
   CA: {
-    siteTitle: 'Rich Dating Network Canada',
-    keywords: ['millionaire dating Canada', 'wealthy singles Toronto', 'luxury dating Vancouver', 'affluent singles Canada', 'rich men dating Canada', 'successful singles Calgary', 'dating in Toronto'],
-    description: 'Connect with wealthy verified singles across Canada. Rich partners in Toronto, Vancouver, Montreal, Calgary, and beyond.',
-    ageGroups: ['affluent singles 40s Canada', 'wealthy men Toronto', 'rich women Vancouver'],
-    cities: ['Toronto', 'Vancouver', 'Montreal', 'Calgary'],
+    siteTitle: 'NaughtyHaughty Canada',
+    keywords: ['adult dating Canada', 'mature dating Canada', 'older men dating Canada', 'senior dating Canada', 'NSA dating Canada', 'casual adult dating Canada', 'dating for men over 50 Canada', 'discreet dating Canada', 'mature singles Toronto', 'adult dating Vancouver', 'hookup site Canada', 'older men dating Canada', 'dating in Toronto', 'dating in Vancouver', 'dating in Calgary', 'dating in Montreal'],
+    description: 'NaughtyHaughty Canada — meet adventurous, open-minded singles across Canada. Mature adult dating in Toronto, Vancouver, Calgary, and Montreal. Join free today.',
+    ageGroups: ['men over 50 dating Canada', 'mature men Canada', 'older singles Toronto', 'dating for men 55+ Canada'],
+    cities: ['Toronto', 'Vancouver', 'Calgary', 'Montreal', 'Ottawa', 'Edmonton'],
   },
   AU: {
-    siteTitle: 'Rich Dating Network Australia',
-    keywords: ['millionaire dating Australia', 'wealthy singles Sydney', 'luxury dating Melbourne', 'affluent singles Australia', 'rich men dating Australia', 'successful singles Brisbane', 'dating in Sydney'],
-    description: 'Find wealthy verified singles in Australia. Affluent partners in Sydney, Melbourne, Brisbane, Perth, and across Australia.',
-    ageGroups: ['wealthy men 50s Australia', 'affluent women Sydney', 'successful singles Melbourne'],
-    cities: ['Sydney', 'Melbourne', 'Brisbane', 'Perth'],
+    siteTitle: 'NaughtyHaughty Australia',
+    keywords: ['adult dating Australia', 'mature dating Australia', 'older men dating Australia', 'senior dating Australia', 'NSA dating Australia', 'casual adult dating Australia', 'dating for men over 50 Australia', 'discreet adult dating Australia', 'mature singles Sydney', 'adult dating Melbourne', 'hookup site Australia', 'older men dating Australia', 'dating in Sydney', 'dating in Melbourne', 'dating in Brisbane', 'dating in Perth'],
+    description: 'NaughtyHaughty Australia — adult dating for confident, mature singles. Meet adventurous singles in Sydney, Melbourne, Brisbane, Perth, and across Australia. Join free.',
+    ageGroups: ['men over 50 dating Australia', 'mature men Australia', 'older singles Sydney', 'dating for men 55+ Australia'],
+    cities: ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Adelaide'],
   },
-  AE: {
-    siteTitle: 'Rich Dating Network UAE',
-    keywords: ['wealthy singles Dubai', 'millionaire dating UAE', 'rich men Dubai', 'luxury dating Dubai', 'affluent singles Abu Dhabi', 'expat dating Dubai', 'elite dating UAE', 'dating in Dubai'],
-    description: 'Meet wealthy elite singles in the UAE. Affluent partners and successful expats in Dubai, Abu Dhabi, and across the Emirates.',
-    ageGroups: ['wealthy expats Dubai', 'rich men UAE', 'affluent women Dubai'],
-    cities: ['Dubai', 'Abu Dhabi', 'Sharjah'],
+  GB: {
+    siteTitle: 'NaughtyHaughty UK',
+    keywords: ['adult dating UK', 'mature dating UK', 'older men dating UK', 'senior dating Britain', 'NSA dating UK', 'casual adult dating UK', 'dating for men over 50 UK', 'discreet adult dating UK', 'mature singles London', 'adult dating Manchester', 'hookup site UK', 'older men dating UK', 'dating in London', 'dating in Manchester', 'dating in Birmingham', 'dating in Edinburgh'],
+    description: 'NaughtyHaughty UK — the adult dating site for mature, confident British singles. Meet real, open-minded women in London, Manchester, Birmingham, and across the UK. Join free.',
+    ageGroups: ['men over 50 dating UK', 'mature men UK', 'older singles London', 'dating for men 55+ Britain'],
+    cities: ['London', 'Manchester', 'Birmingham', 'Edinburgh', 'Leeds', 'Bristol'],
+  },
+  NZ: {
+    siteTitle: 'NaughtyHaughty New Zealand',
+    keywords: ['adult dating New Zealand', 'mature dating NZ', 'older men dating New Zealand', 'casual dating NZ', 'dating for men over 50 NZ', 'discreet dating New Zealand', 'mature singles Auckland', 'adult dating NZ'],
+    description: 'NaughtyHaughty New Zealand — adult dating for mature, open-minded singles. Meet adventurous women in Auckland, Wellington, and across New Zealand.',
+    ageGroups: ['men over 50 NZ', 'mature men New Zealand', 'older singles Auckland'],
+    cities: ['Auckland', 'Wellington', 'Christchurch'],
+  },
+  IE: {
+    siteTitle: 'NaughtyHaughty Ireland',
+    keywords: ['adult dating Ireland', 'mature dating Ireland', 'older men dating Ireland', 'casual dating Ireland', 'dating for men over 50 Ireland', 'discreet dating Ireland', 'mature singles Dublin', 'adult dating site Ireland'],
+    description: 'NaughtyHaughty Ireland — meet adventurous, open-minded singles across Ireland. Adult dating in Dublin and beyond.',
+    ageGroups: ['men over 50 Ireland', 'mature men Dublin', 'older singles Ireland'],
+    cities: ['Dublin', 'Cork', 'Galway'],
   },
   DEFAULT: {
-    siteTitle: 'Rich Dating Network',
-    keywords: ['rich dating', 'wealthy singles', 'luxury dating', 'millionaire dating', 'elite dating', 'affluent singles', 'sugar daddy', 'sugar mummy', 'successful singles', 'rich men', 'wealthy women', 'premium dating site'],
-    description: 'Rich Dating Network — the exclusive luxury dating platform connecting wealthy, successful singles worldwide. Verified profiles, real connections.',
-    ageGroups: ['wealthy singles over 40', 'rich older men', 'affluent mature women'],
+    siteTitle: 'NaughtyHaughty',
+    keywords: ['adult dating', 'mature dating', 'older men dating', 'NSA dating', 'casual adult dating', 'senior dating site', 'discreet dating', 'dating for men over 50', 'hookup site', 'mature singles', 'older singles', 'adult dating site free', 'meet singles online', 'adult personals'],
+    description: 'NaughtyHaughty — the premier adult dating site for mature, confident singles worldwide. Real connections with open-minded people. Join free.',
+    ageGroups: ['men over 50 dating', 'mature men dating', 'older singles dating', 'senior adult dating'],
   },
 }
 
 const COUNTRY_NAMES: Record<string, string> = {
-  KE: 'Kenya', NG: 'Nigeria', GH: 'Ghana', PH: 'Philippines', ZA: 'South Africa',
-  UG: 'Uganda', TZ: 'Tanzania', US: 'the United States', GB: 'the United Kingdom',
-  CA: 'Canada', AU: 'Australia', AE: 'UAE', DE: 'Germany', FR: 'France',
-  SG: 'Singapore', JP: 'Japan', EG: 'Egypt', ET: 'Ethiopia', RW: 'Rwanda',
-  MX: 'Mexico', BR: 'Brazil', IN: 'India', ZW: 'Zimbabwe', ZM: 'Zambia',
+  US: 'the United States', GB: 'the United Kingdom', CA: 'Canada', AU: 'Australia',
+  NZ: 'New Zealand', IE: 'Ireland', DE: 'Germany', FR: 'France',
+  SG: 'Singapore', ZA: 'South Africa', AE: 'UAE',
 }
 
 function getCountryName(code: string): string {
@@ -132,26 +88,26 @@ function buildTitle(path: string, countryCode: string, city: string): string {
   const siteTitle = COUNTRY_SEO[countryCode]?.siteTitle || COUNTRY_SEO.DEFAULT.siteTitle
   const loc = city || countryName
 
-  if (path === '/') return `${siteTitle} | Find Rich Singles${loc ? ` in ${loc}` : ''}`
-  if (path === '/discover') return `Discover Wealthy Singles${loc ? ` in ${loc}` : ' Worldwide'} | Rich Dating Network`
-  if (path === '/meet') return `Meet Affluent Singles${loc ? ` in ${loc}` : ''} | Rich Dating Network`
-  if (path === '/likes') return `Your Likes & Matches${loc ? ` in ${loc}` : ''} | Rich Dating Network`
-  if (path === '/chat') return `Messages | Rich Dating Network`
-  if (path.startsWith('/chat/')) return `Chat | Rich Dating Network`
-  if (path === '/visitors') return `Profile Visitors | Rich Dating Network`
-  if (path === '/gifts') return `Gifts | Rich Dating Network`
-  if (path === '/login') return `Sign In | Rich Dating Network`
-  if (path === '/register') return `Join Free${loc ? ` — Meet Rich Singles in ${loc}` : ''} | Rich Dating Network`
-  if (path === '/premium') return `VIP Premium Membership | Rich Dating Network`
-  if (path === '/credits') return `Credits & Payments | Rich Dating Network`
-  if (path === '/boost') return `Boost Your Profile | Rich Dating Network`
-  if (path === '/home') return `Your Matches${loc ? ` in ${loc}` : ''} | Rich Dating Network`
-  if (path === '/settings') return `Settings | Rich Dating Network`
-  if (path === '/referrals') return `Referrals | Rich Dating Network`
-  if (path === '/contact') return `Contact Us | Rich Dating Network`
-  if (path === '/terms') return `Terms of Service | Rich Dating Network`
-  if (path === '/privacy') return `Privacy Policy | Rich Dating Network`
-  if (path.startsWith('/profile/') || path.startsWith('/@')) return `Profile | Rich Dating Network`
+  if (path === '/') return `${siteTitle} | Adult Dating for Mature Singles${loc ? ` in ${loc}` : ''}`
+  if (path === '/discover') return `Discover Singles${loc ? ` in ${loc}` : ' Worldwide'} | NaughtyHaughty`
+  if (path === '/meet') return `Meet Singles${loc ? ` in ${loc}` : ''} | NaughtyHaughty`
+  if (path === '/likes') return `Your Likes & Matches${loc ? ` in ${loc}` : ''} | NaughtyHaughty`
+  if (path === '/chat') return `Messages | NaughtyHaughty`
+  if (path.startsWith('/chat/')) return `Chat | NaughtyHaughty`
+  if (path === '/visitors') return `Profile Visitors | NaughtyHaughty`
+  if (path === '/gifts') return `Gifts | NaughtyHaughty`
+  if (path === '/login') return `Sign In | NaughtyHaughty`
+  if (path === '/register') return `Join Free${loc ? ` — Meet Singles in ${loc}` : ''} | NaughtyHaughty`
+  if (path === '/premium') return `VIP Premium Membership | NaughtyHaughty`
+  if (path === '/credits') return `Credits & Payments | NaughtyHaughty`
+  if (path === '/boost') return `Boost Your Profile | NaughtyHaughty`
+  if (path === '/home') return `Your Matches${loc ? ` in ${loc}` : ''} | NaughtyHaughty`
+  if (path === '/settings') return `Settings | NaughtyHaughty`
+  if (path === '/referrals') return `Referrals | NaughtyHaughty`
+  if (path === '/contact') return `Contact Us | NaughtyHaughty`
+  if (path === '/terms') return `Terms of Service | NaughtyHaughty`
+  if (path === '/privacy') return `Privacy Policy | NaughtyHaughty`
+  if (path.startsWith('/profile/') || path.startsWith('/@')) return `Profile | NaughtyHaughty`
   return `${siteTitle}${loc ? ` — ${loc}` : ''}`
 }
 
@@ -181,13 +137,13 @@ export default function SEOHead() {
     const allKeywords = [
       ...seoData.keywords,
       ...seoData.ageGroups,
-      ...(userCity ? [`dating in ${userCity}`, `singles in ${userCity}`, `wealthy singles ${userCity}`] : []),
+      ...(userCity ? [`adult dating in ${userCity}`, `singles in ${userCity}`, `mature singles ${userCity}`] : []),
     ].join(', ')
 
     upsertMeta('description', description)
     upsertMeta('keywords', allKeywords)
     upsertMeta('robots', 'index, follow')
-    upsertMeta('author', 'Rich Dating Network')
+    upsertMeta('author', 'NaughtyHaughty')
     upsertMeta('geo.region', countryCode !== 'DEFAULT' ? countryCode : '')
     if (userCity) upsertMeta('geo.placename', userCity)
 
@@ -195,7 +151,7 @@ export default function SEOHead() {
     upsertMeta('og:title', title, true)
     upsertMeta('og:description', description, true)
     upsertMeta('og:type', 'website', true)
-    upsertMeta('og:site_name', 'Rich Dating Network', true)
+    upsertMeta('og:site_name', 'NaughtyHaughty', true)
     upsertMeta('og:image', '/og-image.jpg', true)
     if (userCity) upsertMeta('og:locale', countryCode !== 'DEFAULT' ? `en_${countryCode}` : 'en_US', true)
 
@@ -206,7 +162,7 @@ export default function SEOHead() {
     upsertMeta('twitter:image', '/og-image.jpg')
 
     // Canonical
-    upsertLink('canonical', `https://richdatingnetwork.com${location}`)
+    upsertLink('canonical', `https://naughtyhaughty.com${location}`)
   }, [location, countryCode, userCity, seoData])
 
   return null

@@ -9,7 +9,7 @@ export default function PrivacyPage() {
           <div className="w-7 h-7 rounded-full gradient-brand flex items-center justify-center">
             <Heart size={14} className="text-white fill-white" />
           </div>
-          <span className="font-bold text-gray-900">Rich Dating Network</span>
+          <span className="font-bold text-gray-900">NaughtyHaughty</span>
         </Link>
       </header>
 
@@ -22,7 +22,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">1. Introduction</h2>
             <p className="leading-relaxed">
-              Rich Dating Network Limited ("we", "us", or "our") operates the richdatingnetwork.com platform and
+              NaughtyHaughty Limited ("we", "us", or "our") operates the naughtyhaughty.com platform and
               related services (collectively, the "Service"). We are committed to protecting your personal
               information and your right to privacy. This Privacy Policy explains how we collect, use, disclose,
               and safeguard your information when you use our Service.
@@ -154,7 +154,7 @@ export default function PrivacyPage() {
                 circumstances.</li>
             </ul>
             <p className="leading-relaxed mt-3">
-              To exercise any of these rights, please contact us at privacy@richdatingnetwork.com. We will
+              To exercise any of these rights, please contact us at privacy@naughtyhaughty.com. We will
               respond to your request within 30 days. We may need to verify your identity before processing
               your request.
             </p>
@@ -185,7 +185,7 @@ export default function PrivacyPage() {
             <p className="leading-relaxed">
               The Service is strictly for adults aged 18 years and older. We do not knowingly collect personal
               information from anyone under the age of 18. If you believe a minor has provided us with personal
-              information, please contact us immediately at support@richdatingnetwork.com and we will take
+              information, please contact us immediately at support@naughtyhaughty.com and we will take
               prompt steps to delete that information and terminate the associated account.
             </p>
           </section>
@@ -227,7 +227,7 @@ export default function PrivacyPage() {
               practices, please contact us:
             </p>
             <ul className="list-none ml-0 mt-2 space-y-1">
-              <li><strong>Email:</strong> privacy@richdatingnetwork.com</li>
+              <li><strong>Email:</strong> privacy@naughtyhaughty.com</li>
               <li><strong>Support:</strong>{' '}
                 <Link href="/contact" className="text-brand-500 hover:underline">Contact Support Page</Link>
               </li>
@@ -243,7 +243,7 @@ export default function PrivacyPage() {
           <Link href="/terms" className="hover:text-gray-600">Terms of Service</Link>
           <Link href="/contact" className="hover:text-gray-600">Contact</Link>
         </div>
-        <p>© {new Date().getFullYear()} Rich Dating Network Limited. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} NaughtyHaughty Limited. All rights reserved.</p>
       </footer>
     </div>
   )

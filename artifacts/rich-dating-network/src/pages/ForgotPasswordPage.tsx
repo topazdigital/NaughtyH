@@ -29,10 +29,10 @@ export default function ForgotPasswordPage() {
   return (
     <div className="min-h-screen flex">
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden flex-col"
-        style={{ background: 'linear-gradient(145deg, #1a0a0e 0%, #3d0d1a 40%, #7a1226 70%, #FF192C 100%)' }}>
+        style={{ background: 'linear-gradient(145deg, #1a0a0e 0%, #3d0d1a 40%, #7a1226 70%, #9B1438 100%)' }}>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full opacity-20"
-            style={{ background: 'radial-gradient(circle, #FF192C, transparent)' }} />
+            style={{ background: 'radial-gradient(circle, #9B1438, transparent)' }} />
           <div className="absolute bottom-[-15%] right-[-15%] w-[60%] h-[60%] rounded-full opacity-15"
             style={{ background: 'radial-gradient(circle, #ff8c94, transparent)' }} />
         </div>
@@ -60,7 +60,7 @@ export default function ForgotPasswordPage() {
               <div className="w-9 h-9 rounded-xl gradient-brand flex items-center justify-center shadow-lg">
                 <Heart className="w-4 h-4 text-white fill-white" />
               </div>
-              <span className="font-bold text-gray-900">Rich Dating Network</span>
+              <span className="font-bold text-gray-900">NaughtyHaughty</span>
             </Link>
           </div>
 
@@ -86,7 +86,7 @@ export default function ForgotPasswordPage() {
                 </div>
                 <button type="submit" disabled={loading}
                   className="w-full py-3.5 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/25 disabled:opacity-60"
-                  style={{ background: 'linear-gradient(135deg, #FF192C, #ff5f6b)' }}>
+                  style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
                   {loading && <Loader2 size={17} className="animate-spin" />}
                   Send Reset Link
                 </button>

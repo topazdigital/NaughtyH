@@ -29,7 +29,7 @@ const TEMPLATES = [
     name: "Welcome Back",
     subject: "We miss you! 💕 Come back and see who's waiting for you",
     html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#fff">
-<div style="background:linear-gradient(135deg,#FF192C,#ff5f6b);padding:40px;text-align:center">
+<div style="background:linear-gradient(135deg,#9B1438,#c4546f);padding:40px;text-align:center">
   <div style="font-size:48px;margin-bottom:12px">💕</div>
   <h1 style="color:#fff;font-size:28px;margin:0;font-weight:800">We Miss You!</h1>
   <p style="color:rgba(255,255,255,0.85);font-size:15px;margin:8px 0 0">New people are waiting to meet you</p>
@@ -37,8 +37,8 @@ const TEMPLATES = [
 <div style="padding:40px;text-align:center">
   <p style="color:#111;font-size:17px;font-weight:600;margin:0 0 12px">Hey there 👋</p>
   <p style="color:#555;font-size:15px;line-height:1.7;margin:0 0 28px">You haven't visited in a while, and a lot has changed! New verified members have joined in your area who match your preferences.</p>
-  <a href="https://richdatingnetwork.com/discover" style="display:inline-block;background:linear-gradient(135deg,#FF192C,#ff5f6b);color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(255,25,44,0.35)">See Who's Online →</a>
-  <p style="color:#aaa;font-size:12px;margin:32px 0 0;line-height:1.6">© Rich Dating Network · <a href="https://richdatingnetwork.com" style="color:#FF192C">Visit Site</a></p>
+  <a href="https://naughtyhaughty.com/discover" style="display:inline-block;background:linear-gradient(135deg,#9B1438,#c4546f);color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(255,25,44,0.35)">See Who's Online →</a>
+  <p style="color:#aaa;font-size:12px;margin:32px 0 0;line-height:1.6">© NaughtyHaughty · <a href="https://naughtyhaughty.com" style="color:#9B1438">Visit Site</a></p>
 </div>
 </div>`,
   },
@@ -46,7 +46,7 @@ const TEMPLATES = [
     name: "New Matches Waiting",
     subject: "❤️ You have new matches waiting — don't leave them hanging",
     html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#fff">
-<div style="background:linear-gradient(135deg,#1a0a0e,#7a1226,#FF192C);padding:40px;text-align:center">
+<div style="background:linear-gradient(135deg,#1a0a0e,#7a1226,#9B1438);padding:40px;text-align:center">
   <div style="font-size:48px;margin-bottom:12px">❤️</div>
   <h1 style="color:#fff;font-size:28px;margin:0;font-weight:800">New Matches!</h1>
   <p style="color:rgba(255,255,255,0.8);font-size:15px;margin:8px 0 0">Verified members are interested in you</p>
@@ -54,8 +54,8 @@ const TEMPLATES = [
 <div style="padding:40px;text-align:center">
   <p style="color:#111;font-size:17px;font-weight:600;margin:0 0 12px">You have new matches 🎉</p>
   <p style="color:#555;font-size:15px;line-height:1.7;margin:0 0 28px">Successful, verified singles have liked your profile and are waiting to connect. Log in now to see who they are and start a conversation.</p>
-  <a href="https://richdatingnetwork.com/likes" style="display:inline-block;background:linear-gradient(135deg,#FF192C,#ff5f6b);color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(255,25,44,0.35)">View Your Matches →</a>
-  <p style="color:#aaa;font-size:12px;margin:32px 0 0;line-height:1.6">© Rich Dating Network · <a href="https://richdatingnetwork.com" style="color:#FF192C">Visit Site</a></p>
+  <a href="https://naughtyhaughty.com/likes" style="display:inline-block;background:linear-gradient(135deg,#9B1438,#c4546f);color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(255,25,44,0.35)">View Your Matches →</a>
+  <p style="color:#aaa;font-size:12px;margin:32px 0 0;line-height:1.6">© NaughtyHaughty · <a href="https://naughtyhaughty.com" style="color:#9B1438">Visit Site</a></p>
 </div>
 </div>`,
   },
@@ -77,14 +77,14 @@ const TEMPLATES = [
     <div style="font-size:13px;color:#92400e">Use code: <strong>WEEKEND50</strong></div>
   </div>
   <br>
-  <a href="https://richdatingnetwork.com/premium" style="display:inline-block;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(245,158,11,0.4)">Claim Your Discount →</a>
-  <p style="color:#aaa;font-size:12px;margin:32px 0 0;line-height:1.6">© Rich Dating Network · <a href="https://richdatingnetwork.com" style="color:#FF192C">Visit Site</a></p>
+  <a href="https://naughtyhaughty.com/premium" style="display:inline-block;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(245,158,11,0.4)">Claim Your Discount →</a>
+  <p style="color:#aaa;font-size:12px;margin:32px 0 0;line-height:1.6">© NaughtyHaughty · <a href="https://naughtyhaughty.com" style="color:#9B1438">Visit Site</a></p>
 </div>
 </div>`,
   },
   {
     name: "Activity Reminder",
-    subject: "👀 Someone viewed your profile today on Rich Dating Network",
+    subject: "👀 Someone viewed your profile today on NaughtyHaughty",
     html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#fff">
 <div style="background:linear-gradient(135deg,#1e293b,#334155);padding:40px;text-align:center">
   <div style="font-size:48px;margin-bottom:12px">👀</div>
@@ -94,8 +94,8 @@ const TEMPLATES = [
 <div style="padding:40px;text-align:center">
   <p style="color:#111;font-size:17px;font-weight:600;margin:0 0 12px">Your profile is getting attention! 🔥</p>
   <p style="color:#555;font-size:15px;line-height:1.7;margin:0 0 28px">Several people have viewed your profile recently. Log in to see who's been checking you out and make a connection before they move on.</p>
-  <a href="https://richdatingnetwork.com/visitors" style="display:inline-block;background:linear-gradient(135deg,#FF192C,#ff5f6b);color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(255,25,44,0.35)">See Who Visited →</a>
-  <p style="color:#aaa;font-size:12px;margin:32px 0 0;line-height:1.6">© Rich Dating Network · <a href="https://richdatingnetwork.com" style="color:#FF192C">Visit Site</a></p>
+  <a href="https://naughtyhaughty.com/visitors" style="display:inline-block;background:linear-gradient(135deg,#9B1438,#c4546f);color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(255,25,44,0.35)">See Who Visited →</a>
+  <p style="color:#aaa;font-size:12px;margin:32px 0 0;line-height:1.6">© NaughtyHaughty · <a href="https://naughtyhaughty.com" style="color:#9B1438">Visit Site</a></p>
 </div>
 </div>`,
   },
@@ -110,14 +110,14 @@ const TEMPLATES = [
 </div>
 <div style="padding:40px;text-align:center">
   <p style="color:#111;font-size:17px;font-weight:600;margin:0 0 12px">Special offer just for you 🎁</p>
-  <p style="color:#555;font-size:15px;line-height:1.7;margin:0 0 20px">As a valued member of Rich Dating Network, we're giving you a special discount on credits. Use them to send messages, unlock profiles, and more.</p>
+  <p style="color:#555;font-size:15px;line-height:1.7;margin:0 0 20px">As a valued member of NaughtyHaughty, we're giving you a special discount on credits. Use them to send messages, unlock profiles, and more.</p>
   <div style="background:#f5f3ff;border:2px solid #a855f7;border-radius:16px;padding:20px;margin:0 0 28px">
     <div style="font-size:13px;color:#6d28d9;font-weight:600">Buy 250 credits, Get 100 FREE</div>
     <div style="font-size:32px;font-weight:800;color:#7c3aed;margin:4px 0">350 Credits</div>
     <div style="font-size:14px;color:#7c3aed">for the price of 250</div>
   </div>
-  <a href="https://richdatingnetwork.com/credits" style="display:inline-block;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(124,58,237,0.4)">Claim Bonus Credits →</a>
-  <p style="color:#aaa;font-size:12px;margin:32px 0 0;line-height:1.6">© Rich Dating Network · <a href="https://richdatingnetwork.com" style="color:#FF192C">Visit Site</a></p>
+  <a href="https://naughtyhaughty.com/credits" style="display:inline-block;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(124,58,237,0.4)">Claim Bonus Credits →</a>
+  <p style="color:#aaa;font-size:12px;margin:32px 0 0;line-height:1.6">© NaughtyHaughty · <a href="https://naughtyhaughty.com" style="color:#9B1438">Visit Site</a></p>
 </div>
 </div>`,
   },
@@ -168,7 +168,7 @@ const INPUT = {
 }
 
 const BTN_PRIMARY = {
-  background: "linear-gradient(135deg,#FF192C,#ff5f6b)", color: "#fff",
+  background: "linear-gradient(135deg,#9B1438,#c4546f)", color: "#fff",
   border: "none", borderRadius: "0.5rem", padding: "0.55rem 1.25rem",
   fontSize: "0.82rem", fontWeight: 700, cursor: "pointer", fontFamily: "inherit",
 }
@@ -314,7 +314,7 @@ export default function AdminEmailCampaigns() {
 
   if (loading && campaigns.length === 0) return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "4rem", color: "#475569" }}>
-      <div style={{ width: "1.5rem", height: "1.5rem", border: "2px solid #FF192C", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite", marginRight: "0.75rem" }} />
+      <div style={{ width: "1.5rem", height: "1.5rem", border: "2px solid #9B1438", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite", marginRight: "0.75rem" }} />
       Loading campaigns…
     </div>
   )
@@ -345,7 +345,7 @@ export default function AdminEmailCampaigns() {
           {tabs.map(t => (
             <button key={t.key} onClick={() => setComposerTab(t.key as any)} style={{
               flex: 1, padding: "0.5rem 0.5rem", borderRadius: "0.4rem", border: "none", cursor: "pointer",
-              background: composerTab === t.key ? "linear-gradient(135deg,#FF192C,#ff5f6b)" : "transparent",
+              background: composerTab === t.key ? "linear-gradient(135deg,#9B1438,#c4546f)" : "transparent",
               color: composerTab === t.key ? "#fff" : "#94a3b8", fontWeight: 600, fontSize: "0.75rem", fontFamily: "inherit",
             }}>{t.label}</button>
           ))}
@@ -359,7 +359,7 @@ export default function AdminEmailCampaigns() {
                 ...CARD, cursor: "pointer", textAlign: "left", border: "1px solid #334155",
                 transition: "border-color 0.15s",
               }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = "#FF192C"}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = "#9B1438"}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = "#334155"}
               >
                 <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>
@@ -527,7 +527,7 @@ export default function AdminEmailCampaigns() {
               <span style={{ color: "#e2e8f0", fontSize: "0.78rem", fontWeight: 700 }}>{selected.sentCount} / {selected.totalRecipients}</span>
             </div>
             <div style={{ background: "#1e293b", borderRadius: "50px", height: "8px", overflow: "hidden" }}>
-              <div style={{ background: "linear-gradient(90deg,#FF192C,#ff5f6b)", height: "100%", width: `${pct}%`, transition: "width 0.3s", borderRadius: "50px" }} />
+              <div style={{ background: "linear-gradient(90deg,#9B1438,#c4546f)", height: "100%", width: `${pct}%`, transition: "width 0.3s", borderRadius: "50px" }} />
             </div>
           </div>
         )}
@@ -609,7 +609,7 @@ export default function AdminEmailCampaigns() {
             { label: "Total Campaigns", value: campaigns.length },
             { label: "Completed", value: campaigns.filter(c => c.status === "completed").length, color: "#22c55e" },
             { label: "In Progress", value: campaigns.filter(c => c.status === "sending" || c.status === "paused").length, color: "#f59e0b" },
-            { label: "Emails Sent", value: campaigns.reduce((s, c) => s + (c.sentCount || 0), 0).toLocaleString(), color: "#FF192C" },
+            { label: "Emails Sent", value: campaigns.reduce((s, c) => s + (c.sentCount || 0), 0).toLocaleString(), color: "#9B1438" },
           ].map(s => (
             <div key={s.label} style={{ ...CARD, textAlign: "center" }}>
               <div style={{ color: s.color || "#e2e8f0", fontWeight: 800, fontSize: "1.3rem" }}>{String(s.value)}</div>
@@ -653,7 +653,7 @@ export default function AdminEmailCampaigns() {
                         <span style={{ color: "#94a3b8", fontSize: "0.7rem" }}>{progress(c)}%</span>
                       </div>
                       <div style={{ background: "#1e293b", borderRadius: "50px", height: "4px" }}>
-                        <div style={{ background: "linear-gradient(90deg,#FF192C,#ff5f6b)", height: "100%", width: `${progress(c)}%`, borderRadius: "50px" }} />
+                        <div style={{ background: "linear-gradient(90deg,#9B1438,#c4546f)", height: "100%", width: `${progress(c)}%`, borderRadius: "50px" }} />
                       </div>
                     </div>
                   )}

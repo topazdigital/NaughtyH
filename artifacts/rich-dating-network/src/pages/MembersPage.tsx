@@ -62,15 +62,15 @@ function MemberCard({ member }: { member: any }) {
 function buildSeoTitle(gender: string, country: string, city: string): string {
   const who = gender === 'male' ? 'Wealthy Men' : gender === 'female' ? 'Affluent Women' : 'Wealthy Singles'
   const where = city || country
-  if (where) return `${who} in ${where} | Rich Dating Network`
-  return `${who} Worldwide | Rich Dating Network`
+  if (where) return `${who} in ${where} | NaughtyHaughty`
+  return `${who} Worldwide | NaughtyHaughty`
 }
 
 function buildSeoDescription(gender: string, country: string, city: string): string {
   const who = gender === 'male' ? 'wealthy men and successful bachelors' : gender === 'female' ? 'affluent women and successful ladies' : 'wealthy singles, sugar daddies, sugar mummies, and affluent partners'
   const where = city || country
-  if (where) return `Browse verified profiles of ${who} in ${where} on Rich Dating Network. Find your perfect match today — 100% free to join.`
-  return `Browse verified profiles of ${who} worldwide on Rich Dating Network. The #1 luxury dating platform for successful, ambitious singles. Join free today.`
+  if (where) return `Browse verified profiles of ${who} in ${where} on NaughtyHaughty. Find your perfect match today — 100% free to join.`
+  return `Browse verified profiles of ${who} worldwide on NaughtyHaughty. The #1 luxury dating platform for successful, ambitious singles. Join free today.`
 }
 
 export default function MembersPage() {
@@ -136,7 +136,7 @@ export default function MembersPage() {
     setMeta('og:description', description, true)
     setMeta('og:type', 'website', true)
 
-    const canonicalBase = 'https://richdatingnetwork.com/members'
+    const canonicalBase = 'https://naughtyhaughty.com/members'
     const cp = new URLSearchParams()
     if (gender) cp.set('gender', gender)
     if (country) cp.set('country', country)
@@ -302,7 +302,7 @@ export default function MembersPage() {
             {city ? ` in ${city}` : country ? ` in ${country}` : ''}?
           </h2>
           <p className="text-white/80 mb-6 max-w-xl mx-auto text-sm leading-relaxed">
-            Join thousands of verified wealthy singles on Rich Dating Network. Create your free profile in 30 seconds and start connecting with successful, ambitious people near you.
+            Join thousands of verified wealthy singles on NaughtyHaughty. Create your free profile in 30 seconds and start connecting with successful, ambitious people near you.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/register" className="bg-white text-brand-600 font-bold px-8 py-3 rounded-2xl hover:bg-gray-50 transition-colors">
@@ -317,7 +317,7 @@ export default function MembersPage() {
         {/* SEO keyword text */}
         <div className="mt-10 prose prose-sm max-w-none text-gray-400 text-xs leading-relaxed">
           <p>
-            Rich Dating Network is the leading luxury dating platform connecting verified wealthy singles worldwide.
+            NaughtyHaughty is the leading luxury dating platform connecting verified wealthy singles worldwide.
             Whether you're looking for a successful partner{city ? ` in ${city}` : country ? ` in ${country}` : ''},
             a high-net-worth companion, or a meaningful relationship with an affluent individual,
             our platform offers a curated community of genuine, ambitious people.

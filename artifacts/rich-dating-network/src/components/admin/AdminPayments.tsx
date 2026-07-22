@@ -252,7 +252,7 @@ export default function AdminPayments() {
                   {!testResult.ok && activeProvider === 'payhero' && (
                     <p style={{ color: '#6b7280', fontSize: '0.72rem', marginTop: '0.4rem', marginBottom: 0, lineHeight: 1.5 }}>
                       💡 The API password is <strong style={{ color: '#e2e8f0' }}>not</strong> your PayHero login password.
-                      Go to PayHero → API Keys → delete the "Rich Dating Network" key → create a new one → set a new password → paste that password here.
+                      Go to PayHero → API Keys → delete the "NaughtyHaughty" key → create a new one → set a new password → paste that password here.
                     </p>
                   )}
                 </div>

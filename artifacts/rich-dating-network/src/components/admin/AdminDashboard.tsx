@@ -79,7 +79,7 @@ export default function AdminDashboard() {
 
   if (!stats) return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '16rem' }}>
-      <div style={{ width: '2rem', height: '2rem', border: '2px solid #FF192C', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+      <div style={{ width: '2rem', height: '2rem', border: '2px solid #9B1438', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
     </div>
   )
 
@@ -114,7 +114,7 @@ export default function AdminDashboard() {
                 {syncing ? "Syncing…" : "🖼️ Sync Photos"}
               </button>
               <button onClick={triggerAutoMessages} disabled={triggering} style={{
-                padding: '0.3rem 0.75rem', background: '#FF192C', color: '#fff',
+                padding: '0.3rem 0.75rem', background: '#9B1438', color: '#fff',
                 border: 'none', borderRadius: '0.5rem', fontSize: '0.7rem', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit',
                 opacity: triggering ? 0.6 : 1,
               }}>
@@ -150,7 +150,7 @@ export default function AdminDashboard() {
                 <button key={t.key} onClick={() => setActFilter(t.key)} style={{
                   padding: '0.2rem 0.5rem', borderRadius: '0.375rem', border: 'none', cursor: 'pointer',
                   fontSize: '0.65rem', fontWeight: 600, fontFamily: 'inherit', flexShrink: 0,
-                  background: actFilter === t.key ? '#FF192C' : '#1e293b',
+                  background: actFilter === t.key ? '#9B1438' : '#1e293b',
                   color: actFilter === t.key ? '#fff' : '#64748b',
                   transition: 'all 0.1s',
                 }}>{t.label}</button>
@@ -161,7 +161,7 @@ export default function AdminDashboard() {
             <div style={{ maxHeight: '420px', overflowY: 'auto' }}>
               {actLoading ? (
                 <div style={{ display: 'flex', justifyContent: 'center', padding: '2rem' }}>
-                  <div style={{ width: '1.25rem', height: '1.25rem', border: '2px solid #FF192C', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+                  <div style={{ width: '1.25rem', height: '1.25rem', border: '2px solid #9B1438', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
                 </div>
               ) : activity.length === 0 ? (
                 <div style={{ textAlign: 'center', padding: '2rem 1rem', color: '#475569', fontSize: '0.75rem' }}>No activity yet</div>

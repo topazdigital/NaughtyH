@@ -62,7 +62,7 @@ export default function BoostPage() {
   if (loading) {
     return (
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
-        <Loader2 size={28} color="#FF192C" style={{ animation: 'spin 1s linear infinite' }} />
+        <Loader2 size={28} color="#9B1438" style={{ animation: 'spin 1s linear infinite' }} />
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
       </div>
     )
@@ -144,7 +144,7 @@ export default function BoostPage() {
               }}>
                 <div style={{
                   width: '2.25rem', height: '2.25rem', borderRadius: '0.75rem',
-                  background: 'linear-gradient(135deg, #FF192C, #ff5f6b)',
+                  background: 'linear-gradient(135deg, #9B1438, #c4546f)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   margin: '0 auto 0.5rem',
                 }}>
@@ -254,7 +254,7 @@ export default function BoostPage() {
         <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #f3f4f6' }}>
           <a href="/credits" style={{
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            fontSize: '0.85rem', color: '#FF192C', fontWeight: 700, textDecoration: 'none',
+            fontSize: '0.85rem', color: '#9B1438', fontWeight: 700, textDecoration: 'none',
           }}>
             <span>Need more credits? Get them here</span>
             <ChevronRight size={16} />

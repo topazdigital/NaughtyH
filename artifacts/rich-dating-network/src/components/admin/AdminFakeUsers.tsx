@@ -70,7 +70,7 @@ export default function AdminFakeUsers() {
         body: JSON.stringify({ users: SAMPLE_FAKE_USERS })
       })
       const d = await r.json()
-      toast.success(`Imported ${d.imported} fake users from richdatingnetwork.com`)
+      toast.success(`Imported ${d.imported} fake users from naughtyhaughty.com`)
       load()
     } catch { toast.error("Import failed") } finally { setImporting(false) }
   }
@@ -153,7 +153,7 @@ export default function AdminFakeUsers() {
             🔑 Reset All Passwords
           </button>
           <button onClick={() => setShowCreate(!showCreate)} style={{
-            padding: '0.5rem 1rem', background: '#FF192C',
+            padding: '0.5rem 1rem', background: '#9B1438',
             color: '#fff', border: 'none', borderRadius: '0.5rem', fontSize: '0.875rem',
             cursor: 'pointer', fontFamily: 'inherit'
           }}>
@@ -315,7 +315,7 @@ export default function AdminFakeUsers() {
             </div>
           </div>
           <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.75rem' }}>
-            <button onClick={createFake} style={{ padding: '0.45rem 1.25rem', background: '#FF192C', color: '#fff', border: 'none', borderRadius: '0.5rem', fontSize: '0.875rem', cursor: 'pointer', fontFamily: 'inherit' }}>Create</button>
+            <button onClick={createFake} style={{ padding: '0.45rem 1.25rem', background: '#9B1438', color: '#fff', border: 'none', borderRadius: '0.5rem', fontSize: '0.875rem', cursor: 'pointer', fontFamily: 'inherit' }}>Create</button>
             <button onClick={() => setShowCreate(false)} style={{ padding: '0.45rem 1rem', background: '#f1f5f9', color: '#475569', border: 'none', borderRadius: '0.5rem', fontSize: '0.875rem', cursor: 'pointer', fontFamily: 'inherit' }}>Cancel</button>
           </div>
         </div>
@@ -323,7 +323,7 @@ export default function AdminFakeUsers() {
 
       {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', padding: '3rem 0' }}>
-          <div style={{ width: '2rem', height: '2rem', border: '2px solid #FF192C', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+          <div style={{ width: '2rem', height: '2rem', border: '2px solid #9B1438', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
         </div>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1rem' }}>
@@ -366,9 +366,9 @@ export default function AdminFakeUsers() {
 }
 
 const SAMPLE_FAKE_USERS = [
-  { origId: 5, name: "Cel-blue", gender: 2, looking: 1, city: "Los Angeles", country: "United States", age: 38, bio: "When my husband and I divorced, I braced myself for the loneliness. Nothing could prepare me for the pain I felt. I've reached my limit after a year and I'm ready for someone special in my life.", photo: "https://richdatingnetwork.com/assets/sources/uploads/66aa00f948ff3_capture.png", photoThumb: "https://richdatingnetwork.com/assets/sources/uploads/thumb_66aa00f948ff9_Capture.PNG" },
+  { origId: 5, name: "Cel-blue", gender: 2, looking: 1, city: "Los Angeles", country: "United States", age: 38, bio: "When my husband and I divorced, I braced myself for the loneliness. Nothing could prepare me for the pain I felt. I've reached my limit after a year and I'm ready for someone special in my life.", photo: "https://naughtyhaughty.com/assets/sources/uploads/66aa00f948ff3_capture.png", photoThumb: "https://naughtyhaughty.com/assets/sources/uploads/thumb_66aa00f948ff9_Capture.PNG" },
   { origId: 6, name: "Sybill", gender: 2, looking: 1, city: "New York", country: "United States", age: 38, bio: "Hi, im Sybill, 38 years old and im from New York United States", photo: "", photoThumb: "" },
-  { origId: 264, name: "ken", gender: 1, looking: 2, city: "Los Angeles", country: "United States", age: 34, bio: "Looking for a genuine connection", photo: "https://richdatingnetwork.com/assets/sources/uploads/thumb_66c60cb3b5e37_561010377539.jpg", photoThumb: "https://richdatingnetwork.com/assets/sources/uploads/thumb_66c60cb3b5e37_561010377539.jpg" },
+  { origId: 264, name: "ken", gender: 1, looking: 2, city: "Los Angeles", country: "United States", age: 34, bio: "Looking for a genuine connection", photo: "https://naughtyhaughty.com/assets/sources/uploads/thumb_66c60cb3b5e37_561010377539.jpg", photoThumb: "https://naughtyhaughty.com/assets/sources/uploads/thumb_66c60cb3b5e37_561010377539.jpg" },
   { origId: 1226, name: "Stef", gender: 1, looking: 2, city: "Paris", country: "France", age: 42, bio: "Successful professional looking for something real", photo: "", photoThumb: "" },
   { origId: 1482, name: "Ahmed Mousa", gender: 1, looking: 2, city: "Westminster", country: "United Kingdom", age: 33, bio: "City of Westminster", photo: "", photoThumb: "" },
   { origId: 2429, name: "Freddy", gender: 1, looking: 2, city: "Miami", country: "United States", age: 35, bio: "Life is short, let's make it beautiful", photo: "", photoThumb: "" },

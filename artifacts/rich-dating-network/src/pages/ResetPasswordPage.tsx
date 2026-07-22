@@ -66,10 +66,10 @@ export default function ResetPasswordPage() {
   return (
     <div className="min-h-screen flex">
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden flex-col"
-        style={{ background: 'linear-gradient(145deg, #1a0a0e 0%, #3d0d1a 40%, #7a1226 70%, #FF192C 100%)' }}>
+        style={{ background: 'linear-gradient(145deg, #1a0a0e 0%, #3d0d1a 40%, #7a1226 70%, #9B1438 100%)' }}>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full opacity-20"
-            style={{ background: 'radial-gradient(circle, #FF192C, transparent)' }} />
+            style={{ background: 'radial-gradient(circle, #9B1438, transparent)' }} />
         </div>
         <div className="relative z-10 flex flex-col h-full p-10 xl:p-14 justify-center">
           <div className="text-6xl mb-6">🔐</div>
@@ -95,7 +95,7 @@ export default function ResetPasswordPage() {
               <div className="w-9 h-9 rounded-xl gradient-brand flex items-center justify-center shadow-lg">
                 <Heart className="w-4 h-4 text-white fill-white" />
               </div>
-              <span className="font-bold text-gray-900">Rich Dating Network</span>
+              <span className="font-bold text-gray-900">NaughtyHaughty</span>
             </Link>
           </div>
 
@@ -115,7 +115,7 @@ export default function ResetPasswordPage() {
               <p className="text-gray-500 mb-8">This password reset link is invalid or has expired. Please request a new one.</p>
               <Link href="/forgot-password"
                 className="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl font-bold text-white text-sm shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #FF192C, #ff5f6b)' }}>
+                style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
                 Request New Link
               </Link>
             </div>
@@ -154,7 +154,7 @@ export default function ResetPasswordPage() {
                 </div>
                 <button type="submit" disabled={loading || newPassword !== confirmPassword || newPassword.length < 6}
                   className="w-full py-3.5 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/25 disabled:opacity-60"
-                  style={{ background: 'linear-gradient(135deg, #FF192C, #ff5f6b)' }}>
+                  style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
                   {loading && <Loader2 size={17} className="animate-spin" />}
                   Reset Password & Sign In
                 </button>

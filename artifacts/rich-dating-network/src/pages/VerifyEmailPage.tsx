@@ -76,10 +76,10 @@ export default function VerifyEmailPage() {
   return (
     <div className="min-h-screen flex">
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden flex-col"
-        style={{ background: 'linear-gradient(145deg, #1a0a0e 0%, #3d0d1a 40%, #7a1226 70%, #FF192C 100%)' }}>
+        style={{ background: 'linear-gradient(145deg, #1a0a0e 0%, #3d0d1a 40%, #7a1226 70%, #9B1438 100%)' }}>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full opacity-20"
-            style={{ background: 'radial-gradient(circle, #FF192C, transparent)' }} />
+            style={{ background: 'radial-gradient(circle, #9B1438, transparent)' }} />
         </div>
         <div className="relative z-10 flex flex-col h-full p-10 xl:p-14 justify-center">
           <div className="text-6xl mb-6">✉️</div>
@@ -105,7 +105,7 @@ export default function VerifyEmailPage() {
               <div className="w-9 h-9 rounded-xl gradient-brand flex items-center justify-center shadow-lg">
                 <Heart className="w-4 h-4 text-white fill-white" />
               </div>
-              <span className="font-bold text-gray-900">Rich Dating Network</span>
+              <span className="font-bold text-gray-900">NaughtyHaughty</span>
             </Link>
           </div>
 
@@ -147,7 +147,7 @@ export default function VerifyEmailPage() {
                 </div>
                 <button type="submit" disabled={resending}
                   className="w-full py-3.5 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg disabled:opacity-60"
-                  style={{ background: 'linear-gradient(135deg, #FF192C, #ff5f6b)' }}>
+                  style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
                   {resending && <Loader2 size={17} className="animate-spin" />}
                   Resend Verification Email
                 </button>
@@ -176,7 +176,7 @@ export default function VerifyEmailPage() {
                 </div>
                 <button type="submit" disabled={resending}
                   className="w-full py-3.5 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg disabled:opacity-60"
-                  style={{ background: 'linear-gradient(135deg, #FF192C, #ff5f6b)' }}>
+                  style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
                   {resending && <Loader2 size={17} className="animate-spin" />}
                   Resend Email
                 </button>

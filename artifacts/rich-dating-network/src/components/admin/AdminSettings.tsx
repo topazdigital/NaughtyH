@@ -9,9 +9,9 @@ const SECTIONS = [
     icon: Settings,
     color: "text-blue-400",
     fields: [
-      { key: "site_name", label: "Site Name", type: "text", placeholder: "Rich Dating Network" },
+      { key: "site_name", label: "Site Name", type: "text", placeholder: "NaughtyHaughty" },
       { key: "site_tagline", label: "Site Tagline", type: "text", placeholder: "Find Your Perfect Match" },
-      { key: "site_url", label: "Site URL (for referral links)", type: "text", placeholder: "https://richdatingnetwork.com", help: "Used to generate referral invite links" },
+      { key: "site_url", label: "Site URL (for referral links)", type: "text", placeholder: "https://naughtyhaughty.com", help: "Used to generate referral invite links" },
       { key: "site_email", label: "Contact Email", type: "email", placeholder: "support@example.com" },
       { key: "feed_enabled", label: "Homepage Feed (News Feed)", type: "select", options: [["0","Hidden (Discover is default home)"],["1","Visible (show Feed in nav)"]], help: "When disabled, the Feed page is hidden and Discover is the home route" },
       { key: "maintenance_mode", label: "Maintenance Mode", type: "select", options: [["0","Off"],["1","On"]], help: "When on, only admins can access the site" },
@@ -115,7 +115,7 @@ const EMAIL_FIELDS = [
   { key: "smtp_user", label: "SMTP Username / Email", type: "text", placeholder: "noreply@yourdomain.com" },
   { key: "smtp_pass", label: "SMTP Password", type: "password", placeholder: "Your email password or app password" },
   { key: "smtp_from", label: "From Email", type: "text", placeholder: "noreply@yourdomain.com" },
-  { key: "smtp_from_name", label: "From Name", type: "text", placeholder: "Rich Dating Network" },
+  { key: "smtp_from_name", label: "From Name", type: "text", placeholder: "NaughtyHaughty" },
   { key: "smtp_secure", label: "Use TLS/SSL", type: "select", options: [["0","No (STARTTLS on port 587)"],["1","Yes (SSL on port 465)"]] },
 ]
 

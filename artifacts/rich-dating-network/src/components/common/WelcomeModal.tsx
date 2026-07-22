@@ -59,7 +59,7 @@ export default function WelcomeModal({ userName, onClose }: Props) {
               </div>
               <h2 className="text-2xl font-black text-gray-900 mb-2">Welcome, {userName}! 🎉</h2>
               <p className="text-gray-500 text-sm leading-relaxed">
-                You've joined Rich Dating Network — where successful, ambitious singles meet.
+                You've joined NaughtyHaughty — where successful, ambitious singles meet.
                 Let me show you around real quick!
               </p>
             </div>
@@ -96,7 +96,7 @@ export default function WelcomeModal({ userName, onClose }: Props) {
               }
             }}
             className="flex-1 py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/20"
-            style={{ background: 'linear-gradient(135deg, #FF192C, #ff5f6b)' }}>
+            style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
             {step === 0 ? "Let's Go! 🚀" : isLast ? "Start Meeting People 💝" : (<>Next <ChevronRight size={16} /></>)}
           </button>
           <button onClick={onClose} className="p-2 text-gray-400 hover:text-gray-600 transition-colors">

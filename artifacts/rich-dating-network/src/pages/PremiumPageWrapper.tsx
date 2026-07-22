@@ -192,7 +192,7 @@ export default function PremiumPageWrapper() {
               <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>❌</div>
               <h2 style={{ fontWeight: 800, fontSize: '1.1rem', color: '#111827' }}>{pollOutcome === 'timeout' ? 'Request timed out' : 'Payment failed'}</h2>
               <button onClick={() => { setStep('packages'); stopPolling() }}
-                style={{ marginTop: '1.5rem', padding: '0.75rem 2rem', borderRadius: '0.875rem', border: 'none', background: '#FF192C', color: '#fff', fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>
+                style={{ marginTop: '1.5rem', padding: '0.75rem 2rem', borderRadius: '0.875rem', border: 'none', background: '#9B1438', color: '#fff', fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>
                 Try Again
               </button>
             </>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-// Adsterra Native Banner for richdatingnetwork.com.
+// Adsterra Native Banner for naughtyhaughty.com.
 // Adsterra's invoke.js looks for a div with this exact id and injects the ad
 // into it, so only one instance of this component should be mounted at a
 // time per page (it's an SPA — the script only runs once per page load).

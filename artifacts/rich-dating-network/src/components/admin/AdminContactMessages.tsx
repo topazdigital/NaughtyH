@@ -21,13 +21,13 @@ const REPLY_TEMPLATES = [
   { name: "Blank", html: "" },
   {
     name: "Thank you / General reply",
-    html: `<p style="margin:0 0 16px">Thank you for reaching out to us! We appreciate you taking the time to contact Rich Dating Network.</p>
+    html: `<p style="margin:0 0 16px">Thank you for reaching out to us! We appreciate you taking the time to contact NaughtyHaughty.</p>
 <p style="margin:0 0 16px">[Write your reply here]</p>
 <p style="margin:0">If you have any further questions, just reply to this email — we're happy to help.</p>`,
   },
   {
     name: "Payment / Credits clarification",
-    html: `<p style="margin:0 0 16px">Thanks for your payment! I want to clear up how <strong>Premium</strong> and <strong>Credits</strong> work on Rich Dating Network:</p>
+    html: `<p style="margin:0 0 16px">Thanks for your payment! I want to clear up how <strong>Premium</strong> and <strong>Credits</strong> work on NaughtyHaughty:</p>
 <ul style="padding-left:18px;margin:0 0 16px">
   <li><strong>Premium</strong> unlocks sharing contact details, seeing profile visitors, priority placement and a VIP badge.</li>
   <li><strong>Credits</strong> are a separate balance used to send chat messages — every message costs a small number of credits.</li>
@@ -91,7 +91,7 @@ export default function AdminContactMessages() {
             <button key={f} onClick={() => setFilter(f)} style={{
               padding: "7px 16px", borderRadius: 999, border: "none", cursor: "pointer",
               fontSize: 13, fontWeight: 700, textTransform: "capitalize",
-              background: filter === f ? "linear-gradient(135deg,#FF192C,#ff5f6b)" : "#fff",
+              background: filter === f ? "linear-gradient(135deg,#9B1438,#c4546f)" : "#fff",
               color: filter === f ? "#fff" : "#475569",
               boxShadow: filter === f ? "0 3px 8px rgba(255,25,44,0.25)" : "0 1px 2px rgba(0,0,0,0.06)",
             }}>
@@ -124,14 +124,14 @@ export default function AdminContactMessages() {
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#f8fafc"}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "transparent"}>
               <div style={{ marginTop: 2, flexShrink: 0 }}>
-                {m.replied ? <MailOpen size={17} style={{ color: "#94a3b8" }} /> : <Mail size={17} style={{ color: "#FF192C" }} />}
+                {m.replied ? <MailOpen size={17} style={{ color: "#94a3b8" }} /> : <Mail size={17} style={{ color: "#9B1438" }} />}
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
                   <span style={{ fontWeight: 700, fontSize: 13.5, color: "#1e293b" }}>{m.name}</span>
                   <span style={{ fontSize: 12, color: "#94a3b8" }}>{m.email}</span>
                   {!m.replied && (
-                    <span style={{ fontSize: 10, fontWeight: 800, color: "#FF192C", background: "#fef2f2", padding: "2px 7px", borderRadius: 999 }}>PENDING</span>
+                    <span style={{ fontSize: 10, fontWeight: 800, color: "#9B1438", background: "#fef2f2", padding: "2px 7px", borderRadius: 999 }}>PENDING</span>
                   )}
                   {m.replied === 1 && (
                     <span style={{ fontSize: 10, fontWeight: 800, color: "#16a34a", background: "#f0fdf4", padding: "2px 7px", borderRadius: 999 }}>REPLIED</span>
@@ -196,7 +196,7 @@ function MessageDetailModal({ message, onClose, onDelete, onSent }: {
           <div>
             <div style={{ fontWeight: 800, fontSize: 15, color: "#1e293b" }}>{message.subject || "(no subject)"}</div>
             <div style={{ fontSize: 12.5, color: "#64748b", marginTop: 4 }}>
-              From <strong style={{ color: "#1e293b" }}>{message.name}</strong> · <a href={`mailto:${message.email}`} style={{ color: "#FF192C" }}>{message.email}</a> · {formatDate(message.createdAt)}
+              From <strong style={{ color: "#1e293b" }}>{message.name}</strong> · <a href={`mailto:${message.email}`} style={{ color: "#9B1438" }}>{message.email}</a> · {formatDate(message.createdAt)}
             </div>
           </div>
           <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: "#94a3b8", padding: 4 }}><X size={18} /></button>
@@ -237,7 +237,7 @@ function MessageDetailModal({ message, onClose, onDelete, onSent }: {
               style={{ width: "100%", padding: "9px 12px", borderRadius: 8, border: "1px solid #e2e8f0", fontSize: 13.5, marginBottom: 8, boxSizing: "border-box" }} />
 
             <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 6 }}>
-              <button onClick={() => setPreview(!preview)} style={{ fontSize: 12, color: "#FF192C", background: "none", border: "none", cursor: "pointer", fontWeight: 700 }}>
+              <button onClick={() => setPreview(!preview)} style={{ fontSize: 12, color: "#9B1438", background: "none", border: "none", cursor: "pointer", fontWeight: 700 }}>
                 {preview ? "Edit HTML" : "Preview"}
               </button>
             </div>
@@ -262,7 +262,7 @@ function MessageDetailModal({ message, onClose, onDelete, onSent }: {
           </button>
           <button onClick={send} disabled={sending} style={{
             display: "flex", alignItems: "center", gap: 8, padding: "10px 22px", borderRadius: 999, border: "none",
-            background: "linear-gradient(135deg,#FF192C,#ff5f6b)", color: "#fff", fontWeight: 700, fontSize: 13.5,
+            background: "linear-gradient(135deg,#9B1438,#c4546f)", color: "#fff", fontWeight: 700, fontSize: 13.5,
             cursor: "pointer", opacity: sending ? 0.6 : 1, boxShadow: "0 3px 10px rgba(255,25,44,0.3)",
           }}>
             <Send size={14} /> {sending ? "Sending…" : "Send Reply"}

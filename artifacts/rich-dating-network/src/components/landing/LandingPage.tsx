@@ -95,7 +95,7 @@ function HeroRegisterForm() {
         </div>
         <button type="submit" disabled={loading}
           className="w-full py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/25 disabled:opacity-60"
-          style={{ background: 'linear-gradient(135deg, #FF192C, #ff5f6b)' }}>
+          style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
           {loading ? <Loader2 size={16} className="animate-spin" /> : null}
           Create Free Account <ChevronRight size={16} />
         </button>
@@ -160,7 +160,7 @@ function HeroLoginForm() {
       </div>
       <button type="submit" disabled={loading}
         className="w-full py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/25 disabled:opacity-60"
-        style={{ background: 'linear-gradient(135deg, #FF192C, #ff5f6b)' }}>
+        style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
         {loading ? <Loader2 size={16} className="animate-spin" /> : null}
         Sign In
       </button>
@@ -223,7 +223,7 @@ export default function LandingPage() {
           style={{
             background: heroBg
               ? 'none'
-              : 'linear-gradient(145deg, #1a0a0e 0%, #3d0d1a 40%, #7a1226 70%, #FF192C 100%)',
+              : 'linear-gradient(145deg, #1a0a0e 0%, #3d0d1a 40%, #7a1226 70%, #9B1438 100%)',
             minHeight: 'clamp(480px, 70vh, 100vh)',
           }}>
           {heroBg && (
@@ -292,7 +292,7 @@ export default function LandingPage() {
                 <div className="w-9 h-9 rounded-xl gradient-brand flex items-center justify-center shadow-lg">
                   <Heart className="w-4 h-4 text-white fill-white" />
                 </div>
-                <span className="font-bold text-lg text-gray-900">Rich Dating Network</span>
+                <span className="font-bold text-lg text-gray-900">NaughtyHaughty</span>
               </Link>
             </div>
 
@@ -429,14 +429,14 @@ export default function LandingPage() {
             <div>
               <h2 className="text-lg font-bold text-gray-900 mb-3">Where Ambition Meets Attraction</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-3">
-                Rich Dating Network is a premium dating platform built exclusively for successful, motivated singles
+                NaughtyHaughty is a premium dating platform built exclusively for successful, motivated singles
                 who understand the value of a genuine connection. Our members are accomplished professionals —
                 executives, entrepreneurs, doctors, lawyers, and high-achievers — from Kenya, Nigeria, South Africa,
                 the UK, USA, Dubai, and 180+ countries worldwide.
               </p>
               <p className="text-sm text-gray-500 leading-relaxed">
                 Whether you are seeking a long-term relationship, a meaningful companionship, or simply someone
-                who matches your drive and lifestyle, Rich Dating Network brings together people who have standards —
+                who matches your drive and lifestyle, NaughtyHaughty brings together people who have standards —
                 and the means to enjoy life together.
               </p>
             </div>
@@ -505,7 +505,7 @@ export default function LandingPage() {
               <div className="w-7 h-7 rounded-lg gradient-brand flex items-center justify-center">
                 <Heart className="w-3.5 h-3.5 text-white fill-white" />
               </div>
-              <span className="text-white font-bold">Rich Dating Network</span>
+              <span className="text-white font-bold">NaughtyHaughty</span>
             </div>
             <div className="flex flex-wrap gap-6 text-sm justify-center">
               <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
@@ -516,7 +516,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-4 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-600">
-            <p>© {new Date().getFullYear()} Rich Dating Network. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} NaughtyHaughty. All rights reserved.</p>
             <p>Built with ❤️ for successful singles worldwide</p>
           </div>
         </div>

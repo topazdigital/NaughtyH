@@ -88,7 +88,7 @@ export default function AdminPage() {
 
   if (loading) return (
     <div style={{ minHeight: '100vh', background: '#f8fafc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ width: '2rem', height: '2rem', border: '2px solid #FF192C', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+      <div style={{ width: '2rem', height: '2rem', border: '2px solid #9B1438', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
     </div>
   )
 
@@ -108,10 +108,10 @@ export default function AdminPage() {
         {/* Logo */}
         <div style={{ padding: '0.75rem 1rem', borderBottom: '1px solid #e2e8f0' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <div style={{ width: '2rem', height: '2rem', borderRadius: '0.625rem', background: 'linear-gradient(135deg,#FF192C,#ff5f6b)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem', boxShadow: '0 3px 8px rgba(255,25,44,0.35)' }}>❤️</div>
+            <div style={{ width: '2rem', height: '2rem', borderRadius: '0.625rem', background: 'linear-gradient(135deg,#9B1438,#c4546f)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem', boxShadow: '0 3px 8px rgba(255,25,44,0.35)' }}>❤️</div>
             <div>
-              <p style={{ color: '#1e293b', fontWeight: 800, fontSize: '0.78rem' }}>Rich Dating Network</p>
-              <p style={{ color: '#FF192C', fontSize: '0.65rem', fontWeight: 700 }}>Admin Panel</p>
+              <p style={{ color: '#1e293b', fontWeight: 800, fontSize: '0.78rem' }}>NaughtyHaughty</p>
+              <p style={{ color: '#9B1438', fontSize: '0.65rem', fontWeight: 700 }}>Admin Panel</p>
             </div>
           </div>
         </div>
@@ -119,12 +119,12 @@ export default function AdminPage() {
         {/* Admin user */}
         <div style={{ padding: '0.625rem 0.75rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.625rem', padding: '0.5rem 0.625rem', background: '#fef2f2', borderRadius: '0.625rem', border: '1px solid #fecaca' }}>
-            <div style={{ width: '1.875rem', height: '1.875rem', borderRadius: '50%', background: '#FF192C', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, fontSize: '0.8rem', flexShrink: 0 }}>
+            <div style={{ width: '1.875rem', height: '1.875rem', borderRadius: '50%', background: '#9B1438', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, fontSize: '0.8rem', flexShrink: 0 }}>
               {user.name?.[0]?.toUpperCase()}
             </div>
             <div style={{ minWidth: 0 }}>
               <p style={{ color: '#1e293b', fontSize: '0.78rem', fontWeight: 700, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{user.name}</p>
-              <p style={{ color: '#FF192C', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.05em' }}>ADMINISTRATOR</p>
+              <p style={{ color: '#9B1438', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.05em' }}>ADMINISTRATOR</p>
             </div>
           </div>
 
@@ -133,7 +133,7 @@ export default function AdminPage() {
               <button key={m.key} onClick={() => { setTab(m.key); setSidebarOpen(false) }} style={{
                 width: '100%', display: 'flex', alignItems: 'center', gap: '0.6rem',
                 padding: '0.45rem 0.625rem', borderRadius: '0.6rem', border: 'none', cursor: 'pointer',
-                background: tab === m.key ? 'linear-gradient(135deg,#FF192C,#ff5f6b)' : 'transparent',
+                background: tab === m.key ? 'linear-gradient(135deg,#9B1438,#c4546f)' : 'transparent',
                 color: tab === m.key ? '#fff' : '#475569',
                 fontSize: '0.78rem', fontWeight: 600, textAlign: 'left', transition: 'all 0.15s',
                 fontFamily: 'inherit',
@@ -145,8 +145,8 @@ export default function AdminPage() {
                 <span style={{ flex: 1 }}>{m.label}</span>
                 {m.key === 'fake-chat' && chatUnread > 0 && (
                   <span style={{
-                    background: tab === m.key ? 'rgba(255,255,255,0.9)' : '#FF192C',
-                    color: tab === m.key ? '#FF192C' : '#fff',
+                    background: tab === m.key ? 'rgba(255,255,255,0.9)' : '#9B1438',
+                    color: tab === m.key ? '#9B1438' : '#fff',
                     fontSize: '0.6rem', fontWeight: 800,
                     borderRadius: '999px', padding: '1px 5px',
                     minWidth: '1.1rem', textAlign: 'center', lineHeight: '1.4',
@@ -157,8 +157,8 @@ export default function AdminPage() {
                 )}
                 {m.key === 'contact-messages' && contactPending > 0 && (
                   <span style={{
-                    background: tab === m.key ? 'rgba(255,255,255,0.9)' : '#FF192C',
-                    color: tab === m.key ? '#FF192C' : '#fff',
+                    background: tab === m.key ? 'rgba(255,255,255,0.9)' : '#9B1438',
+                    color: tab === m.key ? '#9B1438' : '#fff',
                     fontSize: '0.6rem', fontWeight: 800,
                     borderRadius: '999px', padding: '1px 5px',
                     minWidth: '1.1rem', textAlign: 'center', lineHeight: '1.4',
@@ -198,7 +198,7 @@ export default function AdminPage() {
           </button>
           <div>
             <h1 style={{ color: '#1e293b', fontWeight: 700, fontSize: '1rem' }}>{MENU.find(m => m.key === tab)?.label}</h1>
-            <p style={{ color: '#94a3b8', fontSize: '0.72rem' }}>Rich Dating Network · Admin</p>
+            <p style={{ color: '#94a3b8', fontSize: '0.72rem' }}>NaughtyHaughty · Admin</p>
           </div>
         </header>
 

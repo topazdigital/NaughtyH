@@ -82,14 +82,14 @@ export default function ProfilePage({ params }: Props) {
     const occupation: string = profileUser.userExtended?.occupation || profileUser.occupation || ''
     const username = profileUser.username
 
-    // Page title — e.g. "Wagner, 53, Orlando | Rich Dating Network"
+    // Page title — e.g. "Wagner, 53, Orlando | NaughtyHaughty"
     const titleParts = [name, age || null, city || null].filter(Boolean)
-    const title = titleParts.join(', ') + ' | Rich Dating Network'
+    const title = titleParts.join(', ') + ' | NaughtyHaughty'
     document.title = title
 
     // Meta description — keyword-rich, naturally written
     const locationStr = city && country ? `${city}, ${country}` : city || country
-    const descParts = [`Meet ${name}${age ? `, ${age}` : ''}${locationStr ? ` from ${locationStr}` : ''} on Rich Dating Network.`]
+    const descParts = [`Meet ${name}${age ? `, ${age}` : ''}${locationStr ? ` from ${locationStr}` : ''} on NaughtyHaughty.`]
     if (occupation) descParts.push(`${occupation}.`)
     if (bio) descParts.push(bio.slice(0, 100))
     descParts.push('Connect with verified wealthy singles on the #1 luxury dating platform.')
@@ -102,12 +102,12 @@ export default function ProfilePage({ params }: Props) {
     upsertMeta('og:title', title, true)
     upsertMeta('og:description', description, true)
     upsertMeta('og:type', 'profile', true)
-    upsertMeta('og:site_name', 'Rich Dating Network', true)
+    upsertMeta('og:site_name', 'NaughtyHaughty', true)
 
     // Canonical URL
     const canonical = username
-      ? `https://richdatingnetwork.com/@${username}`
-      : `https://richdatingnetwork.com/profile/${profileUser.id}`
+      ? `https://naughtyhaughty.com/@${username}`
+      : `https://naughtyhaughty.com/profile/${profileUser.id}`
     upsertLink('canonical', canonical)
     upsertMeta('og:url', canonical, true)
 
@@ -118,21 +118,21 @@ export default function ProfilePage({ params }: Props) {
       upsertMeta('og:image', photoUrl, true)
       upsertMeta('og:image:width', '800', true)
       upsertMeta('og:image:height', '800', true)
-      upsertMeta('og:image:alt', `${name} — Rich Dating Network`, true)
+      upsertMeta('og:image:alt', `${name} — NaughtyHaughty`, true)
       upsertMeta('twitter:image', photoUrl)
-      upsertMeta('twitter:image:alt', `${name} on Rich Dating Network`)
+      upsertMeta('twitter:image:alt', `${name} on NaughtyHaughty`)
     }
 
     upsertMeta('twitter:card', 'summary_large_image')
     upsertMeta('twitter:title', title)
     upsertMeta('twitter:description', description)
-    upsertMeta('twitter:site', '@richdatingnet')
+    upsertMeta('twitter:site', '@naughtyhaughty')
 
     // JSON-LD Person schema — tells Google exactly who this page is about
     const locationSchema = locationStr ? { '@type': 'Place', name: locationStr } : undefined
     const photoPath = profileUser.photo ? getPhotoUrl(profileUser.photo) : null
     const photoAbsUrl = photoPath
-      ? (photoPath.startsWith('http') ? photoPath : `https://richdatingnetwork.com${photoPath}`)
+      ? (photoPath.startsWith('http') ? photoPath : `https://naughtyhaughty.com${photoPath}`)
       : null
     upsertJsonLd('profile-jsonld', {
       '@context': 'https://schema.org',
@@ -146,8 +146,8 @@ export default function ProfilePage({ params }: Props) {
       url: canonical,
       memberOf: {
         '@type': 'Organization',
-        name: 'Rich Dating Network',
-        url: 'https://richdatingnetwork.com',
+        name: 'NaughtyHaughty',
+        url: 'https://naughtyhaughty.com',
       },
     })
 
@@ -156,8 +156,8 @@ export default function ProfilePage({ params }: Props) {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Rich Dating Network', item: 'https://richdatingnetwork.com' },
-        { '@type': 'ListItem', position: 2, name: 'Members', item: 'https://richdatingnetwork.com/discover' },
+        { '@type': 'ListItem', position: 1, name: 'NaughtyHaughty', item: 'https://naughtyhaughty.com' },
+        { '@type': 'ListItem', position: 2, name: 'Members', item: 'https://naughtyhaughty.com/discover' },
         { '@type': 'ListItem', position: 3, name: name, item: canonical },
       ],
     })
@@ -234,7 +234,7 @@ export default function ProfilePage({ params }: Props) {
             )}
             <div className="bg-gradient-to-r from-brand-50 to-pink-50 rounded-2xl p-4 text-center">
               <p className="font-semibold text-gray-900 mb-1">Want to connect with {profileUser.name}?</p>
-              <p className="text-gray-500 text-sm mb-3">Join Rich Dating Network free and start messaging verified wealthy singles today.</p>
+              <p className="text-gray-500 text-sm mb-3">Join NaughtyHaughty free and start messaging verified wealthy singles today.</p>
               <Link href="/register" className="btn-primary w-full block text-center">Join Free — Start Chatting</Link>
             </div>
             <p className="text-center text-sm text-gray-400">

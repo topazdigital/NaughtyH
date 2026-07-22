@@ -5,7 +5,7 @@ import { authFetch } from '../../lib/auth'
 import { timeAgo, getPhotoUrl } from '../../lib/utils'
 
 const TYPE_CONFIG: Record<string, { icon: typeof Heart; color: string; bg: string }> = {
-  like: { icon: Heart, color: '#FF192C', bg: '#fff0f1' },
+  like: { icon: Heart, color: '#9B1438', bg: '#fff0f1' },
   message: { icon: MessageCircle, color: '#3b82f6', bg: '#eff6ff' },
   visit: { icon: Eye, color: '#8b5cf6', bg: '#f5f3ff' },
   gift: { icon: Gift, color: '#f59e0b', bg: '#fffbeb' },
@@ -71,7 +71,7 @@ export default function NotificationDropdown() {
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         borderRadius: '0.75rem', border: 'none', cursor: 'pointer',
         background: open ? '#fff0f1' : 'transparent',
-        color: open ? '#FF192C' : '#6b7280',
+        color: open ? '#9B1438' : '#6b7280',
         transition: 'all 0.15s',
       }}
         onMouseEnter={e => { if (!open) { (e.currentTarget as HTMLElement).style.background = '#f9fafb' } }}
@@ -81,7 +81,7 @@ export default function NotificationDropdown() {
           <span style={{
             position: 'absolute', top: '2px', right: '2px',
             minWidth: '16px', height: '16px',
-            background: '#FF192C', color: '#fff',
+            background: '#9B1438', color: '#fff',
             fontSize: '10px', fontWeight: 800,
             borderRadius: '999px', display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: '0 3px', boxShadow: '0 0 0 2px #fff',
@@ -112,7 +112,7 @@ export default function NotificationDropdown() {
               {unread === 0 && notifications.length > 0 && <p style={{ fontSize: '0.72rem', color: '#9ca3af' }}>All caught up!</p>}
             </div>
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-              <Link href="/notifications" onClick={() => setOpen(false)} style={{ fontSize: '0.75rem', color: '#FF192C', fontWeight: 700, textDecoration: 'none' }}>
+              <Link href="/notifications" onClick={() => setOpen(false)} style={{ fontSize: '0.75rem', color: '#9B1438', fontWeight: 700, textDecoration: 'none' }}>
                 See all
               </Link>
               <button onClick={() => setOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#9ca3af', padding: '2px', display: 'flex' }}>
@@ -125,7 +125,7 @@ export default function NotificationDropdown() {
           <div style={{ overflowY: 'auto', maxHeight: '380px' }}>
             {loading ? (
               <div style={{ padding: '2rem', textAlign: 'center' }}>
-                <div style={{ width: '1.5rem', height: '1.5rem', border: '2px solid #e5e7eb', borderTopColor: '#FF192C', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto' }} />
+                <div style={{ width: '1.5rem', height: '1.5rem', border: '2px solid #e5e7eb', borderTopColor: '#9B1438', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto' }} />
                 <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
               </div>
             ) : notifications.length === 0 ? (
@@ -174,7 +174,7 @@ export default function NotificationDropdown() {
                         <p style={{ fontSize: '0.72rem', color: '#9ca3af', marginTop: '0.2rem' }}>{timeAgo(n.time)}</p>
                       </div>
                       {n.read === 0 && (
-                        <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#FF192C', flexShrink: 0, marginTop: '4px' }} />
+                        <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#9B1438', flexShrink: 0, marginTop: '4px' }} />
                       )}
                     </div>
                   </Link>

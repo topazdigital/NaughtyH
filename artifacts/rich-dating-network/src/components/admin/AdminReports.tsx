@@ -86,7 +86,7 @@ export default function AdminReports() {
 
       {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '4rem' }}>
-          <div style={{ width: '2rem', height: '2rem', border: '2px solid #FF192C', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+          <div style={{ width: '2rem', height: '2rem', border: '2px solid #9B1438', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
         </div>
       ) : reports.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '5rem 1rem' }}>

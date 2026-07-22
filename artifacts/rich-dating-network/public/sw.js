@@ -58,7 +58,7 @@ self.addEventListener("push", (event) => {
   let data = {}
   try { data = event.data?.json() || {} } catch {}
 
-  const title = data.title || "Rich Dating Network"
+  const title = data.title || "NaughtyHaughty"
   const options = {
     body: data.body || "You have a new notification",
     icon: data.icon || "/icons/icon-192.svg",
