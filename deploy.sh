@@ -163,23 +163,23 @@ echo "[7/7] Configuring Apache proxy & starting PM2..."
 #   wet3camp-api=8080, betcheza=3001, others=3000/3005/5000
 # This requires mod_proxy + mod_proxy_http to be enabled in Apache.
 cat > .htaccess << 'HTACCESS'
-# Proxy all requests to Node.js server on port 7080
+# Proxy all requests to Node.js server on port 7081
 # Requires mod_proxy and mod_proxy_http in Apache
 DirectoryIndex disabled
 
 RewriteEngine On
 RewriteCond %{HTTP:Upgrade} websocket [NC]
 RewriteCond %{HTTP:Connection} upgrade [NC]
-RewriteRule ^(.*)$ ws://localhost:7080/$1 [P,L]
-RewriteRule ^(.*)$ http://localhost:7080/$1 [P,L,QSA]
+RewriteRule ^(.*)$ ws://localhost:7081/$1 [P,L]
+RewriteRule ^(.*)$ http://localhost:7081/$1 [P,L,QSA]
 HTACCESS
 
 # Stop PM2 process cleanly
-pm2 stop rdn-api 2>/dev/null || true
-pm2 delete rdn-api 2>/dev/null || true
+pm2 stop naughtyhaughty-api 2>/dev/null || true
+pm2 delete naughtyhaughty-api 2>/dev/null || true
 sleep 2
-# Force-free port 7080 if something is still holding it (EADDRINUSE prevention)
-fuser -k 7080/tcp 2>/dev/null || lsof -ti :7080 | xargs kill -9 2>/dev/null || true
+# Force-free port 7081 if something is still holding it (EADDRINUSE prevention)
+fuser -k 7081/tcp 2>/dev/null || lsof -ti :7081 | xargs kill -9 2>/dev/null || true
 sleep 1
 
 pm2 start ecosystem.config.cjs
@@ -191,7 +191,7 @@ echo ""
 echo "==============================="
 echo "  Deployment Complete! ✓"
 echo "==============================="
-echo "  Node.js: http://localhost:7080"
+echo "  Node.js: http://localhost:7081"
 echo "  Site:    https://naughtyhaughty.com"
 echo ""
 echo "  Status:  pm2 status"
