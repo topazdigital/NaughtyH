@@ -33,7 +33,7 @@ REMOTE="https://topazdigital:${GITHUB_TOKEN}@github.com/topazdigital/NaughtyH.gi
 SSH_HOST="157.250.205.180"
 SSH_USER="root"
 SSH_PORT="22"
-APPDIR="/home/admin_naughtyhaughty/domains/naughtyhaughty.com/public_html"
+APPDIR="/home/admin/domains/naughtyhaughty.com/public_html"
 
 # ── 1. Commit any uncommitted changes ─────────────────────
 echo ""

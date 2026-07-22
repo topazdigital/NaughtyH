@@ -6,12 +6,12 @@ description: Correct server paths for deploying NaughtyHaughty to production
 # Production Deploy Command
 
 ## Rule
-Always use the `admin` DirectAdmin user for all deployments on 157.250.205.180.
+The `admin` DirectAdmin user owns all domains on 157.250.205.180.
 
 **NaughtyHaughty path:** `/home/admin/domains/naughtyhaughty.com/public_html`
 **RichDatingNetwork path:** `/home/admin/domains/test.richdatingnetwork.com/public_html`
-**Deploy script:** `bash scripts/push-to-github.sh` (from Replit shell)
+**Deploy script:** `bash scripts/push-to-github.sh` (run from Replit shell)
 
-**Why:** A previous agent invented a non-existent `admin_naughtyhaughty` DirectAdmin user. All domains belong to the same `admin` account on the server. The DirectAdmin file manager confirms naughtyhaughty.com is under the `admin` home directory alongside richdatingnetwork.com and other domains.
+**Why:** All domains belong to the `admin` DirectAdmin account. The `admin_naughtyhaughty` path was created by a previous agent as a separate user account — the user cannot see it in their file manager and does not want files there. Always deploy to `/home/admin/domains/<domain>/public_html`.
 
 **How to apply:** Never use `admin_naughtyhaughty` or any other invented username. All paths are `/home/admin/domains/<domain>/public_html`.
