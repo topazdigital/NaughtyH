@@ -447,7 +447,7 @@ importers:
         specifier: 'catalog:'
         version: 3.25.76
 
-  artifacts/rich-dating-network:
+  artifacts/naughty-haughty:
     dependencies:
       '@microsoft/clarity':
         specifier: ^1.0.2

@@ -162,8 +162,8 @@ export default function MembersPage() {
       <div className="bg-white border-b border-gray-100 sticky top-0 z-30 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <span className="text-xl">❤️</span>
-            <span className="font-bold text-gray-900 hidden sm:block"><span className="text-brand-500">Rich</span> Dating Network</span>
+            <span className="text-xl">🔥</span>
+            <span className="font-bold text-gray-900 hidden sm:block"><span className="text-brand-500">Naughty</span> Haughty</span>
           </Link>
 
           {/* Filter toggle */}

@@ -22,7 +22,7 @@ args = "API Server"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Rich Dating Network"
+args = "Naughty Haughty"
 
 [[workflows.workflow]]
 name = "API Server"
@@ -37,7 +37,7 @@ args = "PORT=8080 pnpm --filter @workspace/api-server run dev"
 waitForPort = 8080
 
 [[workflows.workflow]]
-name = "Rich Dating Network"
+name = "Naughty Haughty"
 author = "agent"
 
 [workflows.workflow.metadata]
@@ -45,7 +45,7 @@ outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "PORT=5000 pnpm --filter @workspace/rich-dating-network run dev"
+args = "PORT=5000 pnpm --filter @workspace/naughty-haughty run dev"
 waitForPort = 5000
 
 [agent]

@@ -362,7 +362,7 @@ async function searchNominatim(q: string): Promise<{ city: string; country: stri
   try {
     const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&addressdetails=1&limit=10&featuretype=city`
     const resp = await fetch(url, {
-      headers: { "User-Agent": "RichDatingNetwork/1.0 (contact@richdating.net)" },
+      headers: { "User-Agent": "NaughtyHaughty/1.0 (contact@naughtyhaughty.com)" },
       signal: AbortSignal.timeout(4000),
     })
     if (!resp.ok) return []
@@ -408,7 +408,7 @@ router.get("/detect", async (req, res) => {
 
     const resp = await fetch(`https://ipapi.co/${ip}/json/`, {
       signal: AbortSignal.timeout(3000),
-      headers: { "User-Agent": "RichDatingNetwork/1.0" }
+      headers: { "User-Agent": "NaughtyHaughty/1.0" }
     })
     if (!resp.ok) { res.json({ country: "", countryCode: "", city: "" }); return }
     const data = await resp.json() as any

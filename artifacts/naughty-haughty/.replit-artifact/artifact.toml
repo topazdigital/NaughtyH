@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "Rich Dating Network"
+title = "Naughty Haughty"
 version = "1.0.0"
 id = "artifacts/rich-dating-network"
 router = "path"
@@ -15,11 +15,11 @@ paths = [ "/" ]
 localPort = 19060
 
 [services.development]
-run = "pnpm --filter @workspace/rich-dating-network run dev"
+run = "pnpm --filter @workspace/naughty-haughty run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/rich-dating-network", "run", "build" ]
-publicDir = "artifacts/rich-dating-network/dist/public"
+build = [ "pnpm", "--filter", "@workspace/naughty-haughty", "run", "build" ]
+publicDir = "artifacts/naughty-haughty/dist/public"
 serve = "static"
 
 [[services.production.rewrites]]

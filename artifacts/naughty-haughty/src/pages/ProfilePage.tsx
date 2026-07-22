@@ -174,8 +174,8 @@ export default function ProfilePage({ params }: Props) {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <div className="flex items-center px-5 py-4 bg-white border-b border-gray-100">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl">❤️</span>
-          <span className="font-bold text-gray-900 text-lg"><span className="text-brand-500">Rich</span> Dating Network</span>
+          <span className="text-2xl">🔥</span>
+          <span className="font-bold text-gray-900 text-lg"><span className="text-brand-500">Naughty</span> Haughty</span>
         </Link>
       </div>
       <div className="flex-1 flex items-center justify-center text-center px-4 py-20">
@@ -195,8 +195,8 @@ export default function ProfilePage({ params }: Props) {
       {/* Minimal branded header — no app nav since user isn't logged in */}
       <div className="flex items-center justify-between px-5 py-4 bg-white border-b border-gray-100">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl">❤️</span>
-          <span className="font-bold text-gray-900 text-lg"><span className="text-brand-500">Rich</span> Dating Network</span>
+          <span className="text-2xl">🔥</span>
+          <span className="font-bold text-gray-900 text-lg"><span className="text-brand-500">Naughty</span> Haughty</span>
         </Link>
         <div className="flex items-center gap-2">
           <Link href="/login" className="text-sm font-medium text-gray-600 hover:text-brand-500 transition-colors px-3 py-1.5">Sign In</Link>

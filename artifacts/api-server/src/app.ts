@@ -212,9 +212,9 @@ function buildCrawlerHtml(profile: any): string {
 // Serve built React frontend in production
 // Looks for the dist relative to CWD (project root) or next to dist/
 const possibleFrontendDirs = [
-  path.join(process.cwd(), "artifacts/rich-dating-network/dist/public"),
-  path.resolve(__dirname, "../../rich-dating-network/dist/public"),
-  path.resolve(__dirname, "../../../artifacts/rich-dating-network/dist/public"),
+  path.join(process.cwd(), "artifacts/naughty-haughty/dist/public"),
+  path.resolve(__dirname, "../../naughty-haughty/dist/public"),
+  path.resolve(__dirname, "../../../artifacts/naughty-haughty/dist/public"),
 ];
 const frontendDir = possibleFrontendDirs.find(d => fs.existsSync(d));
 
@@ -254,7 +254,7 @@ if (frontendDir) {
     if (fs.existsSync(indexPath)) {
       res.sendFile(indexPath);
     } else {
-      res.status(404).send("Frontend not built. Run: pnpm --filter @workspace/rich-dating-network run build");
+      res.status(404).send("Frontend not built. Run: pnpm --filter @workspace/naughty-haughty run build");
     }
   });
   logger.info({ frontendDir }, "Serving React frontend from Express");

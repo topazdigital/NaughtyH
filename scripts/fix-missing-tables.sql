@@ -154,9 +154,9 @@ INSERT IGNORE INTO `gifts` (`id`, `name`, `emoji`, `credits`, `active`) VALUES
 
 -- Seed site_config base values if missing
 INSERT IGNORE INTO `site_config` (`key`, `value`) VALUES
-  ('site_name',        'Rich Dating Network'),
-  ('site_url',         'https://richdatingnetwork.com'),
-  ('site_email',       'info@richdatingnetwork.com'),
+  ('site_name',        'NaughtyHaughty'),
+  ('site_url',         'https://naughtyhaughty.com'),
+  ('site_email',       'info@naughtyhaughty.com'),
   ('currency',         'USD'),
   ('credits_name',     'Credits'),
   ('credits_per_message', '0'),
