@@ -17,9 +17,11 @@ export default function SettingsPageWrapper() {
   }, [token])
 
   if (loading) return (
-    <div className="max-w-2xl mx-auto px-4 py-6 animate-pulse space-y-4">
-      <div className="h-8 bg-gray-200 rounded w-1/3" />
-      <div className="h-64 bg-gray-200 rounded-2xl" />
+    <div className="w-full min-h-screen" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+      <div className="max-w-3xl mx-auto px-4 py-6 animate-pulse space-y-4">
+        <div className="h-8 rounded w-1/3" style={{ background: 'rgba(255,255,255,0.1)' }} />
+        <div className="h-64 rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)' }} />
+      </div>
     </div>
   )
 

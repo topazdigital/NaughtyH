@@ -164,25 +164,27 @@ export default function ProfilePage({ params }: Props) {
   }, [profileUser])
 
   if (loading) return (
-    <div className="max-w-3xl mx-auto px-4 py-6 animate-pulse">
-      <div className="h-72 bg-gray-200 rounded-2xl mb-4" />
-      <div className="h-32 bg-gray-200 rounded-2xl mb-4" />
+    <div className="w-full min-h-screen animate-pulse" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+      <div className="max-w-5xl mx-auto px-4 py-6">
+        <div className="h-72 rounded-3xl mb-4" style={{ background: 'rgba(255,255,255,0.06)' }} />
+        <div className="h-32 rounded-3xl mb-4" style={{ background: 'rgba(255,255,255,0.04)' }} />
+      </div>
     </div>
   )
 
   if (!profileUser?.id) return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <div className="flex items-center px-5 py-4 bg-white border-b border-gray-100">
+    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+      <div className="flex items-center px-5 py-4 border-b" style={{ borderColor: 'rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}>
         <Link href="/" className="flex items-center gap-2">
           <span className="text-2xl">🔥</span>
-          <span className="font-bold text-gray-900 text-lg"><span className="text-brand-500">Naughty</span> Haughty</span>
+          <span className="font-bold text-white text-lg"><span className="text-brand-400">Naughty</span> Haughty</span>
         </Link>
       </div>
       <div className="flex-1 flex items-center justify-center text-center px-4 py-20">
         <div>
           <div className="text-5xl mb-4">😕</div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Profile not found</h2>
-          <p className="text-gray-500 text-sm mb-6">This profile may have been removed or doesn't exist.</p>
+          <h2 className="text-xl font-semibold text-white mb-2">Profile not found</h2>
+          <p className="text-white/50 text-sm mb-6">This profile may have been removed or doesn't exist.</p>
           <Link href={token ? "/discover" : "/"} className="btn-primary">Browse Members</Link>
         </div>
       </div>
@@ -191,21 +193,21 @@ export default function ProfilePage({ params }: Props) {
 
   // Guest view (unauthenticated) — show profile info with a join CTA instead of messaging actions
   if (!token) return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Minimal branded header — no app nav since user isn't logged in */}
-      <div className="flex items-center justify-between px-5 py-4 bg-white border-b border-gray-100">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+      {/* Minimal branded header */}
+      <div className="flex items-center justify-between px-5 py-4 border-b" style={{ borderColor: 'rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}>
         <Link href="/" className="flex items-center gap-2">
           <span className="text-2xl">🔥</span>
-          <span className="font-bold text-gray-900 text-lg"><span className="text-brand-500">Naughty</span> Haughty</span>
+          <span className="font-bold text-white text-lg"><span className="text-brand-400">Naughty</span> Haughty</span>
         </Link>
         <div className="flex items-center gap-2">
-          <Link href="/login" className="text-sm font-medium text-gray-600 hover:text-brand-500 transition-colors px-3 py-1.5">Sign In</Link>
+          <Link href="/login" className="text-sm font-medium text-white/60 hover:text-white transition-colors px-3 py-1.5">Sign In</Link>
           <Link href="/register" className="btn-primary text-sm px-4 py-2">Join Free</Link>
         </div>
       </div>
 
-      <div className="max-w-lg mx-auto px-0 sm:px-4 py-0 sm:py-6">
-        <div className="bg-white sm:rounded-2xl shadow-xl overflow-hidden mb-4">
+      <div className="max-w-lg mx-auto px-0 sm:px-4 py-0 sm:py-8">
+        <div className="sm:rounded-3xl overflow-hidden mb-4 shadow-2xl" style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.04)' }}>
           {/* Photo hero */}
           <div className="relative bg-gray-900 overflow-hidden" style={{ aspectRatio: '4/5', maxHeight: '520px', minHeight: '300px' }}>
             <img
@@ -230,15 +232,15 @@ export default function ProfilePage({ params }: Props) {
           {/* Bio + CTA */}
           <div className="p-5 space-y-4">
             {(profileUser.userExtended?.bio || profileUser.bio) && (
-              <p className="text-gray-600 text-sm leading-relaxed">{profileUser.userExtended?.bio || profileUser.bio}</p>
+              <p className="text-white/60 text-sm leading-relaxed">{profileUser.userExtended?.bio || profileUser.bio}</p>
             )}
-            <div className="bg-gradient-to-r from-brand-50 to-pink-50 rounded-2xl p-4 text-center">
-              <p className="font-semibold text-gray-900 mb-1">Want to connect with {profileUser.name}?</p>
-              <p className="text-gray-500 text-sm mb-3">Join NaughtyHaughty free and start messaging verified wealthy singles today.</p>
+            <div className="rounded-2xl p-4 text-center" style={{ background: 'linear-gradient(135deg, rgba(107,31,162,0.3), rgba(236,72,153,0.15))', border: '1px solid rgba(107,31,162,0.3)' }}>
+              <p className="font-semibold text-white mb-1">Want to connect with {profileUser.name}?</p>
+              <p className="text-white/50 text-sm mb-3">Join NaughtyHaughty free and start messaging today.</p>
               <Link href="/register" className="btn-primary w-full block text-center">Join Free — Start Chatting</Link>
             </div>
-            <p className="text-center text-sm text-gray-400">
-              Already a member? <Link href="/login" className="text-brand-500 font-medium hover:underline">Sign in</Link>
+            <p className="text-center text-sm text-white/40">
+              Already a member? <Link href="/login" className="text-brand-400 font-medium hover:underline">Sign in</Link>
             </p>
           </div>
         </div>

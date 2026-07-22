@@ -87,12 +87,10 @@ function InterestBadge({ interest, selected, onClick }: { interest: typeof INTER
     <button
       type="button"
       onClick={onClick}
-      className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
-        selected
-          ? 'text-white border-transparent shadow-md scale-105'
-          : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50'
-      }`}
-      style={selected ? { background: interest.color, borderColor: interest.color } : {}}
+      className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium transition-all"
+      style={selected
+        ? { background: interest.color, color: '#fff', transform: 'scale(1.05)', boxShadow: `0 4px 16px ${interest.color}55` }
+        : { background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.1)' }}
     >
       <span>{interest.emoji}</span>
       <span>{interest.label}</span>
@@ -151,8 +149,8 @@ function VerificationTab({ token, initialUser }: { token: string | null; initial
   }
 
   if (loading) return (
-    <div className="card p-8 flex justify-center">
-      <Loader2 size={24} className="animate-spin text-gray-400" />
+    <div className="rounded-3xl p-8 flex justify-center" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+      <Loader2 size={24} className="animate-spin text-brand-400" />
     </div>
   )
 
@@ -160,26 +158,27 @@ function VerificationTab({ token, initialUser }: { token: string | null; initial
   const verified = challenge?.verified === 1
 
   return (
-    <div className="card p-6 space-y-5">
+    <div className="rounded-3xl p-6 space-y-5" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
       <div className="flex items-center gap-3">
-        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${verified ? 'bg-blue-100' : 'bg-gray-100'}`}>
-          <BadgeCheck size={24} className={verified ? 'text-blue-500' : 'text-gray-400'} />
+        <div className="w-12 h-12 rounded-2xl flex items-center justify-center"
+          style={{ background: verified ? 'rgba(59,130,246,0.2)' : 'rgba(255,255,255,0.08)', border: `1px solid ${verified ? 'rgba(59,130,246,0.3)' : 'rgba(255,255,255,0.1)'}` }}>
+          <BadgeCheck size={24} className={verified ? 'text-blue-400' : 'text-white/40'} />
         </div>
         <div>
-          <h3 className="font-bold text-gray-900">Identity Verification</h3>
-          <p className="text-sm text-gray-500">
+          <h3 className="font-bold text-white">Identity Verification</h3>
+          <p className="text-sm text-white/50">
             {verified ? 'Your account is verified ✓' : 'Get a blue tick to stand out and build trust'}
           </p>
         </div>
       </div>
 
       {/* Status badge */}
-      <div className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium ${
-        verified ? 'bg-blue-50 text-blue-700 border border-blue-200' :
-        status === 'pending' ? 'bg-amber-50 text-amber-700 border border-amber-200' :
-        status === 'rejected' ? 'bg-red-50 text-red-700 border border-red-200' :
-        'bg-gray-50 text-gray-600 border border-gray-200'
-      }`}>
+      <div className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium`}
+        style={verified
+          ? { background: 'rgba(59,130,246,0.15)', color: '#93c5fd', border: '1px solid rgba(59,130,246,0.3)' }
+          : status === 'pending' ? { background: 'rgba(245,158,11,0.15)', color: '#fcd34d', border: '1px solid rgba(245,158,11,0.3)' }
+          : status === 'rejected' ? { background: 'rgba(239,68,68,0.15)', color: '#fca5a5', border: '1px solid rgba(239,68,68,0.3)' }
+          : { background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.1)' }}>
         {verified ? '✅ Verified — your blue tick is active' :
          status === 'pending' ? '⏳ Under review — an admin will check your photo shortly' :
          status === 'rejected' ? `❌ Rejected${challenge?.note ? `: ${challenge.note}` : ''} — please try again` :
@@ -190,22 +189,22 @@ function VerificationTab({ token, initialUser }: { token: string | null; initial
         <>
           {/* Gesture challenge */}
           {challenge?.gesture && (
-            <div className="bg-brand-50 border border-brand-200 rounded-xl p-4">
-              <p className="text-xs font-semibold text-brand-600 uppercase tracking-wide mb-1">Your Challenge</p>
+            <div className="rounded-xl p-4" style={{ background: 'rgba(107,31,162,0.2)', border: '1px solid rgba(107,31,162,0.35)' }}>
+              <p className="text-xs font-semibold text-brand-400 uppercase tracking-wide mb-1">Your Challenge</p>
               {challenge?.gestureImage && (
                 <div className="mb-3 flex justify-center">
-                  <img src={challenge.gestureImage} alt="Gesture example" className="max-h-40 rounded-xl object-contain border border-brand-200 shadow-sm" />
+                  <img src={challenge.gestureImage} alt="Gesture example" className="max-h-40 rounded-xl object-contain shadow-sm" style={{ border: '1px solid rgba(107,31,162,0.4)' }} />
                 </div>
               )}
-              <p className="text-gray-900 font-semibold text-lg">"{challenge.gesture}"</p>
-              <p className="text-xs text-gray-500 mt-1">Take a clear selfie performing this exact gesture</p>
+              <p className="text-white font-semibold text-lg">"{challenge.gesture}"</p>
+              <p className="text-xs text-white/50 mt-1">Take a clear selfie performing this exact gesture</p>
             </div>
           )}
 
           {/* Photo upload */}
           {(status === 'none' || status === 'rejected') && (
             <div className="space-y-3">
-              <p className="text-sm font-medium text-gray-700">Upload your verification selfie:</p>
+              <p className="text-sm font-medium text-white/70">Upload your verification selfie:</p>
               <input ref={fileRef} type="file" accept="image/*" capture="user" className="hidden" onChange={pickFile} />
 
               {preview ? (
@@ -219,7 +218,10 @@ function VerificationTab({ token, initialUser }: { token: string | null; initial
               ) : (
                 <button
                   onClick={() => fileRef.current?.click()}
-                  className="w-40 h-40 border-2 border-dashed border-gray-300 rounded-2xl flex flex-col items-center justify-center hover:border-brand-400 hover:bg-brand-50 transition-all text-gray-400 hover:text-brand-500">
+                  className="w-40 h-40 rounded-2xl flex flex-col items-center justify-center transition-all"
+                  style={{ border: '2px dashed rgba(107,31,162,0.4)', color: 'rgba(255,255,255,0.4)' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(107,31,162,0.8)'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.8)' }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(107,31,162,0.4)'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.4)' }}>
                   <Camera size={28} className="mb-2" />
                   <span className="text-xs text-center">Tap to take selfie<br />or upload photo</span>
                 </button>
@@ -236,20 +238,20 @@ function VerificationTab({ token, initialUser }: { token: string | null; initial
           )}
 
           {status === 'pending' && (
-            <div className="flex items-center gap-3 text-sm text-amber-700 bg-amber-50 rounded-xl p-4">
-              <Loader2 size={18} className="animate-spin text-amber-500" />
+            <div className="flex items-center gap-3 text-sm rounded-xl p-4" style={{ background: 'rgba(245,158,11,0.15)', color: '#fcd34d', border: '1px solid rgba(245,158,11,0.25)' }}>
+              <Loader2 size={18} className="animate-spin" />
               Your selfie is being reviewed. You'll get a notification when it's approved.
             </div>
           )}
         </>
       )}
 
-      <div className="bg-gray-50 rounded-xl p-4 text-xs text-gray-500 space-y-1">
-        <p className="font-semibold text-gray-600">Tips for a successful verification:</p>
-        <p>• Good lighting — make sure your face is clearly visible</p>
-        <p>• Hold up a plain piece of paper or perform the exact gesture shown</p>
-        <p>• Don't wear sunglasses or cover your face</p>
-        <p>• Use the same photo as your profile photo for best results</p>
+      <div className="rounded-xl p-4 text-xs space-y-1" style={{ background: 'rgba(255,255,255,0.04)' }}>
+        <p className="font-semibold text-white/60">Tips for a successful verification:</p>
+        <p className="text-white/40">• Good lighting — make sure your face is clearly visible</p>
+        <p className="text-white/40">• Hold up a plain piece of paper or perform the exact gesture shown</p>
+        <p className="text-white/40">• Don't wear sunglasses or cover your face</p>
+        <p className="text-white/40">• Use the same photo as your profile photo for best results</p>
       </div>
     </div>
   )
@@ -297,12 +299,12 @@ function ProfileStrength({
     score >= 40 ? 'Good' : 'Needs Work'
 
   return (
-    <div className="card p-5 mb-6">
+    <div className="rounded-3xl p-5 mb-6" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
       {/* Header row */}
       <div className="flex items-center justify-between mb-3">
         <div>
-          <p className="font-bold text-gray-900 text-sm">Profile Strength</p>
-          <p className="text-xs text-gray-400 mt-0.5">
+          <p className="font-bold text-white text-sm">Profile Strength</p>
+          <p className="text-xs text-white/40 mt-0.5">
             {score === 100 ? 'Your profile is complete!' : `${100 - score} points left to reach 100%`}
           </p>
         </div>
@@ -313,7 +315,7 @@ function ProfileStrength({
       </div>
 
       {/* Progress bar */}
-      <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden mb-4">
+      <div className="h-2.5 rounded-full overflow-hidden mb-4" style={{ background: 'rgba(255,255,255,0.1)' }}>
         <div
           className="h-full rounded-full transition-all duration-700"
           style={{ width: `${score}%`, background: barColor }}
@@ -328,28 +330,27 @@ function ProfileStrength({
             type="button"
             onClick={() => !item.done && onTabChange(item.tab)}
             disabled={item.done}
-            className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-left transition-all ${
-              item.done
-                ? 'bg-gray-50 cursor-default'
-                : 'bg-white border border-gray-200 hover:border-brand-300 hover:bg-brand-50 cursor-pointer'
-            }`}
+            className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-left transition-all"
+            style={item.done
+              ? { background: 'rgba(255,255,255,0.03)', cursor: 'default' }
+              : { background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', cursor: 'pointer' }}
           >
             {item.done
-              ? <CheckCircle2 size={15} className="text-green-500 flex-shrink-0" />
-              : <Circle size={15} className="text-gray-300 flex-shrink-0" />
+              ? <CheckCircle2 size={15} className="text-green-400 flex-shrink-0" />
+              : <Circle size={15} className="text-white/25 flex-shrink-0" />
             }
             <div className="flex-1 min-w-0">
-              <p className={`text-xs font-semibold truncate ${item.done ? 'text-gray-400 line-through' : 'text-gray-700'}`}>
+              <p className={`text-xs font-semibold truncate ${item.done ? 'text-white/30 line-through' : 'text-white/80'}`}>
                 {item.label}
               </p>
               {!item.done && (
-                <p className="text-[10px] text-gray-400 truncate">{item.hint}</p>
+                <p className="text-[10px] text-white/40 truncate">{item.hint}</p>
               )}
             </div>
             {!item.done && (
               <div className="flex items-center gap-1 flex-shrink-0">
-                <span className="text-[10px] font-bold text-brand-500">+{item.points}%</span>
-                <ChevronRight size={12} className="text-gray-300" />
+                <span className="text-[10px] font-bold text-brand-400">+{item.points}%</span>
+                <ChevronRight size={12} className="text-white/25" />
               </div>
             )}
           </button>
@@ -494,8 +495,9 @@ export default function SettingsPage({ user: initialUser }: Props) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-6">
-      <h1 className="section-title mb-6">Settings</h1>
+    <div className="w-full min-h-screen" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+    <div className="max-w-3xl mx-auto px-4 py-6">
+      <h1 className="text-2xl font-black text-white tracking-tight mb-6">Settings</h1>
 
       <ProfileStrength
         form={form}
@@ -505,30 +507,36 @@ export default function SettingsPage({ user: initialUser }: Props) {
         onTabChange={setTab}
       />
 
-      <div className="flex gap-1 mb-6 bg-gray-100 rounded-xl p-1 overflow-x-auto">
+      <div className="flex gap-1 mb-6 p-1 rounded-2xl overflow-x-auto" style={{ background: 'rgba(255,255,255,0.06)' }}>
         {TABS.map(t => (
           <button key={t} onClick={() => setTab(t)}
-            className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${tab === t ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}>
+            className="flex-1 py-2 px-3 rounded-xl text-sm font-semibold transition-all whitespace-nowrap"
+            style={tab === t
+              ? { background: 'linear-gradient(135deg, #4A0072, #6B1FA2)', color: '#fff' }
+              : { background: 'transparent', color: 'rgba(255,255,255,0.45)' }}>
             {t === 'Verify' ? (initialUser?.verified === 1 ? '✅ Verify' : '🔵 Verify') : t}
           </button>
         ))}
       </div>
 
       {tab === 'Profile' && (
-        <div className="card p-6 space-y-5">
+        <div className="rounded-3xl p-6 space-y-5" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="col-span-full">
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Full Name</label>
-              <input type="text" value={form.name} onChange={e => update('name', e.target.value)} className="input-field" />
+              <label className="text-sm font-semibold text-white/60 mb-1.5 block">Full Name</label>
+              <input type="text" value={form.name} onChange={e => update('name', e.target.value)}
+                className="w-full px-4 py-3 rounded-2xl text-sm outline-none text-white placeholder-white/25 border border-white/10 focus:border-brand-500/60 transition-colors"
+                style={{ background: 'rgba(255,255,255,0.06)' }} />
             </div>
             <div className="col-span-full">
               <div className="flex items-center justify-between mb-1.5">
-                <label className="text-sm font-medium text-gray-700">Bio</label>
-                <span className="text-xs text-gray-400">No phone numbers, emails or social handles</span>
+                <label className="text-sm font-semibold text-white/60">Bio</label>
+                <span className="text-xs text-white/30">No phone numbers, emails or social handles</span>
               </div>
               <textarea value={form.bio} onChange={e => update('bio', e.target.value)}
                 rows={3} placeholder="Tell people about yourself..."
-                className="input-field resize-none" />
+                className="w-full px-4 py-3 rounded-2xl text-sm outline-none text-white placeholder-white/25 border border-white/10 focus:border-brand-500/60 transition-colors resize-none"
+                style={{ background: 'rgba(255,255,255,0.06)' }} />
             </div>
 
             <div className="col-span-full">
@@ -542,18 +550,28 @@ export default function SettingsPage({ user: initialUser }: Props) {
                 placeholder="Search your city..."
               />
             </div>
+            {[
+              { label: 'Country', key: 'country', type: 'text' },
+            ].map(f => (
+              <div key={f.key}>
+                <label className="text-sm font-semibold text-white/60 mb-1.5 block">{f.label}</label>
+                <input type={f.type} value={(form as any)[f.key]} onChange={e => update(f.key, e.target.value)}
+                  className="w-full px-4 py-3 rounded-2xl text-sm outline-none text-white placeholder-white/25 border border-white/10 focus:border-brand-500/60 transition-colors"
+                  style={{ background: 'rgba(255,255,255,0.06)' }} />
+              </div>
+            ))}
             <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Country</label>
-              <input type="text" value={form.country} onChange={e => update('country', e.target.value)} className="input-field" />
-            </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Birthday</label>
-              <input type="date" value={form.birthday} onChange={e => update('birthday', e.target.value)} className="input-field"
+              <label className="text-sm font-semibold text-white/60 mb-1.5 block">Birthday</label>
+              <input type="date" value={form.birthday} onChange={e => update('birthday', e.target.value)}
+                className="w-full px-4 py-3 rounded-2xl text-sm outline-none text-white border border-white/10 focus:border-brand-500/60 transition-colors"
+                style={{ background: 'rgba(255,255,255,0.06)', colorScheme: 'dark' }}
                 max={new Date(Date.now() - 18 * 365.25 * 24 * 3600 * 1000).toISOString().slice(0,10)} />
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Looking For</label>
-              <select value={form.looking} onChange={e => update('looking', e.target.value)} className="input-field">
+              <label className="text-sm font-semibold text-white/60 mb-1.5 block">Looking For</label>
+              <select value={form.looking} onChange={e => update('looking', e.target.value)}
+                className="w-full px-4 py-3 rounded-2xl text-sm outline-none text-white border border-white/10 focus:border-brand-500/60 transition-colors"
+                style={{ background: 'rgba(255,255,255,0.06)', colorScheme: 'dark' }}>
                 <option value="1">Men</option>
                 <option value="2">Women</option>
                 <option value="3">Everyone</option>
@@ -561,75 +579,43 @@ export default function SettingsPage({ user: initialUser }: Props) {
             </div>
           </div>
 
-          <hr className="border-gray-100" />
-          <h3 className="text-sm font-semibold text-gray-700">More About You</h3>
+          <hr style={{ borderColor: 'rgba(255,255,255,0.08)' }} />
+          <h3 className="text-sm font-semibold text-white/60">More About You</h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Occupation</label>
-              <input type="text" value={form.occupation} onChange={e => update('occupation', e.target.value)} className="input-field" placeholder="e.g. Entrepreneur" />
-            </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Education</label>
-              <input type="text" value={form.education} onChange={e => update('education', e.target.value)} className="input-field" placeholder="e.g. Masters Degree" />
-            </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Height</label>
-              <input type="text" value={form.height} onChange={e => update('height', e.target.value)} className="input-field" placeholder="e.g. 5'10&quot;" />
-            </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Body Type</label>
-              <select value={form.bodyType} onChange={e => update('bodyType', e.target.value)} className="input-field">
-                <option value="">Select...</option>
-                {['Slim', 'Athletic', 'Average', 'Curvy', 'Full figured'].map(o => <option key={o} value={o}>{o}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Ethnicity</label>
-              <select value={form.ethnicity} onChange={e => update('ethnicity', e.target.value)} className="input-field">
-                <option value="">Prefer not to say</option>
-                {['Asian', 'Black/African', 'Caucasian', 'Hispanic/Latino', 'Middle Eastern', 'Mixed', 'Native American', 'Pacific Islander', 'Other'].map(o => <option key={o} value={o}>{o}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Religion</label>
-              <select value={form.religion} onChange={e => update('religion', e.target.value)} className="input-field">
-                <option value="">Not specified</option>
-                {['Agnostic', 'Atheist', 'Buddhist', 'Catholic', 'Christian', 'Hindu', 'Jewish', 'Muslim', 'Spiritual', 'Other'].map(o => <option key={o} value={o}>{o}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Smoking</label>
-              <select value={form.smoking} onChange={e => update('smoking', e.target.value)} className="input-field">
-                <option value="">Not specified</option>
-                {['Never', 'Occasionally', 'Socially', 'Regularly'].map(o => <option key={o} value={o}>{o}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Drinking</label>
-              <select value={form.drinking} onChange={e => update('drinking', e.target.value)} className="input-field">
-                <option value="">Not specified</option>
-                {['Never', 'Occasionally', 'Socially', 'Regularly'].map(o => <option key={o} value={o}>{o}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Children</label>
-              <select value={form.children} onChange={e => update('children', e.target.value)} className="input-field">
-                <option value="">Not specified</option>
-                {['No children', 'Have children', 'Want children', "Don't want children", 'Open to it'].map(o => <option key={o} value={o}>{o}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Relationship Goal</label>
-              <select value={form.relationship} onChange={e => update('relationship', e.target.value)} className="input-field">
-                <option value="">Not specified</option>
-                {['Long-term', 'Short-term', 'Casual', 'Marriage', 'Friendship', 'Open to anything'].map(o => <option key={o} value={o}>{o}</option>)}
-              </select>
-            </div>
-            <div className="col-span-full">
-              <label className="text-sm font-medium text-gray-700 mb-1.5 block">Languages Spoken</label>
-              <input type="text" value={form.languages} onChange={e => update('languages', e.target.value)} className="input-field" placeholder="e.g. English, Spanish, French" />
-            </div>
+            {[
+              { label: 'Occupation', key: 'occupation', placeholder: 'e.g. Entrepreneur' },
+              { label: 'Education', key: 'education', placeholder: 'e.g. Masters Degree' },
+              { label: 'Height', key: 'height', placeholder: "e.g. 5'10\"" },
+              { label: 'Languages Spoken', key: 'languages', placeholder: 'e.g. English, Spanish', full: true },
+            ].map(f => (
+              <div key={f.key} className={f.full ? 'col-span-full' : ''}>
+                <label className="text-sm font-semibold text-white/60 mb-1.5 block">{f.label}</label>
+                <input type="text" value={(form as any)[f.key]} onChange={e => update(f.key, e.target.value)}
+                  placeholder={f.placeholder}
+                  className="w-full px-4 py-3 rounded-2xl text-sm outline-none text-white placeholder-white/25 border border-white/10 focus:border-brand-500/60 transition-colors"
+                  style={{ background: 'rgba(255,255,255,0.06)' }} />
+              </div>
+            ))}
+            {[
+              { label: 'Body Type', key: 'bodyType', opts: ['Slim', 'Athletic', 'Average', 'Curvy', 'Full figured'], placeholder: 'Select...' },
+              { label: 'Ethnicity', key: 'ethnicity', opts: ['Asian', 'Black/African', 'Caucasian', 'Hispanic/Latino', 'Middle Eastern', 'Mixed', 'Native American', 'Pacific Islander', 'Other'], placeholder: 'Prefer not to say' },
+              { label: 'Religion', key: 'religion', opts: ['Agnostic', 'Atheist', 'Buddhist', 'Catholic', 'Christian', 'Hindu', 'Jewish', 'Muslim', 'Spiritual', 'Other'], placeholder: 'Not specified' },
+              { label: 'Smoking', key: 'smoking', opts: ['Never', 'Occasionally', 'Socially', 'Regularly'], placeholder: 'Not specified' },
+              { label: 'Drinking', key: 'drinking', opts: ['Never', 'Occasionally', 'Socially', 'Regularly'], placeholder: 'Not specified' },
+              { label: 'Children', key: 'children', opts: ['No children', 'Have children', 'Want children', "Don't want children", 'Open to it'], placeholder: 'Not specified' },
+              { label: 'Relationship Goal', key: 'relationship', opts: ['Long-term', 'Short-term', 'Casual', 'Marriage', 'Friendship', 'Open to anything'], placeholder: 'Not specified' },
+            ].map(f => (
+              <div key={f.key}>
+                <label className="text-sm font-semibold text-white/60 mb-1.5 block">{f.label}</label>
+                <select value={(form as any)[f.key]} onChange={e => update(f.key, e.target.value)}
+                  className="w-full px-4 py-3 rounded-2xl text-sm outline-none text-white border border-white/10 focus:border-brand-500/60 transition-colors"
+                  style={{ background: 'rgba(255,255,255,0.06)', colorScheme: 'dark' }}>
+                  <option value="">{f.placeholder}</option>
+                  {f.opts.map(o => <option key={o} value={o}>{o}</option>)}
+                </select>
+              </div>
+            ))}
           </div>
 
           <button onClick={saveProfile} disabled={saving}
@@ -641,11 +627,11 @@ export default function SettingsPage({ user: initialUser }: Props) {
       )}
 
       {tab === 'Interests' && (
-        <div className="card p-6 space-y-5">
+        <div className="rounded-3xl p-6 space-y-5" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
           <div>
-            <h3 className="font-semibold text-gray-900 mb-1">My Interests</h3>
-            <p className="text-sm text-gray-500">Select up to 20 interests that describe you. They'll appear on your profile.</p>
-            <p className="text-xs text-gray-400 mt-1">{selectedInterests.length}/20 selected</p>
+            <h3 className="font-semibold text-white mb-1">My Interests</h3>
+            <p className="text-sm text-white/50">Select up to 20 interests that describe you. They'll appear on your profile.</p>
+            <p className="text-xs text-white/35 mt-1">{selectedInterests.length}/20 selected</p>
           </div>
 
           <div className="flex flex-wrap gap-2">
@@ -672,11 +658,11 @@ export default function SettingsPage({ user: initialUser }: Props) {
       )}
 
       {tab === 'Photos' && (
-        <div className="card p-6">
+        <div className="rounded-3xl p-6" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="font-semibold text-gray-900">My Photos</h3>
-              <p className="text-sm text-gray-500 mt-0.5">Upload up to 10 photos · hover to set profile photo</p>
+              <h3 className="font-semibold text-white">My Photos</h3>
+              <p className="text-sm text-white/40 mt-0.5">Upload up to 10 photos · hover to set profile photo</p>
             </div>
             <button onClick={() => fileRef.current?.click()} disabled={uploading || photos.length >= 10}
               className="btn-primary text-sm py-2 px-4 disabled:opacity-50 flex items-center gap-1.5">
@@ -686,9 +672,10 @@ export default function SettingsPage({ user: initialUser }: Props) {
           </div>
           <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
             {photos.map((p: any) => (
-              <div key={p.id} className="relative aspect-square rounded-xl overflow-hidden group shadow-sm">
+              <div key={p.id} className="relative aspect-square rounded-2xl overflow-hidden group"
+                style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
                 <img src={getPhotoUrl(p.thumb || p.photo)} alt="" className="w-full h-full object-cover"
-                  onError={(e) => { (e.target as HTMLImageElement).style.background = '#f3f4f6' }} />
+                  onError={(e) => { (e.target as HTMLImageElement).style.background = '#1a1a2e' }} />
                 {p.main === 1 && (
                   <div className="absolute top-1.5 left-1.5 bg-brand-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full flex items-center gap-0.5 shadow">
                     ⭐ Profile
@@ -699,7 +686,7 @@ export default function SettingsPage({ user: initialUser }: Props) {
                     Pending
                   </div>
                 )}
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 px-2">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 px-2">
                   {p.main !== 1 && (
                     <button onClick={() => setMainPhoto(p.id)}
                       className="w-full py-1 bg-brand-500 text-white rounded-lg text-[11px] font-semibold hover:bg-brand-600 transition-colors flex items-center justify-center gap-1">
@@ -715,39 +702,43 @@ export default function SettingsPage({ user: initialUser }: Props) {
             ))}
             {photos.length < 10 && (
               <button onClick={() => fileRef.current?.click()}
-                className="aspect-square rounded-xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center hover:border-brand-400 hover:bg-brand-50 transition-all">
-                <Camera size={22} className="text-gray-300 mb-1.5" />
-                <span className="text-xs text-gray-400">{photos.length === 0 ? 'Add photo' : 'Add more'}</span>
+                className="aspect-square rounded-2xl flex flex-col items-center justify-center transition-all"
+                style={{ border: '2px dashed rgba(107,31,162,0.4)', color: 'rgba(255,255,255,0.3)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(107,31,162,0.8)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(107,31,162,0.4)' }}>
+                <Camera size={22} className="mb-1.5" />
+                <span className="text-xs">{photos.length === 0 ? 'Add photo' : 'Add more'}</span>
               </button>
             )}
           </div>
           <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={uploadPhoto} />
-          <p className="text-xs text-gray-400 mt-4">Photos are reviewed before being shown publicly. Supported formats: JPG, PNG, WebP</p>
+          <p className="text-xs text-white/30 mt-4">Photos are reviewed before being shown publicly. Supported formats: JPG, PNG, WebP</p>
         </div>
       )}
 
       {tab === 'Password' && (
-        <div className="card p-6 space-y-4">
-          <h3 className="font-semibold text-gray-900 flex items-center gap-2"><Lock size={17} className="text-brand-500" /> Change Password</h3>
-          <div>
-            <label className="text-sm font-medium text-gray-700 mb-1.5 block">Current Password</label>
-            <input type="password" value={pass.current} onChange={e => setPass(p => ({ ...p, current: e.target.value }))} className="input-field" placeholder="••••••••" />
-          </div>
-          <div>
-            <label className="text-sm font-medium text-gray-700 mb-1.5 block">New Password</label>
-            <input type="password" value={pass.newPass} onChange={e => setPass(p => ({ ...p, newPass: e.target.value }))} className="input-field" placeholder="Min. 6 characters" />
-          </div>
-          <div>
-            <label className="text-sm font-medium text-gray-700 mb-1.5 block">Confirm New Password</label>
-            <input type="password" value={pass.confirm} onChange={e => setPass(p => ({ ...p, confirm: e.target.value }))} className="input-field" placeholder="Repeat new password" />
-          </div>
+        <div className="rounded-3xl p-6 space-y-4" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <h3 className="font-semibold text-white flex items-center gap-2"><Lock size={17} className="text-brand-400" /> Change Password</h3>
+          {[
+            { label: 'Current Password', key: 'current', placeholder: '••••••••' },
+            { label: 'New Password', key: 'newPass', placeholder: 'Min. 6 characters' },
+            { label: 'Confirm New Password', key: 'confirm', placeholder: 'Repeat new password' },
+          ].map(f => (
+            <div key={f.key}>
+              <label className="text-sm font-semibold text-white/60 mb-1.5 block">{f.label}</label>
+              <input type="password" value={(pass as any)[f.key]} onChange={e => setPass(p => ({ ...p, [f.key]: e.target.value }))}
+                placeholder={f.placeholder}
+                className="w-full px-4 py-3 rounded-2xl text-sm outline-none text-white placeholder-white/25 border border-white/10 focus:border-brand-500/60 transition-colors"
+                style={{ background: 'rgba(255,255,255,0.06)' }} />
+            </div>
+          ))}
           <button onClick={changePassword} disabled={saving || !pass.current || !pass.newPass || !pass.confirm}
             className="btn-primary flex items-center gap-2 disabled:opacity-50">
             {saving ? <Loader2 size={16} className="animate-spin" /> : <Lock size={16} />}
             Change Password
           </button>
-          <hr className="border-gray-100" />
-          <button onClick={logout} className="flex items-center gap-2 text-red-500 text-sm font-semibold hover:text-red-600 transition-colors">
+          <hr style={{ borderColor: 'rgba(255,255,255,0.08)' }} />
+          <button onClick={logout} className="flex items-center gap-2 text-red-400 text-sm font-semibold hover:text-red-300 transition-colors">
             <LogOut size={16} /> Sign Out of Account
           </button>
         </div>
@@ -755,9 +746,9 @@ export default function SettingsPage({ user: initialUser }: Props) {
 
       {tab === 'Privacy' && (
         <div className="space-y-4">
-          <div className="card p-6 space-y-4">
-            <h3 className="font-semibold text-gray-900 flex items-center gap-2"><Shield size={17} className="text-brand-500" /> Privacy Settings</h3>
-            <div className="divide-y divide-gray-100">
+          <div className="rounded-3xl p-6 space-y-4" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <h3 className="font-semibold text-white flex items-center gap-2"><Shield size={17} className="text-brand-400" /> Privacy Settings</h3>
+            <div className="divide-y" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
               {[
                 { label: 'Show online status', desc: 'Let others see when you are active', key: 'showOnline' },
                 { label: 'Show profile visitors', desc: 'Allow others to see that you viewed their profile', key: 'showVisits' },
@@ -766,21 +757,22 @@ export default function SettingsPage({ user: initialUser }: Props) {
               ].map(item => (
                 <div key={item.key} className="flex items-center justify-between py-3">
                   <div>
-                    <p className="text-sm font-medium text-gray-900">{item.label}</p>
-                    <p className="text-xs text-gray-400">{item.desc}</p>
+                    <p className="text-sm font-medium text-white">{item.label}</p>
+                    <p className="text-xs text-white/40">{item.desc}</p>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer ml-4">
                     <input type="checkbox" className="sr-only peer" defaultChecked />
-                    <div className="w-10 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-500" />
+                    <div className="w-10 h-5 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-500"
+                      style={{ background: 'rgba(255,255,255,0.15)' }} />
                   </label>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="card p-6 space-y-4">
-            <h3 className="font-semibold text-gray-900 flex items-center gap-2"><Bell size={17} className="text-brand-500" /> Notifications</h3>
-            <div className="divide-y divide-gray-100">
+          <div className="rounded-3xl p-6 space-y-4" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <h3 className="font-semibold text-white flex items-center gap-2"><Bell size={17} className="text-brand-400" /> Notifications</h3>
+            <div className="divide-y" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
               {[
                 { label: 'New messages', key: 'notifMessages' },
                 { label: 'New likes', key: 'notifLikes' },
@@ -790,19 +782,20 @@ export default function SettingsPage({ user: initialUser }: Props) {
                 { label: 'Marketing emails', key: 'notifMarketing' },
               ].map(item => (
                 <div key={item.key} className="flex items-center justify-between py-2.5">
-                  <p className="text-sm font-medium text-gray-900">{item.label}</p>
+                  <p className="text-sm font-medium text-white">{item.label}</p>
                   <label className="relative inline-flex items-center cursor-pointer ml-4">
                     <input type="checkbox" className="sr-only peer" defaultChecked={item.key !== 'notifMarketing'} />
-                    <div className="w-10 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-500" />
+                    <div className="w-10 h-5 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-500"
+                      style={{ background: 'rgba(255,255,255,0.15)' }} />
                   </label>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="card p-5 border border-red-100">
-            <h3 className="font-semibold text-red-600 flex items-center gap-2 mb-2"><Trash2 size={17} /> Danger Zone</h3>
-            <p className="text-sm text-gray-500 mb-4">Permanently delete your account. This action is irreversible.</p>
+          <div className="rounded-3xl p-5" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
+            <h3 className="font-semibold text-red-400 flex items-center gap-2 mb-2"><Trash2 size={17} /> Danger Zone</h3>
+            <p className="text-sm text-white/50 mb-4">Permanently delete your account. This action is irreversible.</p>
             <button onClick={async () => {
               if (!confirm('Are you sure you want to permanently delete your account?')) return
               if (!confirm('This will delete all your data, messages, and matches. Continue?')) return
@@ -811,12 +804,14 @@ export default function SettingsPage({ user: initialUser }: Props) {
                 logout()
                 toast.success('Account deleted')
               } catch { toast.error('Failed to delete account') }
-            }} className="flex items-center gap-2 px-4 py-2.5 bg-red-50 text-red-600 rounded-xl text-sm font-semibold hover:bg-red-100 transition-colors border border-red-200">
+            }} className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors"
+              style={{ background: 'rgba(239,68,68,0.15)', color: '#fca5a5', border: '1px solid rgba(239,68,68,0.3)' }}>
               <Trash2 size={15} /> Delete My Account
             </button>
           </div>
         </div>
       )}
+    </div>
     </div>
   )
 }

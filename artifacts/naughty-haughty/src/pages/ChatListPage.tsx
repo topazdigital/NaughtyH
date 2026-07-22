@@ -17,17 +17,19 @@ export default function ChatListPage() {
   }, [token])
 
   if (loading) return (
-    <div className="max-w-2xl mx-auto px-4 py-6">
-      <div className="animate-pulse space-y-3">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} className="flex gap-4 p-4 bg-gray-100 rounded-xl">
-            <div className="w-12 h-12 bg-gray-200 rounded-full" />
-            <div className="flex-1 space-y-2">
-              <div className="h-4 bg-gray-200 rounded w-1/3" />
-              <div className="h-3 bg-gray-200 rounded w-2/3" />
+    <div className="w-full min-h-screen" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+      <div className="max-w-2xl mx-auto px-4 py-6">
+        <div className="animate-pulse space-y-3">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div key={i} className="flex gap-4 p-4 rounded-2xl" style={{ background: 'rgba(255,255,255,0.05)' }}>
+              <div className="w-12 h-12 rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }} />
+              <div className="flex-1 space-y-2">
+                <div className="h-4 rounded w-1/3" style={{ background: 'rgba(255,255,255,0.1)' }} />
+                <div className="h-3 rounded w-2/3" style={{ background: 'rgba(255,255,255,0.07)' }} />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )
