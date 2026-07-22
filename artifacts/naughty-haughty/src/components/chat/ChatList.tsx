@@ -1,6 +1,6 @@
 import { getPhotoUrl, isOnline, timeAgo, truncate } from '../../lib/utils'
 import { Link } from 'wouter'
-import { BadgeCheck, Crown } from 'lucide-react'
+import { BadgeCheck, Crown, MessageCircle, Search } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
 import { useWSEvent } from '../../hooks/useWebSocket'
 
@@ -11,17 +11,14 @@ export default function ChatList({ userId, conversations: initial }: Props) {
   const [typingUsers, setTypingUsers] = useState<Set<number>>(new Set())
   const typingTimers = useRef<Map<number, ReturnType<typeof setTimeout>>>(new Map())
 
-  useWSEvent('typing', (data: { fromUserId: number; typing: boolean }) => {
-    const fromId = data.fromUserId
-    // Only show typing in list if it's the OTHER person (not current user)
-    if (fromId === userId) return
-
-    if (data.typing) {
+  // WSHandler signature requires (msg: WSMessage) where WSMessage = { type: string; [key: string]: any }
+  useWSEvent('typing', (msg) => {
+    const fromId = msg.fromUserId as number
+    if (!fromId || fromId === userId) return
+    if (msg.typing) {
       setTypingUsers(prev => new Set(prev).add(fromId))
-      // Clear any existing timer for this user
       const existing = typingTimers.current.get(fromId)
       if (existing) clearTimeout(existing)
-      // Auto-clear after 5 seconds in case typing_stop never arrives
       const timer = setTimeout(() => {
         setTypingUsers(prev => { const s = new Set(prev); s.delete(fromId); return s })
         typingTimers.current.delete(fromId)
@@ -35,72 +32,109 @@ export default function ChatList({ userId, conversations: initial }: Props) {
     }
   })
 
-  // Clear timers on unmount
   useEffect(() => () => { typingTimers.current.forEach(t => clearTimeout(t)) }, [])
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-6">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="section-title">Messages</h1>
-        <Link href="/discover" className="text-sm text-brand-500 hover:text-brand-600 font-medium">New Chat</Link>
-      </div>
+    <div className="w-full min-h-screen" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+      <div className="max-w-2xl mx-auto px-4 py-6">
 
-      {convos.length === 0 ? (
-        <div className="text-center py-20">
-          <div className="text-5xl mb-4">💬</div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">No conversations yet</h2>
-          <p className="text-gray-500 mb-6">Start by discovering new people</p>
-          <Link href="/discover" className="btn-primary">Browse Members</Link>
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h1 className="text-2xl font-black text-white tracking-tight">Messages</h1>
+            {convos.length > 0 && (
+              <p className="text-white/40 text-sm mt-0.5">{convos.length} conversation{convos.length !== 1 ? 's' : ''}</p>
+            )}
+          </div>
+          <Link href="/discover"
+            className="flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-xl transition-all text-white"
+            style={{ background: 'linear-gradient(135deg, #4A0072, #6B1FA2)' }}>
+            <Search size={14} /> New Chat
+          </Link>
         </div>
-      ) : (
-        <div className="card divide-y divide-gray-50">
-          {convos.map((c: any) => {
-            const isTyping = typingUsers.has(c.otherId)
-            return (
-              <Link key={c.otherId} href={`/chat/${c.otherId}`}
-                className="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors">
-                <div className="relative flex-shrink-0">
-                  <div className={`w-12 h-12 rounded-full overflow-hidden ${isOnline(c.lastAccess) ? 'ring-2 ring-green-500 ring-offset-2' : ''}`}>
-                    <img src={getPhotoUrl(c.photoThumb || c.photo)} alt={c.name} className="w-full h-full object-cover" />
+
+        {convos.length === 0 ? (
+          <div className="text-center py-24">
+            <div className="w-20 h-20 rounded-3xl mx-auto mb-5 flex items-center justify-center"
+              style={{ background: 'rgba(107,31,162,0.2)', border: '1px solid rgba(107,31,162,0.3)' }}>
+              <MessageCircle size={36} className="text-brand-400" />
+            </div>
+            <h2 className="text-xl font-bold text-white mb-2">No conversations yet</h2>
+            <p className="text-white/40 text-sm mb-6">Start by discovering new people near you</p>
+            <Link href="/discover"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-white text-sm shadow-xl"
+              style={{ background: 'linear-gradient(135deg, #4A0072, #6B1FA2)', boxShadow: '0 8px 24px rgba(107,31,162,0.35)' }}>
+              Browse Members
+            </Link>
+          </div>
+        ) : (
+          <div className="space-y-1.5">
+            {convos.map((c: any) => {
+              const isTyping = typingUsers.has(c.otherId)
+              const online = isOnline(c.lastAccess)
+              const unread = c.unread > 0
+              return (
+                <Link key={c.otherId} href={`/chat/${c.otherId}`}
+                  className="flex items-center gap-4 px-4 py-3.5 rounded-2xl transition-all group hover:-translate-y-0.5"
+                  style={{
+                    background: unread ? 'rgba(107,31,162,0.15)' : 'rgba(255,255,255,0.04)',
+                    border: unread ? '1px solid rgba(107,31,162,0.35)' : '1px solid rgba(255,255,255,0.06)',
+                  }}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = unread ? 'rgba(107,31,162,0.22)' : 'rgba(255,255,255,0.07)'}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = unread ? 'rgba(107,31,162,0.15)' : 'rgba(255,255,255,0.04)'}>
+                  {/* Avatar — API returns flat fields: c.photoThumb, c.photo, c.lastAccess */}
+                  <div className="relative flex-shrink-0">
+                    <div className={`w-13 h-13 rounded-2xl overflow-hidden ring-2 ${online ? 'ring-emerald-400' : 'ring-white/10'}`}
+                      style={{ width: '3.25rem', height: '3.25rem' }}>
+                      <img
+                        src={getPhotoUrl(c.photoThumb || c.photo)}
+                        alt={c.name}
+                        className="w-full h-full object-cover"
+                        onError={e => { (e.currentTarget as HTMLImageElement).src = '/images/default-avatar.svg' }}
+                      />
+                    </div>
+                    {online && (
+                      <div className="absolute bottom-0.5 right-0.5 w-3 h-3 bg-emerald-400 border-2 rounded-full"
+                        style={{ borderColor: '#111827' }} />
+                    )}
                   </div>
-                  {isOnline(c.lastAccess) && (
-                    <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full" />
-                  )}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1 mb-0.5">
-                    <span className="font-semibold text-gray-900">{c.name}</span>
-                    {c.verified === 1 && <BadgeCheck size={14} className="text-blue-500" />}
-                    {c.premium === 1 && <Crown size={14} className="text-amber-500" />}
-                  </div>
-                  {isTyping ? (
-                    <p className="text-sm text-brand-500 font-medium flex items-center gap-1">
-                      <span>typing</span>
-                      <span className="inline-flex gap-0.5 items-end h-3">
-                        <span className="w-1 h-1 bg-brand-500 rounded-full animate-bounce [animation-delay:0ms]" />
-                        <span className="w-1 h-1 bg-brand-500 rounded-full animate-bounce [animation-delay:150ms]" />
-                        <span className="w-1 h-1 bg-brand-500 rounded-full animate-bounce [animation-delay:300ms]" />
+
+                  {/* Content — API flat fields: c.name, c.verified, c.premium, c.lastMsg */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <span className={`font-bold text-sm truncate ${unread ? 'text-white' : 'text-white/80'}`}>
+                        {c.name || 'Unknown'}
                       </span>
+                      {c.verified === 1 && <BadgeCheck size={13} className="text-blue-400 flex-shrink-0" />}
+                      {c.premium === 1 && <Crown size={12} className="text-amber-400 flex-shrink-0" />}
+                    </div>
+                    <p className={`text-xs truncate leading-snug ${unread ? 'text-white/70 font-medium' : 'text-white/35'}`}>
+                      {isTyping ? (
+                        <span className="text-brand-400 font-semibold">typing…</span>
+                      ) : (
+                        truncate(c.lastMsg || 'Say hello!', 46)
+                      )}
                     </p>
-                  ) : (
-                    <p className={`text-sm truncate ${parseInt(c.unread) > 0 ? 'font-medium text-gray-900' : 'text-gray-500'}`}>
-                      {c.lastMsg || 'Start a conversation'}
-                    </p>
-                  )}
-                </div>
-                <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                  <span className="text-xs text-gray-400">{c.lastTime ? timeAgo(c.lastTime) : ''}</span>
-                  {parseInt(c.unread) > 0 && (
-                    <span className="w-5 h-5 bg-brand-500 text-white text-xs rounded-full flex items-center justify-center">
-                      {parseInt(c.unread) > 9 ? '9+' : c.unread}
-                    </span>
-                  )}
-                </div>
-              </Link>
-            )
-          })}
-        </div>
-      )}
+                  </div>
+
+                  {/* Right meta */}
+                  <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
+                    {c.lastTime && (
+                      <span className="text-[10px] text-white/30">{timeAgo(c.lastTime)}</span>
+                    )}
+                    {unread && (
+                      <span className="flex items-center justify-center min-w-[1.25rem] h-5 rounded-full text-[10px] font-bold text-white px-1.5"
+                        style={{ background: 'linear-gradient(135deg, #4A0072, #6B1FA2)' }}>
+                        {c.unread > 9 ? '9+' : c.unread}
+                      </span>
+                    )}
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        )}
+      </div>
     </div>
   )
 }

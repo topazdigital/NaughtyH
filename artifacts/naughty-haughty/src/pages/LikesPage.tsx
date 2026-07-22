@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'wouter'
+import { Link, useLocation } from 'wouter'
 import { getPhotoUrl, timeAgo, isOnline, profileUrl } from '../lib/utils'
 import { Heart, Star, MessageCircle, BadgeCheck, Crown, Users } from 'lucide-react'
 import toast from 'react-hot-toast'
@@ -12,6 +12,7 @@ export default function LikesPage() {
   const [data, setData] = useState<{ likedMe: any[]; iLiked: any[]; matches: any[] }>({ likedMe: [], iLiked: [], matches: [] })
   const [loading, setLoading] = useState(true)
   const { token } = useAuth()
+  const [, setLocation] = useLocation()
 
   useEffect(() => {
     if (!token) return
@@ -30,117 +31,166 @@ export default function LikesPage() {
     'I Liked': data.iLiked.length,
   }
 
+  const tabIcons = {
+    Matches: <Heart size={14} />,
+    'Liked Me': <Star size={14} />,
+    'I Liked': <Heart size={14} />,
+  }
+
+  async function superLike(targetId: number) {
+    try {
+      await fetch('/api/likes/super', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }, body: JSON.stringify({ targetId }) })
+      toast.success('⭐ Super liked!')
+    } catch { toast.error('Failed') }
+  }
+
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
-      <h1 className="section-title mb-6">Likes & Matches</h1>
+    <div className="w-full min-h-screen" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+      <div className="max-w-6xl mx-auto px-4 py-6">
 
-      <div className="flex gap-1 mb-6 bg-gray-100 rounded-xl p-1">
-        {TABS.map(t => (
-          <button key={t} onClick={() => setTab(t)}
-            className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all relative ${tab === t ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}>
-            {t}
-            {tabCounts[t as keyof typeof tabCounts] > 0 && (
-              <span className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${tab === t ? 'bg-brand-500 text-white' : 'bg-gray-300 text-gray-600'}`}>
-                {tabCounts[t as keyof typeof tabCounts]}
-              </span>
-            )}
-          </button>
-        ))}
-      </div>
-
-      {loading ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="animate-pulse">
-              <div className="aspect-[3/4] bg-gray-200 rounded-2xl mb-2" />
-              <div className="h-4 bg-gray-200 rounded w-3/4 mb-1" />
-              <div className="h-3 bg-gray-200 rounded w-1/2" />
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-2xl flex items-center justify-center"
+              style={{ background: 'rgba(236,72,153,0.2)', border: '1px solid rgba(236,72,153,0.3)' }}>
+              <Heart size={20} className="text-pink-400 fill-pink-400" />
             </div>
+            <div>
+              <h1 className="text-2xl font-black text-white tracking-tight">Likes & Matches</h1>
+              <p className="text-white/40 text-xs mt-0.5">
+                {data.matches.length} match{data.matches.length !== 1 ? 'es' : ''}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex gap-1.5 mb-6 p-1 rounded-2xl" style={{ background: 'rgba(255,255,255,0.05)' }}>
+          {TABS.map(t => (
+            <button key={t} onClick={() => setTab(t)}
+              className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold transition-all"
+              style={tab === t
+                ? { background: 'linear-gradient(135deg, #4A0072, #6B1FA2)', color: '#fff', boxShadow: '0 4px 12px rgba(107,31,162,0.35)' }
+                : { background: 'transparent', color: 'rgba(255,255,255,0.4)' }}>
+              {tabIcons[t as keyof typeof tabIcons]}
+              {t}
+              {tabCounts[t as keyof typeof tabCounts] > 0 && (
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${tab === t ? 'bg-white/20 text-white' : 'bg-white/10 text-white/50'}`}>
+                  {tabCounts[t as keyof typeof tabCounts]}
+                </span>
+              )}
+            </button>
           ))}
         </div>
-      ) : list.length === 0 ? (
-        <div className="text-center py-20">
-          {tab === 'Matches' ? (
-            <>
-              <div className="text-6xl mb-4">💝</div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">No matches yet</h2>
-              <p className="text-gray-500 mb-6">When someone likes you back, they'll appear here</p>
-              <Link href="/meet" className="btn-primary">Start Swiping</Link>
-            </>
-          ) : tab === 'Liked Me' ? (
-            <>
-              <div className="text-6xl mb-4">💕</div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">No likes yet</h2>
-              <p className="text-gray-500">Complete your profile to attract more likes</p>
-            </>
-          ) : (
-            <>
-              <div className="text-6xl mb-4">❤️</div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">You haven't liked anyone yet</h2>
-              <Link href="/discover" className="btn-primary">Browse Members</Link>
-            </>
-          )}
-        </div>
-      ) : (
-        <>
-          {tab === 'Matches' && (
-            <p className="text-sm text-gray-500 mb-4">You have {data.matches.length} mutual match{data.matches.length !== 1 ? 'es' : ''}! Start a conversation 💬</p>
-          )}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {list.map((item: any, i: number) => (
-              <MatchCard key={i} item={item} tab={tab} token={token!} />
+
+        {loading ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div key={i} className="rounded-2xl overflow-hidden animate-pulse">
+                <div className="aspect-[3/4] bg-white/5" />
+                <div className="p-3 space-y-1.5">
+                  <div className="h-3 bg-white/5 rounded w-3/4" />
+                  <div className="h-2.5 bg-white/5 rounded w-1/2" />
+                </div>
+              </div>
             ))}
           </div>
-        </>
-      )}
-    </div>
-  )
-}
+        ) : list.length === 0 ? (
+          <div className="text-center py-24">
+            <div className="w-20 h-20 rounded-3xl mx-auto mb-5 flex items-center justify-center"
+              style={{ background: 'rgba(236,72,153,0.1)', border: '1px solid rgba(236,72,153,0.2)' }}>
+              {tab === 'Matches' ? <Users size={36} className="text-pink-400/60" /> : <Heart size={36} className="text-pink-400/60" />}
+            </div>
+            <h2 className="text-xl font-bold text-white mb-2">
+              {tab === 'Matches' ? 'No matches yet' : tab === 'Liked Me' ? 'Nobody liked you yet' : "You haven't liked anyone yet"}
+            </h2>
+            <p className="text-white/40 text-sm mb-6 max-w-xs mx-auto">
+              {tab === 'Matches' ? 'Keep liking people — when they like you back, it\'s a match!' : 'Discover and like people to get likes back!'}
+            </p>
+            <button onClick={() => setLocation('/discover')}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-white text-sm"
+              style={{ background: 'linear-gradient(135deg, #4A0072, #6B1FA2)', boxShadow: '0 8px 24px rgba(107,31,162,0.35)' }}>
+              Discover Members
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {list.map((u: any) => {
+              const online = isOnline(u.lastAccess)
+              return (
+                <div key={u.id}
+                  className="group relative rounded-2xl overflow-hidden cursor-pointer transition-all hover:-translate-y-1 hover:shadow-2xl"
+                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}
+                  onClick={() => setLocation(profileUrl(u))}>
+                  {/* Photo */}
+                  <div className="relative aspect-[3/4] bg-gray-900">
+                    <img
+                      src={getPhotoUrl(u.photoThumb || u.photo)}
+                      alt={u.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      onError={e => { (e.currentTarget as HTMLImageElement).src = '/images/default-avatar.svg' }}
+                    />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 50%)' }} />
 
-function MatchCard({ item, tab, token }: { item: any; tab: string; token: string }) {
-  const user = item.user
-  if (!user) return null
+                    {/* Top badges */}
+                    <div className="absolute top-2 left-2 right-2 flex items-start justify-between z-10">
+                      <div className="flex flex-col gap-1">
+                        {u.premium === 1 && (
+                          <span className="flex items-center gap-0.5 bg-amber-500/90 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow">
+                            <Crown size={8} />
+                          </span>
+                        )}
+                      </div>
+                      {online && (
+                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 border-2" style={{ borderColor: '#1a1a1a' }} />
+                      )}
+                    </div>
 
-  return (
-    <div className="card overflow-hidden group">
-      <div className="relative overflow-hidden bg-gray-200" style={{ aspectRatio: '3/4' }}>
-        <img src={getPhotoUrl(user.photoThumb || user.photo)} alt={user.name}
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-          onError={e => { (e.target as HTMLImageElement).src = '/images/default-avatar.svg' }} />
-        <Link href={profileUrl(user)} className="absolute inset-0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-        {isOnline(user.lastAccess) && (
-          <div className="absolute top-2 right-2 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-white pointer-events-none" />
-        )}
-        {item.superlike === 1 && (
-          <div className="absolute top-2 left-2 bg-blue-500 text-white rounded-full px-1.5 py-0.5 flex items-center gap-0.5 text-xs pointer-events-none">
-            <Star size={10} className="fill-white" /> Super
+                    {/* Match ribbon */}
+                    {tab === 'Matches' && (
+                      <div className="absolute top-0 right-0 bg-gradient-to-bl from-pink-500 to-transparent w-16 h-16 flex items-start justify-end p-1.5">
+                        <Heart size={14} className="text-white fill-white drop-shadow" />
+                      </div>
+                    )}
+
+                    {/* Hover actions */}
+                    <div className="absolute inset-x-0 bottom-0 z-20 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <div className="flex gap-1.5 p-2 pt-6" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
+                        <button
+                          onClick={e => { e.stopPropagation(); setLocation(`/chat/${u.id}`) }}
+                          className="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl text-xs font-bold text-white"
+                          style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}>
+                          <MessageCircle size={12} /> Chat
+                        </button>
+                        <button
+                          onClick={e => { e.stopPropagation(); superLike(u.id) }}
+                          className="w-9 flex items-center justify-center rounded-xl"
+                          style={{ background: 'rgba(59,130,246,0.8)' }}>
+                          <Star size={13} className="text-white" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Bottom info */}
+                    <div className="absolute bottom-0 left-0 right-0 p-2.5 z-10">
+                      <div className="flex items-center gap-1 mb-0.5">
+                        <span className="text-white text-sm font-bold truncate leading-tight">{u.name}</span>
+                        {u.verified === 1 && <BadgeCheck size={11} className="text-blue-300 flex-shrink-0" />}
+                      </div>
+                      <div className="text-white/60 text-[11px]">
+                        {u.age && <span>{u.age}y</span>}
+                        {u.city && <><span className="mx-1">·</span><span className="truncate">{u.city}</span></>}
+                      </div>
+                      {u.likedAt && (
+                        <p className="text-white/30 text-[10px] mt-0.5">{timeAgo(u.likedAt)}</p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
-        )}
-        {tab === 'Matches' && (
-          <div className="absolute top-2 left-2 bg-brand-500 text-white rounded-full px-2 py-0.5 text-xs font-semibold flex items-center gap-1 pointer-events-none">
-            <Heart size={10} className="fill-white" /> Match
-          </div>
-        )}
-        <div className="absolute bottom-0 left-0 right-0 p-3 text-white pointer-events-none">
-          <div className="flex items-center gap-1 mb-0.5">
-            <p className="font-semibold text-sm truncate">{user.name}</p>
-            {user.verified === 1 && <BadgeCheck size={13} className="text-blue-300 flex-shrink-0" />}
-          </div>
-          <p className="text-white/70 text-xs">{user.age}y · {user.city || user.country}</p>
-        </div>
-      </div>
-      <div className="p-2 flex gap-2">
-        <Link href={profileUrl(user)}
-          className="flex-1 text-center text-xs font-medium py-1.5 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
-          Profile
-        </Link>
-        {tab === 'Matches' && (
-          <Link href={`/chat/${user.id}`}
-            className="flex-1 flex items-center justify-center gap-1 text-xs font-medium py-1.5 rounded-lg bg-brand-500 text-white hover:bg-brand-600 transition-colors">
-            <MessageCircle size={13} /> Chat
-          </Link>
         )}
       </div>
     </div>

@@ -1,162 +1,139 @@
-import { useState, useEffect } from "react"
-import { useAuth } from "../hooks/useAuth"
-import { getStoredAuth } from "../lib/auth"
-import { getPhotoUrl } from "../lib/utils"
+import { useState, useEffect } from 'react'
+import { useLocation } from 'wouter'
+import { authFetch } from '../lib/auth'
+import { useAuth } from '../hooks/useAuth'
+import { Users, Copy, Check, Gift, Star, TrendingUp, ChevronRight } from 'lucide-react'
+import toast from 'react-hot-toast'
 
-interface ReferralData {
+interface ReferralStats {
   code: string
-  referralUrl: string
   totalReferrals: number
-  referrals: Array<{
-    id: number
-    referredId: number
-    status: string
-    reward: string
-    created: number
-    name: string
-    photo: string
-    photoThumb: string
-  }>
-  rewardTiers: Array<{
-    label: string
-    rewardType: string
-    rewardAmount: number
-  }>
+  pendingReward: number
+  earnedCredits: number
+  referrals?: any[]
 }
 
 export default function ReferralsPage() {
-  const { user } = useAuth()
-  const [data, setData] = useState<ReferralData | null>(null)
+  const [stats, setStats] = useState<ReferralStats | null>(null)
   const [loading, setLoading] = useState(true)
   const [copied, setCopied] = useState(false)
+  const { user } = useAuth()
+  const [params] = useLocation()
 
   useEffect(() => {
-    const auth = getStoredAuth()
-    if (!auth?.token) return
-    fetch("/api/referrals", { headers: { Authorization: `Bearer ${auth.token}` } })
+    authFetch('/api/referrals')
       .then(r => r.json())
-      .then(d => { setData(d); setLoading(false) })
-      .catch(() => setLoading(false))
+      .then(d => { if (d && !d.error) setStats(d) })
+      .catch(() => {})
+      .finally(() => setLoading(false))
   }, [])
 
   function copyLink() {
-    if (!data?.referralUrl) return
-    navigator.clipboard.writeText(data.referralUrl).then(() => {
+    const url = `${window.location.origin}/ref/${stats?.code || ''}`
+    navigator.clipboard.writeText(url).then(() => {
       setCopied(true)
-      setTimeout(() => setCopied(false), 2500)
+      toast.success('Referral link copied!')
+      setTimeout(() => setCopied(false), 3000)
     })
-  }
-
-  function formatDate(ts: number) {
-    return new Date(ts * 1000).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
   }
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="w-full min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
         <div className="w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
 
+  const referralUrl = `${window.location.origin}/ref/${stats?.code || ''}`
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-2xl mx-auto px-4 py-6">
+    <div className="w-full min-h-screen" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+      <div className="max-w-xl mx-auto px-4 py-8">
+
         {/* Header */}
-        <div className="mb-5">
-          <h1 className="text-xl font-bold text-gray-900">Get referrals to earn rewards</h1>
-          <p className="text-sm text-gray-500 mt-0.5">Invite friends and earn credits or premium days when they buy packages</p>
+        <div className="text-center mb-8">
+          <div className="w-20 h-20 rounded-3xl mx-auto mb-5 flex items-center justify-center shadow-2xl"
+            style={{ background: 'linear-gradient(135deg, #4A0072, #6B1FA2)', boxShadow: '0 12px 40px rgba(107,31,162,0.4)' }}>
+            <Users size={38} className="text-white" />
+          </div>
+          <h1 className="text-3xl font-black text-white mb-2 tracking-tight">Refer & Earn</h1>
+          <p className="text-white/50 text-sm max-w-xs mx-auto leading-relaxed">
+            Invite friends and earn credits every time they join!
+          </p>
+        </div>
+
+        {/* Stats row */}
+        <div className="grid grid-cols-3 gap-3 mb-5">
+          {[
+            { icon: Users, label: 'Referrals', value: stats?.totalReferrals || 0, color: '#6B1FA2' },
+            { icon: Gift, label: 'Earned', value: `${stats?.earnedCredits || 0}cr`, color: '#10b981' },
+            { icon: Star, label: 'Pending', value: `${stats?.pendingReward || 0}cr`, color: '#f59e0b' },
+          ].map((s, i) => (
+            <div key={i} className="rounded-2xl p-4 text-center"
+              style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div className="w-8 h-8 rounded-xl mx-auto mb-2 flex items-center justify-center"
+                style={{ background: `${s.color}20` }}>
+                <s.icon size={16} style={{ color: s.color }} />
+              </div>
+              <div className="text-xl font-black text-white">{s.value}</div>
+              <div className="text-white/35 text-[10px] mt-0.5 font-medium">{s.label}</div>
+            </div>
+          ))}
         </div>
 
         {/* Referral link card */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 mb-4">
-          <p className="text-sm font-semibold text-gray-700 mb-3">Share your referral url with friends.</p>
-          <div className="flex gap-2">
-            <div className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-600 truncate">
-              {data?.referralUrl || "Loading..."}
-            </div>
-            <button
-              onClick={copyLink}
-              className="px-4 py-2.5 rounded-xl text-sm font-bold transition-all"
-              style={{
-                background: copied ? '#16a34a' : '#6B1FA2',
-                color: '#fff',
-                border: 'none',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {copied ? "✓ Copied" : "COPY"}
+        <div className="rounded-3xl p-6 mb-4"
+          style={{ background: 'rgba(107,31,162,0.15)', border: '1px solid rgba(107,31,162,0.3)' }}>
+          <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-3">Your Referral Link</p>
+          <div className="flex items-center gap-2 p-3 rounded-2xl mb-4"
+            style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <span className="flex-1 text-white/60 text-sm font-mono truncate">{referralUrl}</span>
+            <button onClick={copyLink}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-white transition-all flex-shrink-0"
+              style={copied ? { background: '#10b981' } : { background: 'linear-gradient(135deg, #4A0072, #6B1FA2)' }}>
+              {copied ? <><Check size={13} /> Copied!</> : <><Copy size={13} /> Copy</>}
             </button>
           </div>
 
-          {/* Stats row */}
-          <div className="flex gap-4 mt-4 pt-4 border-t border-gray-100">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-brand-600">{data?.totalReferrals || 0}</div>
-              <div className="text-xs text-gray-500">Total Referrals</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-green-600">
-                {data?.referrals?.filter(r => r.status === "rewarded").length || 0}
-              </div>
-              <div className="text-xs text-gray-500">Rewarded</div>
-            </div>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              onClick={() => { const t = encodeURIComponent(`Join me on NaughtyHaughty! ${referralUrl}`); window.open(`https://wa.me/?text=${t}`, '_blank') }}
+              className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
+              style={{ background: '#25D366' }}>
+              💬 WhatsApp
+            </button>
+            <button
+              onClick={() => { const t = encodeURIComponent(`Join me on NaughtyHaughty! ${referralUrl}`); window.open(`https://t.me/share/url?url=${encodeURIComponent(referralUrl)}&text=${t}`, '_blank') }}
+              className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
+              style={{ background: '#229ED9' }}>
+              ✈️ Telegram
+            </button>
           </div>
         </div>
 
-        {/* Reward tiers */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 mb-4">
-          <h2 className="text-sm font-bold text-gray-800 mb-3">Reward Tiers</h2>
-          <div className="space-y-3">
-            {(data?.rewardTiers || []).map((tier, i) => (
-              <div key={i} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
-                <p className="text-sm text-gray-700 flex-1 pr-4">{tier.label}</p>
-                <div className="text-right flex-shrink-0">
-                  <div className="text-lg font-bold text-gray-900">{tier.rewardAmount}</div>
+        {/* How it works */}
+        <div className="rounded-3xl p-5"
+          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
+          <p className="font-bold text-white mb-4 flex items-center gap-2 text-sm">
+            <TrendingUp size={16} className="text-brand-400" /> How It Works
+          </p>
+          <div className="space-y-3.5">
+            {[
+              { step: '1', text: 'Share your unique referral link with friends', color: '#6B1FA2' },
+              { step: '2', text: 'Your friend signs up using your link', color: '#3b82f6' },
+              { step: '3', text: 'You earn credits when they join and verify', color: '#10b981' },
+            ].map(item => (
+              <div key={item.step} className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-black text-white"
+                  style={{ background: item.color }}>
+                  {item.step}
                 </div>
+                <p className="text-white/55 text-sm leading-relaxed">{item.text}</p>
               </div>
             ))}
           </div>
         </div>
-
-        {/* Referral list */}
-        {(data?.referrals?.length || 0) > 0 && (
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
-            <h2 className="text-sm font-bold text-gray-800 mb-3">Your Referrals</h2>
-            <div className="space-y-3">
-              {data!.referrals.map(ref => (
-                <div key={ref.id} className="flex items-center gap-3">
-                  <img
-                    src={getPhotoUrl(ref.photoThumb || ref.photo)}
-                    alt={ref.name}
-                    className="w-9 h-9 rounded-full object-cover flex-shrink-0"
-                    onError={e => { (e.currentTarget as HTMLImageElement).src = '/images/default-avatar.svg' }}
-                  />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-gray-800 truncate">{ref.name}</p>
-                    <p className="text-xs text-gray-600">{formatDate(ref.created)}</p>
-                  </div>
-                  <div className="flex-shrink-0">
-                    {ref.status === "rewarded" ? (
-                      <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">
-                        Rewarded
-                      </span>
-                    ) : ref.status === "joined" ? (
-                      <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
-                        Joined
-                      </span>
-                    ) : (
-                      <span className="text-xs font-bold text-gray-600 bg-gray-100 px-2 py-0.5 rounded-full">
-                        Pending
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   )
