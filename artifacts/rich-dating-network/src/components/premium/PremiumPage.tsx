@@ -234,7 +234,7 @@ export default function PremiumPage({
             onClick={() => displaySelected && onBuy(displaySelected)}
             disabled={displayLoading || !displaySelected}
             className="w-full py-4 rounded-2xl font-bold text-white text-base flex items-center justify-center gap-3 transition-all disabled:opacity-50 shadow-xl shadow-brand-500/20 mb-3"
-            style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+            style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>
             {displayLoading ? <Loader2 size={20} className="animate-spin" /> : <Crown size={20} />}
             {displaySelected ? `Get ${displaySelected.name} — ${useCard ? `$${displaySelected.price}` : formatLocalPrice ? formatLocalPrice(displaySelected.price, effectiveProvider || provider, country) : `$${displaySelected.price}`}` : 'Select a plan'}
           </button>
@@ -250,7 +250,7 @@ export default function PremiumPage({
             {customGateways.map((g: any) => (
               <div key={g.id} onClick={() => setSelectedGateway?.(g)} style={{
                 padding: '1rem', borderRadius: '0.875rem', cursor: 'pointer',
-                border: `2px solid ${selectedGateway?.id === g.id ? '#9B1438' : '#e5e7eb'}`,
+                border: `2px solid ${selectedGateway?.id === g.id ? '#6B1FA2' : '#e5e7eb'}`,
                 background: selectedGateway?.id === g.id ? '#fff0f1' : '#fff',
                 transition: 'all 0.15s', display: 'flex', alignItems: 'center', gap: '1rem',
               }}>
@@ -262,7 +262,7 @@ export default function PremiumPage({
                   {g.description && <p style={{ color: '#4b5563', fontSize: '0.78rem', marginTop: '0.15rem' }}>{g.description}</p>}
                   <p style={{ color: '#6b7280', fontSize: '0.72rem', marginTop: '0.2rem' }}>⏱ Up to {g.reviewTime}h review</p>
                 </div>
-                {selectedGateway?.id === g.id && <span style={{ color: '#9B1438', fontWeight: 800, fontSize: '1.1rem' }}>✓</span>}
+                {selectedGateway?.id === g.id && <span style={{ color: '#6B1FA2', fontWeight: 800, fontSize: '1.1rem' }}>✓</span>}
               </div>
             ))}
           </div>
@@ -274,12 +274,12 @@ export default function PremiumPage({
                 {packages.map((pkg: any) => (
                   <div key={pkg.id} onClick={() => onSelectPkg(pkg)} style={{
                     padding: '0.875rem', borderRadius: '0.875rem', cursor: 'pointer', textAlign: 'center',
-                    border: `2px solid ${displaySelected?.id === pkg.id ? '#9B1438' : '#e5e7eb'}`,
+                    border: `2px solid ${displaySelected?.id === pkg.id ? '#6B1FA2' : '#e5e7eb'}`,
                     background: displaySelected?.id === pkg.id ? '#fff0f1' : '#fff',
                     transition: 'all 0.15s',
                   }}>
                     <p style={{ fontWeight: 800, color: '#111827', fontSize: '0.95rem' }}>{pkg.name}</p>
-                    <p style={{ color: '#9B1438', fontWeight: 700, fontSize: '0.85rem' }}>${pkg.price}</p>
+                    <p style={{ color: '#6B1FA2', fontWeight: 700, fontSize: '0.85rem' }}>${pkg.price}</p>
                     <p style={{ color: '#6b7280', fontSize: '0.72rem' }}>{pkg.description}</p>
                   </div>
                 ))}
@@ -305,7 +305,7 @@ export default function PremiumPage({
                 disabled={!proof.trim() || submitting}
                 style={{
                   marginTop: '0.875rem', width: '100%', padding: '0.8rem', borderRadius: '0.875rem', border: 'none',
-                  background: !proof.trim() || submitting ? '#e5e7eb' : '#9B1438',
+                  background: !proof.trim() || submitting ? '#e5e7eb' : '#6B1FA2',
                   color: '#fff', fontWeight: 800, fontSize: '0.9rem',
                   cursor: proof.trim() && !submitting ? 'pointer' : 'not-allowed', fontFamily: 'inherit',
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',

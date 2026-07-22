@@ -47,7 +47,7 @@ export default function VisitorsPage() {
           </p>
           <button onClick={() => setLocation("/premium")}
             className="inline-flex items-center gap-2 py-2.5 px-5 rounded-xl font-bold text-white text-sm shadow-lg shadow-brand-500/20"
-            style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+            style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>
             <Crown size={14} /> Upgrade to Premium
           </button>
         </div>
@@ -66,7 +66,7 @@ export default function VisitorsPage() {
           <p className="text-sm text-gray-500">When people view your profile, they'll appear here</p>
           <button onClick={() => setLocation("/discover")}
             className="mt-4 px-5 py-2.5 rounded-xl font-semibold text-white text-sm shadow-md"
-            style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+            style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>
             Discover People
           </button>
         </div>
@@ -104,7 +104,7 @@ export default function VisitorsPage() {
               </div>
               <button onClick={() => setLocation(profileUrl(row.visitor))}
                 className="px-4 py-2 rounded-xl text-sm font-semibold text-white transition-all shadow-sm hover:shadow-md flex-shrink-0"
-                style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+                style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>
                 View
               </button>
             </div>

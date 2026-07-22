@@ -556,7 +556,7 @@ export default function AdminOrders() {
         />
         <button
           onClick={handleSearch}
-          style={{ background: "#9B1438", color: "#fff", border: "none", borderRadius: "0.5rem", padding: "0.5rem 1rem", fontSize: "0.82rem", fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}
+          style={{ background: "#6B1FA2", color: "#fff", border: "none", borderRadius: "0.5rem", padding: "0.5rem 1rem", fontSize: "0.82rem", fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}
         >
           Search
         </button>
@@ -611,7 +611,7 @@ export default function AdminOrders() {
               style={{
                 flex: 1, padding: "0.45rem 0.5rem", borderRadius: "0.4rem",
                 border: "none", cursor: "pointer",
-                background: filter === f ? (st ? st.bg : "linear-gradient(135deg,#9B1438,#c4546f)") : "transparent",
+                background: filter === f ? (st ? st.bg : "linear-gradient(135deg,#6B1FA2,#9340d6)") : "transparent",
                 color: filter === f ? (st ? st.color : "#fff") : "#94a3b8",
                 fontWeight: 600, fontSize: "0.75rem", fontFamily: "inherit", textTransform: "capitalize",
               }}
@@ -625,7 +625,7 @@ export default function AdminOrders() {
       {/* Table */}
       {loading ? (
         <div style={{ display: "flex", justifyContent: "center", padding: "3rem", color: "#475569" }}>
-          <div style={{ width: "1.75rem", height: "1.75rem", border: "2px solid #9B1438", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite", marginRight: "0.75rem" }} />
+          <div style={{ width: "1.75rem", height: "1.75rem", border: "2px solid #6B1FA2", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite", marginRight: "0.75rem" }} />
           Loading orders…
         </div>
       ) : orders.length === 0 ? (

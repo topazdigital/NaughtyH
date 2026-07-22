@@ -295,7 +295,7 @@ function PWAInstallBanner() {
       <div className="bg-gray-900 text-white rounded-2xl px-4 py-3.5 flex items-center gap-3 shadow-2xl">
         <div className="w-9 h-9 rounded-xl bg-brand-500 flex items-center justify-center flex-shrink-0 text-lg">❤️</div>
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-semibold leading-tight">Install Rich Dating</p>
+          <p className="text-sm font-semibold leading-tight">Install NaughtyHaughty</p>
           <p className="text-xs text-gray-400 leading-tight mt-0.5">Add to home screen for the best experience</p>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">

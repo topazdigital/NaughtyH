@@ -57,7 +57,7 @@ export default function CookieConsent() {
         background: 'rgba(255,25,44,0.15)', display: 'flex',
         alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '0.1rem',
       }}>
-        <Cookie size={16} color="#9B1438" />
+        <Cookie size={16} color="#6B1FA2" />
       </div>
 
       <div style={{ flex: 1, minWidth: 0 }}>
@@ -67,7 +67,7 @@ export default function CookieConsent() {
         <p style={{ fontSize: '0.78rem', color: '#9ca3af', lineHeight: 1.5, marginBottom: '0.875rem' }}>
           We use cookies to improve your experience, remember your preferences, and keep you signed in.
           See our{' '}
-          <Link href="/privacy" style={{ color: '#9B1438', textDecoration: 'underline' }}>
+          <Link href="/privacy" style={{ color: '#6B1FA2', textDecoration: 'underline' }}>
             Privacy Policy
           </Link>{' '}
           for details.
@@ -77,7 +77,7 @@ export default function CookieConsent() {
           <button
             onClick={accept}
             style={{
-              background: '#9B1438', color: '#fff', border: 'none',
+              background: '#6B1FA2', color: '#fff', border: 'none',
               borderRadius: '0.75rem', padding: '0.5rem 1.1rem',
               fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer',
               transition: 'opacity 0.15s',

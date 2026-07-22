@@ -69,7 +69,7 @@ export default function FeaturedMembers({ city, country, heading, jsonLdId }: Pr
   return (
     <div className="mt-14">
       <div className="flex items-center gap-2 mb-6">
-        <Users className="w-5 h-5 text-[#9B1438]" />
+        <Users className="w-5 h-5 text-[#6B1FA2]" />
         <h2 className="text-2xl font-bold">
           {heading || `Meet Members in ${label}`}
         </h2>
@@ -82,7 +82,7 @@ export default function FeaturedMembers({ city, country, heading, jsonLdId }: Pr
             <Link
               key={m.id}
               href={href}
-              className="group block rounded-2xl overflow-hidden border border-gray-200 hover:border-[#9B1438] hover:shadow-lg transition-all"
+              className="group block rounded-2xl overflow-hidden border border-gray-200 hover:border-[#6B1FA2] hover:shadow-lg transition-all"
             >
               <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
                 <img
@@ -108,7 +108,7 @@ export default function FeaturedMembers({ city, country, heading, jsonLdId }: Pr
       <div className="mt-5 text-center">
         <Link
           href="/members"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#9B1438] hover:underline"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B1FA2] hover:underline"
         >
           Browse all members →
         </Link>

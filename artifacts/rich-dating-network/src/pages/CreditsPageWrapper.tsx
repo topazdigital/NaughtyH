@@ -4,10 +4,10 @@ import { authFetch } from '../lib/auth'
 import { Loader2, Upload, CheckCircle, XCircle, Clock } from 'lucide-react'
 import toast from 'react-hot-toast'
 
-const PKG_COLORS = ['#6b7280', '#9B1438', '#8b5cf6', '#f59e0b', '#10b981', '#3b82f6']
+const PKG_COLORS = ['#6b7280', '#6B1FA2', '#8b5cf6', '#f59e0b', '#10b981', '#3b82f6']
 const FALLBACK_PACKAGES = [
   { id: 1, credits: 100, usdPrice: 4.99, popular: false, label: 'Starter', color: '#6b7280' },
-  { id: 2, credits: 250, usdPrice: 9.99, popular: true, label: 'Popular', color: '#9B1438', badge: '🔥 Most Popular' },
+  { id: 2, credits: 250, usdPrice: 9.99, popular: true, label: 'Popular', color: '#6B1FA2', badge: '🔥 Most Popular' },
   { id: 3, credits: 500, usdPrice: 17.99, popular: false, label: 'Value', color: '#8b5cf6' },
   { id: 4, credits: 1000, usdPrice: 29.99, popular: false, label: 'Best Value', color: '#f59e0b', badge: '💎 Best Deal' },
 ]
@@ -243,7 +243,7 @@ export default function CreditsPageWrapper() {
       <div style={{ background: 'linear-gradient(135deg,#fff0f1,#fff)', border: '1.5px solid #ffc5c9', borderRadius: '1rem', padding: '1rem 1.25rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div>
           <p style={{ color: '#111827', fontSize: '0.85rem', fontWeight: 700 }}>Your current balance</p>
-          <p style={{ color: '#9B1438', fontSize: '1.75rem', fontWeight: 900, lineHeight: 1.1 }}>{user?.credits || 0} <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#d97706' }}>credits</span></p>
+          <p style={{ color: '#6B1FA2', fontSize: '1.75rem', fontWeight: 900, lineHeight: 1.1 }}>{user?.credits || 0} <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#d97706' }}>credits</span></p>
         </div>
         <div style={{ fontSize: '2rem' }}>💰</div>
       </div>
@@ -322,7 +322,7 @@ export default function CreditsPageWrapper() {
                 {otherGateways.map((g: any) => (
                   <div key={g.id} onClick={() => setSelectedGateway(selectedGateway?.id === g.id ? null : g)} style={{
                     padding: '1rem', borderRadius: '0.875rem', cursor: 'pointer',
-                    border: `2px solid ${selectedGateway?.id === g.id ? '#9B1438' : '#e5e7eb'}`,
+                    border: `2px solid ${selectedGateway?.id === g.id ? '#6B1FA2' : '#e5e7eb'}`,
                     background: selectedGateway?.id === g.id ? '#fff0f1' : '#fff',
                     transition: 'all 0.15s',
                   }}>
@@ -335,7 +335,7 @@ export default function CreditsPageWrapper() {
                         {g.description && <p style={{ color: '#4b5563', fontSize: '0.78rem', marginTop: '0.15rem' }}>{g.description}</p>}
                         <p style={{ color: '#6b7280', fontSize: '0.72rem', marginTop: '0.2rem' }}>⏱ Up to {g.reviewTime}h review</p>
                       </div>
-                      {selectedGateway?.id === g.id && <span style={{ color: '#9B1438', fontWeight: 800, fontSize: '1.1rem' }}>✓</span>}
+                      {selectedGateway?.id === g.id && <span style={{ color: '#6B1FA2', fontWeight: 800, fontSize: '1.1rem' }}>✓</span>}
                     </div>
 
                     {selectedGateway?.id === g.id && (
@@ -370,7 +370,7 @@ export default function CreditsPageWrapper() {
                               disabled={!proof.trim() || submitting}
                               style={{
                                 marginTop: '0.7rem', width: '100%', padding: '0.7rem', borderRadius: '0.75rem', border: 'none',
-                                background: !proof.trim() || submitting ? '#e5e7eb' : '#9B1438',
+                                background: !proof.trim() || submitting ? '#e5e7eb' : '#6B1FA2',
                                 color: '#fff', fontWeight: 800, fontSize: '0.82rem', cursor: proof.trim() && !submitting ? 'pointer' : 'not-allowed', fontFamily: 'inherit',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
                               }}>
@@ -538,7 +538,7 @@ export default function CreditsPageWrapper() {
               <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1.5rem', lineHeight: 1.6 }}>
                 The M-Pesa payment was declined.<br />Check your M-Pesa balance and try again.
               </p>
-              <button onClick={() => { setStep('confirm'); setPollOutcome('waiting') }} style={{ padding: '0.7rem 2rem', borderRadius: '0.875rem', border: 'none', background: '#9B1438', color: '#fff', fontWeight: 800, cursor: 'pointer', fontFamily: 'inherit' }}>
+              <button onClick={() => { setStep('confirm'); setPollOutcome('waiting') }} style={{ padding: '0.7rem 2rem', borderRadius: '0.875rem', border: 'none', background: '#6B1FA2', color: '#fff', fontWeight: 800, cursor: 'pointer', fontFamily: 'inherit' }}>
                 Try again
               </button>
             </>

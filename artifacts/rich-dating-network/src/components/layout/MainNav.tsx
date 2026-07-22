@@ -58,11 +58,11 @@ export default function MainNav() {
       }}>
         <div style={{ maxWidth: '1152px', margin: '0 auto', padding: '0 0.75rem', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Link href="/discover" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none' }}>
-            <div style={{ width: '1.75rem', height: '1.75rem', borderRadius: '0.6rem', background: 'linear-gradient(135deg,#9B1438,#c4546f)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 6px rgba(255,25,44,0.3)' }}>
+            <div style={{ width: '1.75rem', height: '1.75rem', borderRadius: '0.6rem', background: 'linear-gradient(135deg,#6B1FA2,#9340d6)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 6px rgba(107,31,162,0.3)' }}>
               <Heart size={12} color="#fff" fill="#fff" />
             </div>
             <span style={{ fontWeight: 900, color: '#111827', fontSize: '0.82rem', letterSpacing: '-0.02em' }}>
-              Rich <span style={{ color: '#9B1438' }}>Dating</span> Network
+              <span style={{ color: '#6B1FA2' }}>Naughty</span>Haughty
             </span>
           </Link>
 
@@ -77,26 +77,26 @@ export default function MainNav() {
                   padding: '0.35rem 0.7rem', borderRadius: '0.6rem',
                   fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none',
                   position: 'relative', transition: 'all 0.15s',
-                  background: active ? '#fff0f1' : 'transparent',
-                  color: active ? '#9B1438' : '#6b7280',
+                  background: active ? '#faf5ff' : 'transparent',
+                  color: active ? '#6B1FA2' : '#6b7280',
                 }}>
                   <item.icon size={14} />
                   {item.label}
                   {badge > 0 && (
-                    <span style={{ position: 'absolute', top: '-2px', right: '-2px', minWidth: '15px', height: '15px', background: '#9B1438', color: '#fff', fontSize: '9px', fontWeight: 800, borderRadius: '999px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 2px' }}>
+                    <span style={{ position: 'absolute', top: '-2px', right: '-2px', minWidth: '15px', height: '15px', background: '#6B1FA2', color: '#fff', fontSize: '9px', fontWeight: 800, borderRadius: '999px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 2px' }}>
                       {badge > 99 ? '99+' : badge}
                     </span>
                   )}
                 </Link>
               )
             })}
-            <Link href="/visitors" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', padding: '0.35rem 0.7rem', borderRadius: '0.6rem', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none', transition: 'all 0.15s', background: location.startsWith('/visitors') ? '#fff0f1' : 'transparent', color: location.startsWith('/visitors') ? '#9B1438' : '#6b7280' }}>
+            <Link href="/visitors" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', padding: '0.35rem 0.7rem', borderRadius: '0.6rem', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none', transition: 'all 0.15s', background: location.startsWith('/visitors') ? '#faf5ff' : 'transparent', color: location.startsWith('/visitors') ? '#6B1FA2' : '#6b7280' }}>
               <Eye size={14} /> Visitors
             </Link>
-            <Link href="/gifts" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', padding: '0.35rem 0.7rem', borderRadius: '0.6rem', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none', transition: 'all 0.15s', background: location.startsWith('/gifts') ? '#fff0f1' : 'transparent', color: location.startsWith('/gifts') ? '#9B1438' : '#6b7280' }}>
+            <Link href="/gifts" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', padding: '0.35rem 0.7rem', borderRadius: '0.6rem', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none', transition: 'all 0.15s', background: location.startsWith('/gifts') ? '#faf5ff' : 'transparent', color: location.startsWith('/gifts') ? '#6B1FA2' : '#6b7280' }}>
               <Gift size={14} /> Gifts
             </Link>
-            <Link href="/referrals" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', padding: '0.35rem 0.7rem', borderRadius: '0.6rem', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none', transition: 'all 0.15s', background: location.startsWith('/referrals') ? '#fff0f1' : 'transparent', color: location.startsWith('/referrals') ? '#9B1438' : '#6b7280' }}>
+            <Link href="/referrals" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', padding: '0.35rem 0.7rem', borderRadius: '0.6rem', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none', transition: 'all 0.15s', background: location.startsWith('/referrals') ? '#faf5ff' : 'transparent', color: location.startsWith('/referrals') ? '#6B1FA2' : '#6b7280' }}>
               <Users size={14} /> Referrals
             </Link>
           </nav>
@@ -202,7 +202,7 @@ export default function MainNav() {
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                 gap: '0.2rem', fontSize: '0.5rem', fontWeight: 700, letterSpacing: '0.03em',
                 textTransform: 'uppercase', cursor: 'pointer', textDecoration: 'none', position: 'relative',
-                color: active ? '#9B1438' : '#9ca3af', transition: 'color 0.15s',
+                color: active ? '#6B1FA2' : '#9ca3af', transition: 'color 0.15s',
               }}>
                 <div style={{ position: 'relative' }}>
                   {active && (
@@ -211,13 +211,13 @@ export default function MainNav() {
                   <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <item.icon size={19} strokeWidth={active ? 2.5 : 1.8} />
                     {badge > 0 && (
-                      <span style={{ position: 'absolute', top: '-5px', right: '-6px', minWidth: '14px', height: '14px', background: '#9B1438', color: '#fff', fontSize: '8px', fontWeight: 800, borderRadius: '999px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 2px', border: '1.5px solid #fff' }}>
+                      <span style={{ position: 'absolute', top: '-5px', right: '-6px', minWidth: '14px', height: '14px', background: '#6B1FA2', color: '#fff', fontSize: '8px', fontWeight: 800, borderRadius: '999px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 2px', border: '1.5px solid #fff' }}>
                         {badge > 9 ? '9+' : badge}
                       </span>
                     )}
                   </div>
                 </div>
-                <span style={{ color: active ? '#9B1438' : '#9ca3af', fontSize: '0.48rem', fontWeight: active ? 700 : 500 }}>{item.label}</span>
+                <span style={{ color: active ? '#6B1FA2' : '#9ca3af', fontSize: '0.48rem', fontWeight: active ? 700 : 500 }}>{item.label}</span>
               </Link>
             )
           })}

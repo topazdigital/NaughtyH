@@ -76,7 +76,7 @@ function GatewayForm({ initial, onSave, onCancel }: { initial?: any; onSave: (da
         </div>
       </div>
       <div style={{ marginTop: "1rem", display: "flex", gap: "0.75rem" }}>
-        <button onClick={() => onSave(form)} style={{ padding: "0.6rem 1.25rem", borderRadius: "0.625rem", border: "none", background: "#9B1438", color: "#fff", fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
+        <button onClick={() => onSave(form)} style={{ padding: "0.6rem 1.25rem", borderRadius: "0.625rem", border: "none", background: "#6B1FA2", color: "#fff", fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
           {initial ? "Update" : "Create"} Gateway
         </button>
         <button onClick={onCancel} style={{ padding: "0.6rem 1.25rem", borderRadius: "0.625rem", border: "1px solid #334155", background: "transparent", color: "#94a3b8", fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
@@ -168,8 +168,8 @@ export default function AdminCustomPayments() {
         ].map(t => (
           <button key={t.id} onClick={() => setTab(t.id as any)} style={{
             padding: "0.6rem 1.25rem", border: "none", background: "transparent", cursor: "pointer", fontFamily: "inherit",
-            color: tab === t.id ? "#9B1438" : "#6b7280", fontWeight: 700, fontSize: "0.875rem",
-            borderBottom: `2px solid ${tab === t.id ? "#9B1438" : "transparent"}`,
+            color: tab === t.id ? "#6B1FA2" : "#6b7280", fontWeight: 700, fontSize: "0.875rem",
+            borderBottom: `2px solid ${tab === t.id ? "#6B1FA2" : "transparent"}`,
             display: "flex", alignItems: "center", gap: "0.5rem", position: "relative", top: "1px",
           }}>
             {t.label}
@@ -186,7 +186,7 @@ export default function AdminCustomPayments() {
       {tab === "gateways" && (
         <div>
           {!showForm && !editing && (
-            <button onClick={() => setShowForm(true)} style={{ marginBottom: "1rem", padding: "0.6rem 1.25rem", borderRadius: "0.75rem", border: "none", background: "#9B1438", color: "#fff", fontWeight: 700, cursor: "pointer", fontFamily: "inherit", fontSize: "0.875rem" }}>
+            <button onClick={() => setShowForm(true)} style={{ marginBottom: "1rem", padding: "0.6rem 1.25rem", borderRadius: "0.75rem", border: "none", background: "#6B1FA2", color: "#fff", fontWeight: 700, cursor: "pointer", fontFamily: "inherit", fontSize: "0.875rem" }}>
               + Add Gateway
             </button>
           )}
@@ -246,7 +246,7 @@ export default function AdminCustomPayments() {
             {["pending", "completed", "rejected", "all"].map(s => (
               <button key={s} onClick={() => setOrderFilter(s)} style={{
                 padding: "0.4rem 0.875rem", borderRadius: "0.625rem", border: "none", cursor: "pointer", fontFamily: "inherit",
-                background: orderFilter === s ? "#9B1438" : "#1e293b",
+                background: orderFilter === s ? "#6B1FA2" : "#1e293b",
                 color: orderFilter === s ? "#fff" : "#94a3b8",
                 fontWeight: 700, fontSize: "0.78rem", textTransform: "capitalize",
               }}>{s}</button>

@@ -59,7 +59,7 @@ export default function HomeFeed({ userId, suggestedUsers, feedPosts, stories }:
 
             {/* Welcome banner */}
             <div style={{
-              background: 'linear-gradient(135deg, #9B1438 0%, #c4546f 100%)',
+              background: 'linear-gradient(135deg, #6B1FA2 0%, #9340d6 100%)',
               borderRadius: '1.25rem',
               padding: '1.25rem 1.5rem',
               color: '#fff',
@@ -127,7 +127,7 @@ export default function HomeFeed({ userId, suggestedUsers, feedPosts, stories }:
                     {stories.map((story: any, idx: number) => (
                     <button key={story.id} onClick={() => setActiveStory({ story, idx })}
                       style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
-                      <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '50%', outline: '2px solid #9B1438', outlineOffset: '2px', overflow: 'hidden' }}>
+                      <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '50%', outline: '2px solid #6B1FA2', outlineOffset: '2px', overflow: 'hidden' }}>
                         <img src={getPhotoUrl(story.user?.photo)} alt={story.user?.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
                       <span style={{ fontSize: '0.65rem', color: '#6b7280', maxWidth: '3.5rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{story.user?.name?.split(' ')[0]}</span>
@@ -201,10 +201,10 @@ export default function HomeFeed({ userId, suggestedUsers, feedPosts, stories }:
                       <button onClick={() => likePost(post.id)} style={{
                         display: 'flex', alignItems: 'center', gap: '0.4rem',
                         fontSize: '0.85rem', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer',
-                        color: likedPosts.has(post.id) ? '#9B1438' : '#6b7280',
+                        color: likedPosts.has(post.id) ? '#6B1FA2' : '#6b7280',
                         transition: 'color 0.15s', padding: 0,
                       }}>
-                        <ThumbsUp size={16} fill={likedPosts.has(post.id) ? '#9B1438' : 'none'} />
+                        <ThumbsUp size={16} fill={likedPosts.has(post.id) ? '#6B1FA2' : 'none'} />
                         {post._count?.likes || 0}
                       </button>
                       <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: '#9ca3af' }}>
@@ -254,11 +254,11 @@ export default function HomeFeed({ userId, suggestedUsers, feedPosts, stories }:
                         width: '2rem', height: '2rem', borderRadius: '50%', border: 'none', background: '#fff0f1',
                         display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 0.15s',
                       }}>
-                        <Heart size={15} color="#9B1438" />
+                        <Heart size={15} color="#6B1FA2" />
                       </button>
                     </div>
                   ))}
-                  <Link href="/discover" style={{ display: 'block', textAlign: 'center', fontSize: '0.82rem', color: '#9B1438', fontWeight: 700, textDecoration: 'none', paddingTop: '0.5rem', borderTop: '1px solid #f9fafb' }}>
+                  <Link href="/discover" style={{ display: 'block', textAlign: 'center', fontSize: '0.82rem', color: '#6B1FA2', fontWeight: 700, textDecoration: 'none', paddingTop: '0.5rem', borderTop: '1px solid #f9fafb' }}>
                     See all members →
                   </Link>
                 </div>

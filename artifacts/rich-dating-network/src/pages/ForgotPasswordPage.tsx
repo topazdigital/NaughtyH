@@ -29,10 +29,10 @@ export default function ForgotPasswordPage() {
   return (
     <div className="min-h-screen flex">
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden flex-col"
-        style={{ background: 'linear-gradient(145deg, #1a0a0e 0%, #3d0d1a 40%, #7a1226 70%, #9B1438 100%)' }}>
+        style={{ background: 'linear-gradient(145deg, #0e0020 0%, #2d0042 40%, #4A0072 70%, #6B1FA2 100%)' }}>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full opacity-20"
-            style={{ background: 'radial-gradient(circle, #9B1438, transparent)' }} />
+            style={{ background: 'radial-gradient(circle, #6B1FA2, transparent)' }} />
           <div className="absolute bottom-[-15%] right-[-15%] w-[60%] h-[60%] rounded-full opacity-15"
             style={{ background: 'radial-gradient(circle, #ff8c94, transparent)' }} />
         </div>
@@ -86,7 +86,7 @@ export default function ForgotPasswordPage() {
                 </div>
                 <button type="submit" disabled={loading}
                   className="w-full py-3.5 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/25 disabled:opacity-60"
-                  style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+                  style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>
                   {loading && <Loader2 size={17} className="animate-spin" />}
                   Send Reset Link
                 </button>

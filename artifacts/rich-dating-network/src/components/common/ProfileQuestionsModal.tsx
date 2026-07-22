@@ -208,13 +208,13 @@ export default function ProfileQuestionsModal({ onClose, onComplete }: Props) {
           {step < totalSteps ? (
             <button onClick={() => setStep(s => s + 1)}
               className="flex-1 py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/20"
-              style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+              style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>
               Next <ChevronRight size={16} />
             </button>
           ) : (
             <button onClick={save} disabled={saving}
               className="flex-1 py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/20 disabled:opacity-60"
-              style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+              style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>
               {saving ? '...' : ''}
               Save & Find Matches 💝
             </button>

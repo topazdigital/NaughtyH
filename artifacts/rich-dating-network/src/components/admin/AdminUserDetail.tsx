@@ -167,7 +167,7 @@ export default function AdminUserDetail({ userId, onClose, onUpdate }: {
   if (loading) {
     return (
       <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ width: 40, height: 40, borderRadius: "50%", border: "3px solid #9B1438", borderTopColor: "transparent", animation: "spin 0.8s linear infinite" }} />
+        <div style={{ width: 40, height: 40, borderRadius: "50%", border: "3px solid #6B1FA2", borderTopColor: "transparent", animation: "spin 0.8s linear infinite" }} />
       </div>
     )
   }
@@ -222,7 +222,7 @@ export default function AdminUserDetail({ userId, onClose, onUpdate }: {
           <div style={{ display: "flex", gap: 0 }}>
             {TABS.map(t => (
               <button key={t} onClick={() => setTab(t)}
-                style={{ padding: "10px 18px", fontSize: 13, fontWeight: 600, color: tab === t ? "#9B1438" : "#6b7280", background: "none", border: "none", borderBottom: tab === t ? "2px solid #9B1438" : "2px solid transparent", cursor: "pointer", transition: "all 0.15s" }}>
+                style={{ padding: "10px 18px", fontSize: 13, fontWeight: 600, color: tab === t ? "#6B1FA2" : "#6b7280", background: "none", border: "none", borderBottom: tab === t ? "2px solid #6B1FA2" : "2px solid transparent", cursor: "pointer", transition: "all 0.15s" }}>
                 {t}
               </button>
             ))}
@@ -252,7 +252,7 @@ export default function AdminUserDetail({ userId, onClose, onUpdate }: {
                     style={{ width: "100%", background: "#1f2937", border: "1px solid #374151", borderRadius: 8, padding: "8px 12px", color: "white", fontSize: 14, resize: "vertical", boxSizing: "border-box" }} />
                 </div>
                 <button onClick={saveProfile} disabled={saving}
-                  style={{ background: "#9B1438", color: "white", border: "none", borderRadius: 8, padding: "10px 20px", fontWeight: 600, cursor: "pointer", opacity: saving ? 0.6 : 1 }}>
+                  style={{ background: "#6B1FA2", color: "white", border: "none", borderRadius: 8, padding: "10px 20px", fontWeight: 600, cursor: "pointer", opacity: saving ? 0.6 : 1 }}>
                   {saving ? "Saving…" : "Save Profile"}
                 </button>
               </div>
@@ -275,12 +275,12 @@ export default function AdminUserDetail({ userId, onClose, onUpdate }: {
               <div style={{ color: "#6b7280", fontSize: 13, marginBottom: 16, fontWeight: 500 }}>{user.photos?.length || 0} photo(s) on record</div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", gap: 14 }}>
                 {(user.photos || []).map(p => (
-                  <div key={p.id} style={{ borderRadius: 10, overflow: "hidden", border: `2px solid ${p.main ? "#9B1438" : "#374151"}`, position: "relative", background: "#1f2937" }}>
+                  <div key={p.id} style={{ borderRadius: 10, overflow: "hidden", border: `2px solid ${p.main ? "#6B1FA2" : "#374151"}`, position: "relative", background: "#1f2937" }}>
                     <img src={getPhotoUrl(p.photo)} alt="" style={{ width: "100%", height: 140, objectFit: "cover", display: "block" }}
                       onError={e => { (e.currentTarget as HTMLImageElement).src = "/images/default-avatar.svg" }} />
                     <div style={{ padding: "6px 8px" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 4, marginBottom: 6 }}>
-                        {p.main === 1 && <span style={{ color: "#9B1438", fontSize: 9, fontWeight: 700, background: "#7f1d1d33", padding: "1px 5px", borderRadius: 4 }}>MAIN</span>}
+                        {p.main === 1 && <span style={{ color: "#6B1FA2", fontSize: 9, fontWeight: 700, background: "#7f1d1d33", padding: "1px 5px", borderRadius: 4 }}>MAIN</span>}
                         {p.approved === 0 && <span style={{ color: "#fbbf24", fontSize: 9, background: "#78350f33", padding: "1px 5px", borderRadius: 4 }}>PENDING</span>}
                         {p.approved === 1 && p.main !== 1 && <span style={{ color: "#86efac", fontSize: 9 }}>✓ Approved</span>}
                       </div>
@@ -401,7 +401,7 @@ export default function AdminUserDetail({ userId, onClose, onUpdate }: {
               <input value={emailSubject} onChange={e => setEmailSubject(e.target.value)} placeholder="Subject"
                 style={{ width: "100%", background: "#1f2937", border: "1px solid #374151", borderRadius: 8, padding: "10px 12px", color: "white", fontSize: 14, boxSizing: "border-box" }} />
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <button onClick={() => setEmailPreview(!emailPreview)} style={{ fontSize: 12, color: "#9B1438", background: "none", border: "none", cursor: "pointer", fontWeight: 700 }}>
+                <button onClick={() => setEmailPreview(!emailPreview)} style={{ fontSize: 12, color: "#6B1FA2", background: "none", border: "none", cursor: "pointer", fontWeight: 700 }}>
                   {emailPreview ? "Edit HTML" : "Preview"}
                 </button>
               </div>
@@ -416,7 +416,7 @@ export default function AdminUserDetail({ userId, onClose, onUpdate }: {
               )}
               <div>
                 <button onClick={sendUserEmail} disabled={sendingEmail}
-                  style={{ display: "flex", alignItems: "center", gap: 8, background: "#9B1438", color: "white", border: "none", borderRadius: 8, padding: "10px 22px", fontWeight: 700, cursor: "pointer", opacity: sendingEmail ? 0.6 : 1 }}>
+                  style={{ display: "flex", alignItems: "center", gap: 8, background: "#6B1FA2", color: "white", border: "none", borderRadius: 8, padding: "10px 22px", fontWeight: 700, cursor: "pointer", opacity: sendingEmail ? 0.6 : 1 }}>
                   <Send size={14} /> {sendingEmail ? "Sending…" : "Send Email"}
                 </button>
               </div>
@@ -432,7 +432,7 @@ export default function AdminUserDetail({ userId, onClose, onUpdate }: {
                 <div style={{ display: "flex", gap: 8 }}>
                   {[["User", 0], ["Moderator", 1], ["Admin", 2]].map(([label, level]) => (
                     <button key={level} onClick={() => setAdminLevel(level as number)}
-                      style={{ padding: "8px 16px", borderRadius: 8, border: "none", fontWeight: 600, fontSize: 13, cursor: "pointer", background: user.admin === level ? "#9B1438" : "#374151", color: user.admin === level ? "white" : "#9ca3af" }}>
+                      style={{ padding: "8px 16px", borderRadius: 8, border: "none", fontWeight: 600, fontSize: 13, cursor: "pointer", background: user.admin === level ? "#6B1FA2" : "#374151", color: user.admin === level ? "white" : "#9ca3af" }}>
                       {label}
                     </button>
                   ))}

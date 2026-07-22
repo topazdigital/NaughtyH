@@ -264,7 +264,7 @@ export default function NewSiteModal({ userName, hasPhone, onClose }: Props) {
           )}
           <button onClick={handleNext} disabled={saving}
             className="flex-1 py-3 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/20 disabled:opacity-60"
-            style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+            style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>
             {saving ? <Loader2 size={16} className="animate-spin" /> : null}
             {(step === 1 && hasPhone) || step === 2 ? "Start Exploring 💝" : step === 1 && !hasPhone ? (phoneNumber ? "Save & Continue" : "Skip for Now") : (<>Next <ChevronRight size={16} /></>)}
           </button>

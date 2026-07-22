@@ -153,7 +153,7 @@ export default function AdminFakeUsers() {
             🔑 Reset All Passwords
           </button>
           <button onClick={() => setShowCreate(!showCreate)} style={{
-            padding: '0.5rem 1rem', background: '#9B1438',
+            padding: '0.5rem 1rem', background: '#6B1FA2',
             color: '#fff', border: 'none', borderRadius: '0.5rem', fontSize: '0.875rem',
             cursor: 'pointer', fontFamily: 'inherit'
           }}>
@@ -315,7 +315,7 @@ export default function AdminFakeUsers() {
             </div>
           </div>
           <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.75rem' }}>
-            <button onClick={createFake} style={{ padding: '0.45rem 1.25rem', background: '#9B1438', color: '#fff', border: 'none', borderRadius: '0.5rem', fontSize: '0.875rem', cursor: 'pointer', fontFamily: 'inherit' }}>Create</button>
+            <button onClick={createFake} style={{ padding: '0.45rem 1.25rem', background: '#6B1FA2', color: '#fff', border: 'none', borderRadius: '0.5rem', fontSize: '0.875rem', cursor: 'pointer', fontFamily: 'inherit' }}>Create</button>
             <button onClick={() => setShowCreate(false)} style={{ padding: '0.45rem 1rem', background: '#f1f5f9', color: '#475569', border: 'none', borderRadius: '0.5rem', fontSize: '0.875rem', cursor: 'pointer', fontFamily: 'inherit' }}>Cancel</button>
           </div>
         </div>
@@ -323,7 +323,7 @@ export default function AdminFakeUsers() {
 
       {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', padding: '3rem 0' }}>
-          <div style={{ width: '2rem', height: '2rem', border: '2px solid #9B1438', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+          <div style={{ width: '2rem', height: '2rem', border: '2px solid #6B1FA2', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
         </div>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1rem' }}>

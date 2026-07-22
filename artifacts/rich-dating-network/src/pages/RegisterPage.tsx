@@ -510,9 +510,9 @@ export default function RegisterPage() {
     <div className="min-h-screen flex">
       {/* Left marketing panel */}
       <div className="hidden lg:flex lg:w-[42%] xl:w-[40%] flex-col relative overflow-hidden"
-        style={{ background: 'linear-gradient(145deg, #1a0a0e 0%, #3d0d1a 40%, #7a1226 70%, #9B1438 100%)' }}>
+        style={{ background: 'linear-gradient(145deg, #0e0020 0%, #2d0042 40%, #4A0072 70%, #6B1FA2 100%)' }}>
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full opacity-20" style={{ background: 'radial-gradient(circle, #9B1438, transparent)' }} />
+          <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full opacity-20" style={{ background: 'radial-gradient(circle, #6B1FA2, transparent)' }} />
           <div className="absolute bottom-[-15%] right-[-15%] w-[60%] h-[60%] rounded-full opacity-15" style={{ background: 'radial-gradient(circle, #ff8c94, transparent)' }} />
         </div>
         <div className="relative z-10 flex flex-col h-full p-10 xl:p-12">
@@ -673,7 +673,7 @@ export default function RegisterPage() {
 
                   <button onClick={() => setStep(2)} disabled={!isStep1SocialValid}
                     className="w-full py-2.5 rounded-xl font-bold text-white text-sm flex items-center justify-center gap-2 transition-all disabled:opacity-40 shadow-lg shadow-brand-500/20"
-                    style={{ background: isStep1SocialValid ? 'linear-gradient(135deg, #9B1438, #c4546f)' : '#d1d5db' }}>
+                    style={{ background: isStep1SocialValid ? 'linear-gradient(135deg, #6B1FA2, #9340d6)' : '#d1d5db' }}>
                     Continue <ChevronRight size={16} />
                   </button>
                   <p className="text-center text-xs text-gray-400">
@@ -804,7 +804,7 @@ export default function RegisterPage() {
 
                   <button onClick={() => setStep(2)} disabled={!isStep1Valid}
                     className="w-full py-3 rounded-xl font-bold text-white text-sm flex items-center justify-center gap-2 transition-all disabled:opacity-40 shadow-lg shadow-brand-500/20"
-                    style={{ background: isStep1Valid ? 'linear-gradient(135deg, #9B1438, #c4546f)' : '#d1d5db' }}>
+                    style={{ background: isStep1Valid ? 'linear-gradient(135deg, #6B1FA2, #9340d6)' : '#d1d5db' }}>
                     Continue <ChevronRight size={16} />
                   </button>
 
@@ -857,7 +857,7 @@ export default function RegisterPage() {
                 </button>
                 <button onClick={() => setStep(3)} disabled={!isStep2Valid || (!!form.birthday && new Date(form.birthday) > new Date(maxBirthdate))}
                   className="flex-1 py-3.5 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 transition-all disabled:opacity-40 shadow-lg shadow-brand-500/20"
-                  style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+                  style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>
                   Continue <ChevronRight size={17} />
                 </button>
               </div>
@@ -901,7 +901,7 @@ export default function RegisterPage() {
                 </button>
                 <button onClick={submit} disabled={loading}
                   className="flex-1 py-3.5 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/20"
-                  style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>
+                  style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>
                   {loading && <Loader2 size={17} className="animate-spin" />}
                   Continue <ChevronRight size={17} />
                 </button>
@@ -965,7 +965,7 @@ export default function RegisterPage() {
 
               <button onClick={finishRegistration} disabled={(!uploadedPhoto && !usingSocialPhoto) || photoUploading}
                 className="w-full py-3.5 rounded-2xl font-bold text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-500/20 disabled:opacity-40"
-                style={{ background: (uploadedPhoto || usingSocialPhoto) ? 'linear-gradient(135deg, #9B1438, #c4546f)' : '#d1d5db' }}>
+                style={{ background: (uploadedPhoto || usingSocialPhoto) ? 'linear-gradient(135deg, #6B1FA2, #9340d6)' : '#d1d5db' }}>
                 Find My Matches 💝
               </button>
 

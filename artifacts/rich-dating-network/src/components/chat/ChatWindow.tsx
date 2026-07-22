@@ -160,7 +160,7 @@ export default function ChatWindow({ me, other, initialMessages }: Props) {
             <div className="font-bold text-gray-900 text-sm mb-1">Premium Required</div>
             <p className="text-xs text-gray-500 mb-2">Sharing contact info, social handles, or links is a Premium-only feature.</p>
             <a href="/premium" className="inline-block text-xs font-bold text-white px-3 py-1.5 rounded-lg"
-              style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>Upgrade Now</a>
+              style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>Upgrade Now</a>
           </div>
         </div>
       ), { duration: 5000 })
@@ -301,7 +301,7 @@ export default function ChatWindow({ me, other, initialMessages }: Props) {
                 <div className="font-bold text-gray-900 text-sm mb-1">Premium Required</div>
                 <p className="text-xs text-gray-500 mb-2">Sharing contact info is a Premium feature.</p>
                 <a href="/premium" className="inline-block text-xs font-bold text-white px-3 py-1.5 rounded-lg"
-                  style={{ background: 'linear-gradient(135deg, #9B1438, #c4546f)' }}>Upgrade Now</a>
+                  style={{ background: 'linear-gradient(135deg, #6B1FA2, #9340d6)' }}>Upgrade Now</a>
               </div>
             </div>
           ), { duration: 5000 })

@@ -113,7 +113,7 @@ export default function KeywordLandingPage({ params }: { params: { slug: string 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#2a0a10] via-[#7a0e18] to-[#9B1438] text-white px-6 py-20">
+      <section className="bg-gradient-to-br from-[#0e0020] via-[#2d0042] to-[#6B1FA2] text-white px-6 py-20">
         <div className="max-w-4xl mx-auto text-center">
           {/* Breadcrumb */}
           {(isCountryPage || isCityPage) && (
@@ -142,7 +142,7 @@ export default function KeywordLandingPage({ params }: { params: { slug: string 
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight mb-6">{page.h1}</h1>
           <p className="text-lg text-white/85 max-w-2xl mx-auto mb-8">{page.intro}</p>
-          <Link href="/register" className="inline-flex items-center gap-2 bg-white text-[#9B1438] font-bold px-8 py-4 rounded-xl text-lg hover:bg-yellow-50 transition-colors">
+          <Link href="/register" className="inline-flex items-center gap-2 bg-white text-[#6B1FA2] font-bold px-8 py-4 rounded-xl text-lg hover:bg-yellow-50 transition-colors">
             Join Free Now <ChevronRight className="w-5 h-5" />
           </Link>
           <div className="flex items-center justify-center gap-6 mt-8 text-sm text-white/80 flex-wrap">
@@ -157,17 +157,17 @@ export default function KeywordLandingPage({ params }: { params: { slug: string 
         {/* Trust signals */}
         <div className="grid sm:grid-cols-3 gap-6 mb-14">
           <div className="text-center p-6 rounded-2xl bg-gray-50">
-            <Shield className="w-8 h-8 text-[#9B1438] mx-auto mb-3" />
+            <Shield className="w-8 h-8 text-[#6B1FA2] mx-auto mb-3" />
             <h3 className="font-bold mb-1">Verified & Safe</h3>
             <p className="text-sm text-gray-600">Every profile is reviewed to keep the community genuine.</p>
           </div>
           <div className="text-center p-6 rounded-2xl bg-gray-50">
-            <Users className="w-8 h-8 text-[#9B1438] mx-auto mb-3" />
+            <Users className="w-8 h-8 text-[#6B1FA2] mx-auto mb-3" />
             <h3 className="font-bold mb-1">Real Members</h3>
             <p className="text-sm text-gray-600">Thousands of active, verified members across 180+ countries.</p>
           </div>
           <div className="text-center p-6 rounded-2xl bg-gray-50">
-            <Heart className="w-8 h-8 text-[#9B1438] mx-auto mb-3" />
+            <Heart className="w-8 h-8 text-[#6B1FA2] mx-auto mb-3" />
             <h3 className="font-bold mb-1">Real Connections</h3>
             <p className="text-sm text-gray-600">Meaningful relationships built on trust and mutual respect.</p>
           </div>
@@ -177,7 +177,7 @@ export default function KeywordLandingPage({ params }: { params: { slug: string 
         {isCountryPage && countryCities.length > 0 && (
           <div className="mb-14">
             <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-              <MapPin className="w-6 h-6 text-[#9B1438]" />
+              <MapPin className="w-6 h-6 text-[#6B1FA2]" />
               Browse by City in {page.country}
             </h2>
             <p className="text-gray-600 mb-6">
@@ -188,9 +188,9 @@ export default function KeywordLandingPage({ params }: { params: { slug: string 
                 <Link
                   key={city}
                   href={`/${catPrefix}-${slugify(city)}`}
-                  className="flex items-center gap-2 px-4 py-3 rounded-xl border border-gray-200 hover:border-[#9B1438] hover:bg-red-50 text-gray-700 hover:text-[#9B1438] text-sm font-medium transition-all group"
+                  className="flex items-center gap-2 px-4 py-3 rounded-xl border border-gray-200 hover:border-[#6B1FA2] hover:bg-purple-50 text-gray-700 hover:text-[#6B1FA2] text-sm font-medium transition-all group"
                 >
-                  <MapPin className="w-4 h-4 text-gray-400 group-hover:text-[#9B1438] shrink-0" />
+                  <MapPin className="w-4 h-4 text-gray-400 group-hover:text-[#6B1FA2] shrink-0" />
                   <span className="truncate">{city}</span>
                 </Link>
               ))}
@@ -204,7 +204,7 @@ export default function KeywordLandingPage({ params }: { params: { slug: string 
                   <Link
                     key={p}
                     href={`/${p}-${slugify(page.country!)}`}
-                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 hover:bg-red-100 text-gray-600 hover:text-[#9B1438] transition-colors border border-gray-200 hover:border-red-200"
+                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 hover:bg-purple-100 text-gray-600 hover:text-[#6B1FA2] transition-colors border border-gray-200 hover:border-purple-200"
                   >
                     {CATEGORY_LABELS[p]}
                   </Link>
@@ -227,7 +227,7 @@ export default function KeywordLandingPage({ params }: { params: { slug: string 
         <div className="bg-gray-50 rounded-2xl p-8 text-center">
           <h3 className="text-xl font-bold mb-2">Ready to find your match?</h3>
           <p className="text-gray-600 mb-6">Join free in under a minute — no credit card required.</p>
-          <Link href="/register" className="inline-flex items-center gap-2 bg-[#9B1438] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#e01526] transition-colors">
+          <Link href="/register" className="inline-flex items-center gap-2 bg-[#6B1FA2] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#5a1889] transition-colors">
             Create Your Free Account <ChevronRight className="w-5 h-5" />
           </Link>
         </div>
@@ -255,7 +255,7 @@ export default function KeywordLandingPage({ params }: { params: { slug: string 
                 <h3 className="text-sm font-bold text-gray-900 mb-3">Also in {page.city}</h3>
                 <div className="flex flex-col gap-2 text-sm">
                   {relatedByCity.map(p => (
-                    <Link key={p.slug} href={`/${p.slug}`} className="text-gray-500 hover:text-[#9B1438] transition-colors">
+                    <Link key={p.slug} href={`/${p.slug}`} className="text-gray-500 hover:text-[#6B1FA2] transition-colors">
                       {p.h1}
                     </Link>
                   ))}
@@ -266,7 +266,7 @@ export default function KeywordLandingPage({ params }: { params: { slug: string 
               {countryHubPage && (
                 <div className="mb-5">
                   <h3 className="text-sm font-bold text-gray-900 mb-2">Browse all cities</h3>
-                  <Link href={`/${countryHubSlug}`} className="inline-flex items-center gap-1.5 text-sm text-[#9B1438] hover:underline font-medium">
+                  <Link href={`/${countryHubSlug}`} className="inline-flex items-center gap-1.5 text-sm text-[#6B1FA2] hover:underline font-medium">
                     <Globe className="w-4 h-4" /> {countryHubPage.h1}
                   </Link>
                 </div>
@@ -276,7 +276,7 @@ export default function KeywordLandingPage({ params }: { params: { slug: string 
                   <h3 className="text-sm font-bold text-gray-900 mb-3">Other Cities</h3>
                   <div className="flex flex-col gap-2 text-sm">
                     {otherCities.map(p => (
-                      <Link key={p.slug} href={`/${p.slug}`} className="text-gray-500 hover:text-[#9B1438] transition-colors">
+                      <Link key={p.slug} href={`/${p.slug}`} className="text-gray-500 hover:text-[#6B1FA2] transition-colors">
                         {p.h1}
                       </Link>
                     ))}
@@ -293,7 +293,7 @@ export default function KeywordLandingPage({ params }: { params: { slug: string 
             <h3 className="text-sm font-bold text-gray-900 mb-3">You Might Also Like</h3>
             <div className="flex flex-col gap-2 text-sm">
               {relatedGeneric.map(p => (
-                <Link key={p.slug} href={`/${p.slug}`} className="text-gray-500 hover:text-[#9B1438] transition-colors">
+                <Link key={p.slug} href={`/${p.slug}`} className="text-gray-500 hover:text-[#6B1FA2] transition-colors">
                   {p.h1}
                 </Link>
               ))}
