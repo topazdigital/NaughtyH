@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useCallback } from 'react'
 import { Link, useLocation } from 'wouter'
-import { getPhotoUrl, isOnline, truncate, profileUrl } from '../../lib/utils'
-import { Heart, MessageCircle, Search, SlidersHorizontal, BadgeCheck, Crown, MapPin, X, Loader2, Zap, Percent, ChevronUp } from 'lucide-react'
+import { getPhotoUrl, isOnline, profileUrl } from '../../lib/utils'
+import { Heart, MessageCircle, Search, SlidersHorizontal, BadgeCheck, Crown, MapPin, X, Loader2, Zap, Percent, ChevronUp, Flame } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { useAuth } from '../../hooks/useAuth'
 import AdsterraNativeBanner from '../ui/AdsterraNativeBanner'
@@ -25,6 +25,9 @@ function calcCompatibility(myInterests: string[], theirInterests: string[]): num
   return union === 0 ? 0 : Math.round((shared / union) * 100)
 }
 
+// Cycle through varied aspect ratios for masonry feel
+const RATIOS = ['2/3', '3/4', '4/5', '3/4', '2/3', '1/1', '3/4', '4/5']
+
 export default function DiscoverPage({ userId, myCity, myCountry, myInterests = [], myLooking }: Props) {
   const [, setLocation] = useLocation()
   const [search, setSearch] = useState('')
@@ -33,13 +36,13 @@ export default function DiscoverPage({ userId, myCity, myCountry, myInterests = 
   const [filterGender, setFilterGender] = useState('0')
   const [genderInitialized, setGenderInitialized] = useState(false)
 
-  // Sync filterGender with user's "looking for" preference once it loads
   useEffect(() => {
     if (!genderInitialized && myLooking) {
       setFilterGender(String(myLooking))
       setGenderInitialized(true)
     }
   }, [myLooking, genderInitialized])
+
   const [filterCity, setFilterCity] = useState('')
   const [filterCountry, setFilterCountry] = useState('')
   const [filterAgeMin, setFilterAgeMin] = useState(18)
@@ -64,7 +67,6 @@ export default function DiscoverPage({ userId, myCity, myCountry, myInterests = 
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
 
-  // Real-time online status updates from WebSocket
   useWSEvent('user_online', (msg) => {
     setOnlineUserIds(prev => {
       const next = new Set(prev)
@@ -88,10 +90,7 @@ export default function DiscoverPage({ userId, myCity, myCountry, myInterests = 
     })
     authFetch(`/api/users/search?${params}`)
       .then(r => r.json())
-      .then(data => {
-        setUsers(Array.isArray(data) ? data : [])
-        setLoading(false)
-      })
+      .then(data => { setUsers(Array.isArray(data) ? data : []); setLoading(false) })
       .catch(() => setLoading(false))
   }
 
@@ -103,15 +102,13 @@ export default function DiscoverPage({ userId, myCity, myCountry, myInterests = 
       if (filterPremium && u.premium !== 1) return false
       if (filterCompatible && myInterests.length > 0) {
         const their: string[] = (() => { try { return JSON.parse(u.userExtended?.interests || '[]') } catch { return [] } })()
-        const score = calcCompatibility(myInterests, their)
-        if (score < 20) return false
+        if (calcCompatibility(myInterests, their) < 20) return false
       }
       return true
     }).map(u => {
       const their: string[] = (() => { try { return JSON.parse(u.userExtended?.interests || '[]') } catch { return [] } })()
       return { ...u, _compat: myInterests.length > 0 ? calcCompatibility(myInterests, their) : 0 }
     }).sort((a, b) => {
-      // Boosted first, then by compatibility
       if (a.isBoosted && !b.isBoosted) return -1
       if (!a.isBoosted && b.isBoosted) return 1
       return b._compat - a._compat
@@ -119,6 +116,8 @@ export default function DiscoverPage({ userId, myCity, myCountry, myInterests = 
   }, [users, filterPremium, filterCompatible, myInterests])
 
   const hasActiveFilters = filterGender !== '0' || filterCity || filterCountry || filterAgeMin > 18 || filterAgeMax < 99 || filterOnline || filterPremium || filterCompatible || filterMutual
+  const boostedCount = filtered.filter(u => u.isBoosted).length
+  const nearbyCount = filtered.filter(u => u.city === myCity || u.country === myCountry).length
 
   async function likeUser(targetId: number) {
     const isLiked = likedUsers.has(targetId)
@@ -131,263 +130,296 @@ export default function DiscoverPage({ userId, myCity, myCountry, myInterests = 
 
   function clearFilters() {
     setFilterGender(myLooking ? String(myLooking) : '0'); setFilterCity(''); setFilterCountry('')
-    setFilterAgeMin(18); setFilterAgeMax(60); setFilterOnline(false); setFilterPremium(false); setFilterCompatible(false); setFilterMutual(false); setSearch('')
+    setFilterAgeMin(18); setFilterAgeMax(99); setFilterOnline(false); setFilterPremium(false); setFilterCompatible(false); setFilterMutual(false); setSearch('')
   }
 
-  const nearbyCount = filtered.filter(u => u.city === myCity || u.country === myCountry).length
-  const boostedCount = filtered.filter(u => u.isBoosted).length
-
   return (
-    <div className="page-container">
-      {/* Boost promo banner */}
-      {boostedCount === 0 && (
-        <Link href="/boost" className="flex items-center gap-3 p-3 rounded-2xl mb-4 cursor-pointer hover:opacity-90 transition-opacity"
-          style={{ background: 'linear-gradient(135deg, #f97316, #ef4444)' }}>
-          <div className="w-8 h-8 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-            <Zap size={16} className="text-white fill-white" />
-          </div>
-          <div className="flex-1">
-            <p className="text-white font-bold text-sm">Boost your profile!</p>
-            <p className="text-white/70 text-xs">Appear at the top of discovery for 10x more views</p>
-          </div>
-          <span className="text-white/80 text-xs font-semibold bg-white/20 px-2.5 py-1 rounded-lg">Try it →</span>
-        </Link>
-      )}
+    <div className="w-full min-h-screen" style={{ background: '#f8f7ff' }}>
 
-      {/* Search bar */}
-      <div className="flex items-center gap-2.5 mb-4">
-        <div className="flex-1 relative">
-          <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-          <input value={search} onChange={e => setSearch(e.target.value)}
-            placeholder="Search by name or city..."
-            className="input-field pl-9 py-2.5" />
-          {search && (
-            <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
-              <X size={15} />
-            </button>
+      {/* ── Sticky top bar ── */}
+      <div className="sticky top-0 z-30 backdrop-blur-md border-b border-purple-100/60"
+        style={{ background: 'rgba(248,247,255,0.92)' }}>
+        <div className="px-3 sm:px-5 py-3">
+
+          {/* Boost banner */}
+          {boostedCount === 0 && (
+            <Link href="/boost"
+              className="flex items-center gap-3 px-4 py-2.5 rounded-2xl mb-3 cursor-pointer hover:opacity-90 transition-opacity"
+              style={{ background: 'linear-gradient(135deg, #7c3aed, #a855f7, #ec4899)' }}>
+              <Flame size={15} className="text-white flex-shrink-0" />
+              <span className="text-white font-semibold text-sm flex-1">Boost your profile — appear at the top for 10× more views</span>
+              <span className="text-white/80 text-xs bg-white/20 px-2.5 py-1 rounded-lg font-semibold flex-shrink-0">Try it →</span>
+            </Link>
           )}
-        </div>
-        <button onClick={() => setShowFilters(!showFilters)}
-          className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl border-2 font-medium text-sm transition-all flex-shrink-0 relative ${showFilters || hasActiveFilters ? 'border-brand-500 bg-brand-50 text-brand-600' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
-          <SlidersHorizontal size={16} />
-          <span className="hidden sm:inline">Filters</span>
-          {hasActiveFilters && <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-brand-500 rounded-full text-white text-[10px] flex items-center justify-center">!</span>}
-        </button>
-      </div>
 
-      {/* Filters panel */}
-      {showFilters && (
-        <div className="card p-4 mb-5 border border-gray-100 animate-fade-in">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
-            <div>
-              <label className="text-xs font-semibold text-gray-600 mb-1.5 block uppercase tracking-wide">Gender</label>
-              <select value={filterGender} onChange={e => setFilterGender(e.target.value)} className="input-field py-2 text-sm">
-                <option value="0">All Genders</option>
-                <option value="1">Men</option>
-                <option value="2">Women</option>
-                <option value="3">Non-binary</option>
-              </select>
-            </div>
-            <div>
-              <label className="text-xs font-semibold text-gray-600 mb-1.5 block uppercase tracking-wide">Location</label>
-              <LocationAutocomplete
-                value={filterCity}
-                onChange={(city, country) => { setFilterCity(city); setFilterCountry(country) }}
-                placeholder="Any city..."
-                className="py-2 text-sm"
+          {/* Search row */}
+          <div className="flex items-center gap-2">
+            <div className="flex-1 relative">
+              <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-purple-400 pointer-events-none" />
+              <input
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder="Search by name, city…"
+                className="w-full pl-9 pr-9 py-2.5 rounded-2xl text-sm outline-none border border-purple-200 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 transition-all bg-white"
               />
-            </div>
-            <div className="col-span-2 md:col-span-1">
-              <label className="text-xs font-semibold text-gray-600 mb-1.5 block uppercase tracking-wide">Age Range: {filterAgeMin} – {filterAgeMax}</label>
-              <div className="flex items-center gap-3">
-                <div className="flex-1">
-                  <input type="range" min={18} max={80} value={filterAgeMin} onChange={e => setFilterAgeMin(+e.target.value)} className="w-full accent-brand-500" />
-                </div>
-                <span className="text-gray-400 text-xs">–</span>
-                <div className="flex-1">
-                  <input type="range" min={18} max={80} value={filterAgeMax} onChange={e => setFilterAgeMax(+e.target.value)} className="w-full accent-brand-500" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-between flex-wrap gap-3">
-            <div className="flex gap-4 flex-wrap">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" checked={filterOnline} onChange={e => setFilterOnline(e.target.checked)} className="rounded w-3.5 h-3.5 accent-brand-500" />
-                <span className="text-xs text-gray-600 flex items-center gap-1.5">
-                  <span className="w-2 h-2 bg-green-500 rounded-full inline-block" /> Online now
-                </span>
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" checked={filterPremium} onChange={e => setFilterPremium(e.target.checked)} className="rounded w-3.5 h-3.5 accent-brand-500" />
-                <span className="text-xs text-gray-600">👑 VIP only</span>
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" checked={filterMutual} onChange={e => setFilterMutual(e.target.checked)} className="rounded w-3.5 h-3.5 accent-brand-500" />
-                <span className="text-xs text-gray-600">🔁 Mutual match only</span>
-              </label>
-              {myInterests.length > 0 && (
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" checked={filterCompatible} onChange={e => setFilterCompatible(e.target.checked)} className="rounded w-3.5 h-3.5 accent-brand-500" />
-                  <span className="text-xs text-gray-600 flex items-center gap-1">💞 Compatible only</span>
-                </label>
+              {search && (
+                <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                  <X size={14} />
+                </button>
               )}
             </div>
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-2xl border text-sm font-medium transition-all flex-shrink-0 relative ${showFilters || hasActiveFilters
+                ? 'border-purple-500 bg-purple-500 text-white shadow-md shadow-purple-200'
+                : 'border-purple-200 bg-white text-purple-600 hover:border-purple-400'
+                }`}>
+              <SlidersHorizontal size={15} />
+              <span className="hidden sm:inline">Filters</span>
+              {hasActiveFilters && <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-pink-500 rounded-full text-white text-[9px] flex items-center justify-center font-bold">!</span>}
+            </button>
+          </div>
+
+          {/* Filter pills */}
+          {showFilters && (
+            <div className="mt-3 p-4 rounded-2xl border border-purple-100 bg-white shadow-sm">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+                <div>
+                  <label className="text-[10px] font-bold text-purple-700 mb-1.5 block uppercase tracking-widest">Gender</label>
+                  <select value={filterGender} onChange={e => setFilterGender(e.target.value)}
+                    className="w-full px-3 py-2 rounded-xl border border-purple-200 text-sm bg-white focus:outline-none focus:border-purple-400">
+                    <option value="0">All Genders</option>
+                    <option value="1">Men</option>
+                    <option value="2">Women</option>
+                    <option value="3">Non-binary</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="text-[10px] font-bold text-purple-700 mb-1.5 block uppercase tracking-widest">Location</label>
+                  <LocationAutocomplete
+                    value={filterCity}
+                    onChange={(city, country) => { setFilterCity(city); setFilterCountry(country) }}
+                    placeholder="Any city…"
+                    className="py-2 text-sm"
+                  />
+                </div>
+                <div className="col-span-2 md:col-span-1">
+                  <label className="text-[10px] font-bold text-purple-700 mb-1.5 block uppercase tracking-widest">
+                    Age: {filterAgeMin} – {filterAgeMax}
+                  </label>
+                  <div className="flex items-center gap-3 mt-2">
+                    <input type="range" min={18} max={80} value={filterAgeMin} onChange={e => setFilterAgeMin(+e.target.value)} className="flex-1 accent-purple-600" />
+                    <input type="range" min={18} max={80} value={filterAgeMax} onChange={e => setFilterAgeMax(+e.target.value)} className="flex-1 accent-purple-600" />
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center justify-between flex-wrap gap-3">
+                <div className="flex gap-3 flex-wrap">
+                  {[
+                    { state: filterOnline, set: setFilterOnline, label: '🟢 Online now' },
+                    { state: filterPremium, set: setFilterPremium, label: '👑 VIP only' },
+                    { state: filterMutual, set: setFilterMutual, label: '🔁 Mutual' },
+                    ...(myInterests.length > 0 ? [{ state: filterCompatible, set: setFilterCompatible, label: '💞 Compatible' }] : []),
+                  ].map(({ state, set, label }) => (
+                    <label key={label} className="flex items-center gap-2 cursor-pointer">
+                      <input type="checkbox" checked={state} onChange={e => set(e.target.checked)}
+                        className="w-3.5 h-3.5 rounded accent-purple-600" />
+                      <span className="text-xs text-gray-600">{label}</span>
+                    </label>
+                  ))}
+                </div>
+                {hasActiveFilters && (
+                  <button onClick={clearFilters} className="text-xs text-purple-600 font-semibold hover:text-purple-800 flex items-center gap-1">
+                    <X size={12} /> Clear all
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Context pills */}
+          {(nearbyCount > 0 || boostedCount > 0 || myInterests.length > 0) && (
+            <div className="flex flex-wrap gap-2 mt-2.5">
+              {myCity && nearbyCount > 0 && !filterCity && (
+                <span className="flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-purple-700">
+                  <MapPin size={10} /> {nearbyCount} near {myCity}
+                </span>
+              )}
+              {boostedCount > 0 && (
+                <span className="flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-orange-100 text-orange-700">
+                  <Zap size={10} className="fill-orange-500" /> {boostedCount} boosted
+                </span>
+              )}
+              {myInterests.length > 0 && (
+                <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-pink-100 text-pink-700">
+                  💞 Sorted by compatibility
+                </span>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* ── Main content ── */}
+      <div className="px-1.5 sm:px-2.5 pt-3 pb-20">
+
+        {loading ? (
+          <div className="flex flex-col items-center justify-center py-32 gap-4">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center animate-spin"
+              style={{ background: 'linear-gradient(135deg, #7c3aed, #ec4899)' }}>
+              <div className="w-10 h-10 rounded-full bg-purple-50" />
+            </div>
+            <span className="text-sm text-purple-400 font-medium">Finding members…</span>
+          </div>
+        ) : filtered.length === 0 ? (
+          <div className="text-center py-32">
+            <div className="text-6xl mb-5">✨</div>
+            <h2 className="text-xl font-bold text-gray-800 mb-2">No members found</h2>
+            <p className="text-gray-400 text-sm mb-5">Try adjusting your filters</p>
             {hasActiveFilters && (
-              <button onClick={clearFilters} className="flex items-center gap-1.5 text-xs text-brand-500 font-medium hover:text-brand-600 transition-colors">
-                <X size={13} /> Clear filters
+              <button onClick={clearFilters}
+                className="px-6 py-2.5 rounded-full text-sm font-semibold text-white shadow-lg shadow-purple-200 transition-transform hover:scale-105"
+                style={{ background: 'linear-gradient(135deg, #7c3aed, #a855f7)' }}>
+                Clear filters
               </button>
             )}
           </div>
-        </div>
-      )}
+        ) : (
+          <>
+            {/* Pinterest masonry grid */}
+            <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 xl:columns-6 gap-1.5 sm:gap-2">
+              {filtered.flatMap((u: any, idx: number) => {
+                const isBoosted = !!u.isBoosted
+                const compat = u._compat as number
+                const showCompat = compat > 0 && u.id !== userId
+                const isOnlineNow = onlineUserIds.has(u.id) || isOnline(u.lastAccess)
+                const isNearby = u.city === myCity || u.country === myCountry
+                const ratio = RATIOS[idx % RATIOS.length]
+                const isLiked = likedUsers.has(u.id)
 
-      {/* Context banners */}
-      <div className="flex flex-wrap items-center gap-3 mb-4">
-        {myCity && nearbyCount > 0 && !filterCity && (
-          <div className="flex items-center gap-1.5 bg-brand-50 text-brand-600 text-xs font-medium px-3 py-1.5 rounded-full">
-            <MapPin size={12} /> <span><strong>{nearbyCount}</strong> near {myCity}</span>
-          </div>
-        )}
-        {boostedCount > 0 && (
-          <div className="flex items-center gap-1.5 bg-orange-50 text-orange-600 text-xs font-medium px-3 py-1.5 rounded-full">
-            <Zap size={12} className="fill-orange-500" /> <span><strong>{boostedCount}</strong> boosted profile{boostedCount > 1 ? 's' : ''}</span>
-          </div>
-        )}
-        {myInterests.length > 0 && (
-          <div className="flex items-center gap-1.5 bg-purple-50 text-purple-600 text-xs font-medium px-3 py-1.5 rounded-full">
-            💞 Sorted by compatibility
-          </div>
+                const card = (
+                  <div key={u.id}
+                    className="break-inside-avoid mb-1.5 sm:mb-2 group relative rounded-2xl overflow-hidden cursor-pointer bg-purple-100"
+                    style={{
+                      aspectRatio: ratio,
+                      boxShadow: isBoosted
+                        ? '0 0 0 2.5px #f97316, 0 4px 20px rgba(249,115,22,0.25)'
+                        : '0 2px 12px rgba(109,40,162,0.08)'
+                    }}
+                    onClick={e => { if (!(e.target as Element).closest('button,a')) setLocation(profileUrl(u)) }}>
+
+                    {/* Photo */}
+                    <img
+                      src={getPhotoUrl(u.photo || u.photoThumb)}
+                      alt={u.name}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      onError={(e) => { (e.target as HTMLImageElement).src = '/images/default-avatar.svg' }}
+                    />
+
+                    {/* Gradient overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                    {/* Top vignette for badge visibility */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" style={{ height: '40%' }} />
+
+                    {/* Top-left badge */}
+                    <div className="absolute top-2 left-2 z-10 flex items-center gap-1">
+                      {isBoosted && (
+                        <span className="flex items-center gap-0.5 bg-gradient-to-r from-orange-500 to-red-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow">
+                          <Zap size={8} className="fill-white" /> BOOST
+                        </span>
+                      )}
+                      {!isBoosted && showCompat && (
+                        <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full text-white shadow ${compat >= 70 ? 'bg-green-500' : compat >= 40 ? 'bg-purple-500' : 'bg-gray-500'}`}>
+                          {compat}%
+                        </span>
+                      )}
+                      {!isBoosted && !showCompat && isNearby && !filterCity && (
+                        <span className="flex items-center gap-0.5 bg-purple-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow">
+                          <MapPin size={8} /> Near
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Top-right: online / crown */}
+                    <div className="absolute top-2 right-2 z-10">
+                      {isOnlineNow && (
+                        <span className="flex items-center gap-1 bg-green-500/90 backdrop-blur-sm text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow">
+                          <span className="w-1.5 h-1.5 bg-white rounded-full" /> Live
+                        </span>
+                      )}
+                      {!isOnlineNow && u.premium === 1 && (
+                        <span className="flex items-center gap-0.5 bg-amber-500/90 backdrop-blur-sm text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow">
+                          <Crown size={9} />
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Bottom info */}
+                    <div className="absolute bottom-0 left-0 right-0 p-2.5 z-10">
+                      <div className="flex items-center gap-1 mb-0.5">
+                        <span className="text-white text-sm font-bold truncate leading-tight drop-shadow">{u.name}</span>
+                        {u.verified === 1 && <BadgeCheck size={12} className="text-blue-300 flex-shrink-0" />}
+                      </div>
+                      <div className="text-white/75 text-[11px] flex items-center gap-1 truncate">
+                        <span>{u.age}y</span>
+                        {u.city && <><span>·</span><span className="truncate">{u.city}</span></>}
+                      </div>
+                    </div>
+
+                    {/* Hover action bar — slides up from bottom */}
+                    <div className="absolute inset-x-0 bottom-0 z-20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                      <div className="p-2 pt-6 bg-gradient-to-t from-black/80 to-transparent flex gap-1.5">
+                        <button
+                          onClick={e => { e.stopPropagation(); likeUser(u.id) }}
+                          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold transition-all ${isLiked
+                            ? 'bg-pink-500 text-white shadow-lg shadow-pink-500/40'
+                            : 'bg-white/95 text-pink-500 hover:bg-pink-500 hover:text-white'
+                            }`}>
+                          <Heart size={13} className={isLiked ? 'fill-white' : ''} />
+                          {isLiked ? 'Liked' : 'Like'}
+                        </button>
+                        <Link
+                          href={`/chat/${u.id}`}
+                          onClick={e => e.stopPropagation()}
+                          className="flex items-center justify-center w-10 rounded-xl bg-white/95 hover:bg-purple-500 hover:text-white text-purple-500 transition-colors">
+                          <MessageCircle size={14} />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                )
+
+                // Inject ad after first ~10 cards
+                const adSlot = Math.min(9, filtered.length - 1)
+                if (idx === adSlot) {
+                  return [card, (
+                    <div key={`ad-${idx}`} className="break-inside-avoid mb-2 rounded-2xl overflow-hidden">
+                      <AdsterraNativeBanner />
+                    </div>
+                  )]
+                }
+                return [card]
+              })}
+            </div>
+
+            <p className="text-center text-xs text-purple-300 font-medium mt-6">
+              {filtered.length} member{filtered.length !== 1 ? 's' : ''} shown
+            </p>
+          </>
         )}
       </div>
 
-      {/* Results */}
-      {loading ? (
-        <div className="flex items-center justify-center py-20">
-          <div className="flex flex-col items-center gap-3">
-            <Loader2 size={28} className="animate-spin text-brand-500" />
-            <span className="text-sm text-gray-400">Finding members...</span>
-          </div>
-        </div>
-      ) : (
-        <>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-3">
-            {filtered.map((u: any, idx: number) => {
-              const isNearby = u.city === myCity || u.country === myCountry
-              const isBoosted = !!u.isBoosted
-              const compat = u._compat as number
-              const showCompat = compat > 0 && !isOwnCard(u.id, userId)
-              return (
-                /* Card IS the aspect-ratio box — nothing can cause grey space below */
-                <div key={u.id}
-                  className={`group relative rounded-2xl overflow-hidden bg-gray-200 cursor-pointer ${isBoosted ? 'ring-2 ring-orange-400 ring-offset-1' : ''}`}
-                  style={{ aspectRatio: '3/4' }}
-                  onClick={e => { if (!(e.target as Element).closest('button,a')) setLocation(profileUrl(u)) }}>
-                  {/* Photo — use large first, fall back to thumb; object-center centers the crop */}
-                  <img src={getPhotoUrl(u.photo || u.photoThumb)} alt={u.name}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    loading="lazy"
-                    onError={(e) => { (e.target as HTMLImageElement).src = '/images/default-avatar.svg' }} />
-                  {/* Dark gradient at bottom */}
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.85) 100%)' }} />
-                  {/* Top-left badge */}
-                  {isBoosted && (
-                    <div className="absolute top-2 left-2 z-10 flex items-center gap-0.5 bg-gradient-to-r from-orange-500 to-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow-lg">
-                      <Zap size={8} className="fill-white" /> BOOST
-                    </div>
-                  )}
-                  {!isBoosted && showCompat && (
-                    <div className={`absolute top-2 left-2 z-10 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow ${compat >= 70 ? 'bg-green-500' : compat >= 40 ? 'bg-brand-500' : 'bg-gray-500'}`}>
-                      {compat}%
-                    </div>
-                  )}
-                  {!isBoosted && !showCompat && isNearby && !filterCity && (
-                    <div className="absolute top-2 left-2 z-10 bg-brand-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full flex items-center gap-0.5">
-                      <MapPin size={8} /> Near
-                    </div>
-                  )}
-                  {/* Top-right badges */}
-                  {(onlineUserIds.has(u.id) || isOnline(u.lastAccess)) && (
-                    <div className="absolute top-2 right-2 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-white shadow-sm" />
-                  )}
-                  {u.premium === 1 && !(onlineUserIds.has(u.id) || isOnline(u.lastAccess)) && (
-                    <div className="absolute top-2 right-2 bg-amber-500/90 backdrop-blur-sm text-white rounded-full p-1">
-                      <Crown size={9} />
-                    </div>
-                  )}
-                  {/* Name overlay — pinned to bottom of card */}
-                  <div className="absolute bottom-0 left-0 right-0 p-2 z-10">
-                    <div className="flex items-center gap-0.5">
-                      <span className="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">{u.name}</span>
-                      {u.verified === 1 && <BadgeCheck size={10} className="text-blue-300 flex-shrink-0" />}
-                    </div>
-                    <div className="text-white/75 text-[10px] flex items-center gap-0.5 mt-0.5 truncate">
-                      <span>{u.age}y</span>
-                      {u.city && <><span>·</span><span className="truncate">{u.city}</span></>}
-                    </div>
-                  </div>
-                  {/* Hover buttons */}
-                  <div className="absolute inset-x-0 bottom-0 p-2 opacity-0 group-hover:opacity-100 transition-all z-20 flex gap-1.5 bg-gradient-to-t from-black/60 to-transparent pt-8">
-                    <button onClick={e => { e.stopPropagation(); likeUser(u.id) }}
-                      className={`flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg text-xs font-semibold transition-colors ${likedUsers.has(u.id) ? 'bg-brand-500 text-white' : 'bg-white/90 text-brand-500 hover:bg-brand-500 hover:text-white'}`}>
-                      <Heart size={11} className={likedUsers.has(u.id) ? 'fill-white' : ''} /> Like
-                    </button>
-                    <Link href={`/chat/${u.id}`} onClick={e => e.stopPropagation()}
-                      className="flex items-center justify-center px-2.5 bg-white/90 hover:bg-blue-500 hover:text-white text-blue-500 rounded-lg transition-colors">
-                      <MessageCircle size={13} />
-                    </Link>
-                  </div>
-                </div>
-              )
-            }).flatMap((card: any, idx: number, arr: any[]) => {
-              // Adsterra's script only wires up one container per page load (SPA),
-              // so only insert the ad once — after the first row, or after the
-              // last card if there are fewer results than a full row.
-              const adSlot = Math.min(4, arr.length - 1)
-              const showAd = idx === adSlot
-              return showAd
-                ? [card, <div key={`ad-${idx}`} className="col-span-2 sm:col-span-3 md:col-span-4 xl:col-span-5 my-1">
-                    <AdsterraNativeBanner />
-                  </div>]
-                : [card]
-            })}
-          </div>
-
-          {filtered.length === 0 && (
-            <div className="text-center py-20">
-              <div className="text-5xl mb-4">🔍</div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">No members found</h2>
-              <p className="text-gray-500 text-sm mb-4">Try adjusting your search or filters</p>
-              {hasActiveFilters && (
-                <button onClick={clearFilters} className="btn-primary text-sm py-2 px-5">Clear all filters</button>
-              )}
-            </div>
-          )}
-
-          {filtered.length > 0 && (
-            <p className="text-center text-sm text-gray-400 mt-8">
-              Showing <span className="font-medium text-gray-600">{filtered.length}</span> members
-            </p>
-          )}
-        </>
-      )}
-
-      {/* Scroll to top button */}
+      {/* Scroll to top */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-20 right-4 z-40 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-brand-500 hover:text-white hover:border-brand-500 transition-all"
-          aria-label="Scroll to top"
-        >
+          className="fixed bottom-20 right-4 z-40 w-11 h-11 rounded-full flex items-center justify-center text-white shadow-xl shadow-purple-300/50 transition-all hover:scale-110"
+          style={{ background: 'linear-gradient(135deg, #7c3aed, #a855f7)' }}
+          aria-label="Scroll to top">
           <ChevronUp size={18} />
         </button>
       )}
     </div>
   )
 }
-
-function isOwnCard(cardUserId: number, myUserId: number) {
-  return cardUserId === myUserId
-}
-
-
