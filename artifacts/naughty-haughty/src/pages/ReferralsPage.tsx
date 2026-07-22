@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'wouter'
 import { authFetch } from '../lib/auth'
 import { useAuth } from '../hooks/useAuth'
-import { Users, Copy, Check, Gift, Star, TrendingUp, ChevronRight } from 'lucide-react'
+import { Users, Copy, Check, Gift, Star, TrendingUp } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 interface ReferralStats {
@@ -39,7 +39,7 @@ export default function ReferralsPage() {
 
   if (loading) {
     return (
-      <div className="w-full min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+      <div className="w-full min-h-screen flex items-center justify-center bg-[#f8f7ff]">
         <div className="w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin" />
       </div>
     )
@@ -48,17 +48,17 @@ export default function ReferralsPage() {
   const referralUrl = `${window.location.origin}/ref/${stats?.code || ''}`
 
   return (
-    <div className="w-full min-h-screen" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+    <div className="w-full min-h-screen bg-[#f8f7ff]">
       <div className="max-w-xl mx-auto px-4 py-8">
 
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="w-20 h-20 rounded-3xl mx-auto mb-5 flex items-center justify-center shadow-2xl"
-            style={{ background: 'linear-gradient(135deg, #4A0072, #6B1FA2)', boxShadow: '0 12px 40px rgba(107,31,162,0.4)' }}>
+          <div className="w-20 h-20 rounded-3xl mx-auto mb-5 flex items-center justify-center shadow-xl"
+            style={{ background: 'linear-gradient(135deg, #4A0072, #6B1FA2)', boxShadow: '0 12px 40px rgba(107,31,162,0.25)' }}>
             <Users size={38} className="text-white" />
           </div>
-          <h1 className="text-3xl font-black text-white mb-2 tracking-tight">Refer & Earn</h1>
-          <p className="text-white/50 text-sm max-w-xs mx-auto leading-relaxed">
+          <h1 className="text-3xl font-black text-gray-900 mb-2 tracking-tight">Refer & Earn</h1>
+          <p className="text-gray-500 text-sm max-w-xs mx-auto leading-relaxed">
             Invite friends and earn credits every time they join!
           </p>
         </div>
@@ -66,29 +66,26 @@ export default function ReferralsPage() {
         {/* Stats row */}
         <div className="grid grid-cols-3 gap-3 mb-5">
           {[
-            { icon: Users, label: 'Referrals', value: stats?.totalReferrals || 0, color: '#6B1FA2' },
-            { icon: Gift, label: 'Earned', value: `${stats?.earnedCredits || 0}cr`, color: '#10b981' },
-            { icon: Star, label: 'Pending', value: `${stats?.pendingReward || 0}cr`, color: '#f59e0b' },
+            { icon: Users, label: 'Referrals', value: stats?.totalReferrals || 0, color: '#6B1FA2', bg: '#f3e8ff' },
+            { icon: Gift, label: 'Earned', value: `${stats?.earnedCredits || 0}cr`, color: '#10b981', bg: '#ecfdf5' },
+            { icon: Star, label: 'Pending', value: `${stats?.pendingReward || 0}cr`, color: '#f59e0b', bg: '#fffbeb' },
           ].map((s, i) => (
-            <div key={i} className="rounded-2xl p-4 text-center"
-              style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div key={i} className="rounded-2xl p-4 text-center bg-white border border-gray-100 shadow-sm">
               <div className="w-8 h-8 rounded-xl mx-auto mb-2 flex items-center justify-center"
-                style={{ background: `${s.color}20` }}>
+                style={{ background: s.bg }}>
                 <s.icon size={16} style={{ color: s.color }} />
               </div>
-              <div className="text-xl font-black text-white">{s.value}</div>
-              <div className="text-white/35 text-[10px] mt-0.5 font-medium">{s.label}</div>
+              <div className="text-xl font-black text-gray-900">{s.value}</div>
+              <div className="text-gray-400 text-[10px] mt-0.5 font-medium">{s.label}</div>
             </div>
           ))}
         </div>
 
         {/* Referral link card */}
-        <div className="rounded-3xl p-6 mb-4"
-          style={{ background: 'rgba(107,31,162,0.15)', border: '1px solid rgba(107,31,162,0.3)' }}>
-          <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-3">Your Referral Link</p>
-          <div className="flex items-center gap-2 p-3 rounded-2xl mb-4"
-            style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.08)' }}>
-            <span className="flex-1 text-white/60 text-sm font-mono truncate">{referralUrl}</span>
+        <div className="rounded-3xl p-6 mb-4 bg-white border border-purple-100 shadow-sm">
+          <p className="text-purple-400 text-xs font-semibold uppercase tracking-widest mb-3">Your Referral Link</p>
+          <div className="flex items-center gap-2 p-3 rounded-2xl mb-4 bg-gray-50 border border-gray-200">
+            <span className="flex-1 text-gray-500 text-sm font-mono truncate">{referralUrl}</span>
             <button onClick={copyLink}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-white transition-all flex-shrink-0"
               style={copied ? { background: '#10b981' } : { background: 'linear-gradient(135deg, #4A0072, #6B1FA2)' }}>
@@ -113,10 +110,9 @@ export default function ReferralsPage() {
         </div>
 
         {/* How it works */}
-        <div className="rounded-3xl p-5"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
-          <p className="font-bold text-white mb-4 flex items-center gap-2 text-sm">
-            <TrendingUp size={16} className="text-brand-400" /> How It Works
+        <div className="rounded-3xl p-5 bg-white border border-gray-100 shadow-sm">
+          <p className="font-bold text-gray-900 mb-4 flex items-center gap-2 text-sm">
+            <TrendingUp size={16} className="text-brand-500" /> How It Works
           </p>
           <div className="space-y-3.5">
             {[
@@ -129,7 +125,7 @@ export default function ReferralsPage() {
                   style={{ background: item.color }}>
                   {item.step}
                 </div>
-                <p className="text-white/55 text-sm leading-relaxed">{item.text}</p>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.text}</p>
               </div>
             ))}
           </div>

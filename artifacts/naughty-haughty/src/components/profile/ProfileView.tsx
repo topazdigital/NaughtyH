@@ -203,7 +203,7 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
   }
 
   return (
-    <div className="w-full min-h-screen bg-[#0d0d1a]">
+    <div className="w-full min-h-screen bg-[#f8f7ff]">
 
       {/* ── Desktop: two-column sticky layout / Mobile: stacked ── */}
       <div className="lg:flex lg:h-[calc(100dvh-3.5rem)] lg:overflow-hidden">
@@ -309,13 +309,13 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
         </div>
 
         {/* ══ RIGHT — Scrollable info panel ══ */}
-        <div className="lg:flex-1 lg:h-full lg:overflow-y-auto bg-[#0d0d1a] lg:bg-[#0d0d1a]">
+        <div className="lg:flex-1 lg:h-full lg:overflow-y-auto bg-[#f8f7ff]">
           <div className="px-5 sm:px-8 py-6 pb-28 lg:pb-10 max-w-xl lg:max-w-none">
 
             {/* ── Desktop: Name + status (hidden on mobile, shown in photo) ── */}
             <div className="hidden lg:block mb-6">
               <div className="flex items-center gap-3 mb-1">
-                <h1 className="text-3xl font-black text-white tracking-tight">
+                <h1 className="text-3xl font-black text-gray-900 tracking-tight">
                   {user.name || 'Member'}
                 </h1>
                 {user.verified === 1 && <BadgeCheck size={24} className="text-blue-400" />}
@@ -325,29 +325,29 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
                   </span>
                 )}
               </div>
-              <div className="flex items-center flex-wrap gap-2 text-white/60 text-sm">
-                {displayAge && displayAge > 0 && <span className="text-white/80 font-medium">{displayAge} yrs</span>}
-                {zodiac && <><span className="text-white/25">·</span><span>{zodiac}</span></>}
-                {user.city && <><span className="text-white/25">·</span><span className="flex items-center gap-1"><MapPin size={11} />{user.city}</span></>}
+              <div className="flex items-center flex-wrap gap-2 text-gray-400 text-sm">
+                {displayAge && displayAge > 0 && <span className="text-gray-700 font-medium">{displayAge} yrs</span>}
+                {zodiac && <><span className="text-gray-300">·</span><span>{zodiac}</span></>}
+                {user.city && <><span className="text-gray-300">·</span><span className="flex items-center gap-1"><MapPin size={11} />{user.city}</span></>}
                 {isOnline(liveLastAccess) ? (
-                  <span className="flex items-center gap-1.5 text-emerald-400 font-semibold text-xs">
-                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" /> Online now
+                  <span className="flex items-center gap-1.5 text-emerald-500 font-semibold text-xs">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" /> Online now
                   </span>
                 ) : liveLastAccess && Number(liveLastAccess) > 0 ? (
-                  <span className="text-white/35 text-xs">· Last seen {timeAgo(liveLastAccess)}</span>
+                  <span className="text-gray-400 text-xs">· Last seen {timeAgo(liveLastAccess)}</span>
                 ) : null}
               </div>
 
               {/* Compatibility bar */}
               {compatibility !== null && compatibility > 0 && (
                 <div className="mt-3 flex items-center gap-3">
-                  <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div className="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full transition-all duration-1000 ${compatibility >= 70 ? 'bg-emerald-400' : compatibility >= 40 ? 'bg-brand-400' : 'bg-white/30'}`}
+                      className={`h-full rounded-full transition-all duration-1000 ${compatibility >= 70 ? 'bg-emerald-400' : compatibility >= 40 ? 'bg-brand-400' : 'bg-gray-300'}`}
                       style={{ width: `${compatibility}%` }}
                     />
                   </div>
-                  <span className={`text-xs font-bold ${compatibility >= 70 ? 'text-emerald-400' : 'text-brand-400'}`}>{compatibility}% Match</span>
+                  <span className={`text-xs font-bold ${compatibility >= 70 ? 'text-emerald-500' : 'text-brand-500'}`}>{compatibility}% Match</span>
                 </div>
               )}
             </div>
@@ -359,13 +359,13 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
                   <button
                     key={p.id || i}
                     onClick={() => setHeroPhotoIdx(i)}
-                    className={`w-16 h-20 rounded-xl overflow-hidden border-2 transition-all hover:scale-105 ${heroPhotoIdx === i ? 'border-brand-400 shadow-lg shadow-brand-500/30' : 'border-white/10 opacity-60 hover:opacity-100 hover:border-white/30'}`}>
+                    className={`w-16 h-20 rounded-xl overflow-hidden border-2 transition-all hover:scale-105 ${heroPhotoIdx === i ? 'border-brand-400 shadow-lg shadow-brand-500/20' : 'border-gray-200 opacity-70 hover:opacity-100 hover:border-gray-300'}`}>
                     <img src={getPhotoUrl(p.thumb || p.photo)} alt="" className="w-full h-full object-cover" loading="lazy" />
                   </button>
                 ))}
                 <button
                   onClick={() => setActivePhotoIdx(0)}
-                  className="w-16 h-20 rounded-xl border-2 border-white/10 flex items-center justify-center text-white/50 hover:text-white/80 hover:border-white/30 transition-all text-xs font-semibold gap-1 flex-col">
+                  className="w-16 h-20 rounded-xl border-2 border-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-600 hover:border-gray-300 transition-all text-xs font-semibold gap-1 flex-col">
                   <Camera size={16} />
                   <span>All</span>
                 </button>
@@ -413,8 +413,7 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
 
                 {/* Message input */}
                 <div className="relative">
-                  <div className="flex items-center gap-2 rounded-2xl px-4 py-3 border border-white/10 focus-within:border-brand-500/50 transition-colors"
-                    style={{ background: 'rgba(255,255,255,0.06)' }}>
+                  <div className="flex items-center gap-2 rounded-2xl px-4 py-3 bg-white border border-gray-200 focus-within:border-brand-400 transition-colors shadow-sm">
                     <input
                       ref={msgRef}
                       type="text"
@@ -422,10 +421,10 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
                       onChange={e => setMsgText(e.target.value)}
                       onKeyDown={e => e.key === 'Enter' && sendMessage()}
                       placeholder={`Send ${user.name?.split(' ')[0] || 'a'} a message…`}
-                      className="flex-1 text-sm bg-transparent outline-none text-white placeholder-white/35 min-w-0"
+                      className="flex-1 text-sm bg-transparent outline-none text-gray-900 placeholder-gray-400 min-w-0"
                     />
                     <button type="button" onClick={() => setShowQuick(p => !p)}
-                      className="text-white/30 hover:text-brand-400 transition-colors flex-shrink-0">
+                      className="text-gray-400 hover:text-brand-500 transition-colors flex-shrink-0">
                       <Smile size={17} />
                     </button>
                     <button type="button" onClick={() => sendMessage()} disabled={sending}
@@ -435,11 +434,10 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
                     </button>
                   </div>
                   {showQuick && (
-                    <div className="absolute top-full left-0 right-0 mt-2 rounded-2xl shadow-2xl overflow-hidden z-20 border border-white/10"
-                      style={{ background: '#1a1a2e' }}>
+                    <div className="absolute top-full left-0 right-0 mt-2 rounded-2xl shadow-lg overflow-hidden z-20 border border-gray-200 bg-white">
                       {QUICK_MESSAGES.map((q, i) => (
                         <button key={i} onClick={() => { setMsgText(q); setShowQuick(false); msgRef.current?.focus() }}
-                          className="w-full text-left text-sm px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 border-b border-white/5 last:border-0 transition-colors">
+                          className="w-full text-left text-sm px-4 py-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 border-b border-gray-100 last:border-0 transition-colors">
                           {q}
                         </button>
                       ))}
@@ -466,11 +464,11 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
                 {/* Block / Report */}
                 <div className="flex gap-1 pt-1">
                   <button onClick={blockUser}
-                    className="flex items-center gap-1.5 text-xs text-white/25 hover:text-red-400 transition-colors px-3 py-2 rounded-xl hover:bg-red-500/10">
+                    className="flex items-center gap-1.5 text-xs text-gray-300 hover:text-red-500 transition-colors px-3 py-2 rounded-xl hover:bg-red-50">
                     <ShieldOff size={12} /> Block
                   </button>
                   <button onClick={() => setShowReportModal(true)}
-                    className="flex items-center gap-1.5 text-xs text-white/25 hover:text-orange-400 transition-colors px-3 py-2 rounded-xl hover:bg-orange-500/10">
+                    className="flex items-center gap-1.5 text-xs text-gray-300 hover:text-orange-500 transition-colors px-3 py-2 rounded-xl hover:bg-orange-50">
                     <Flag size={12} /> Report
                   </button>
                 </div>
@@ -481,23 +479,21 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
             {isOwnProfile && (
               <div className="mb-6 space-y-3">
                 {(!user.name || !user.bio) && (
-                  <div className="rounded-2xl p-4 flex items-center gap-3 border border-brand-500/30"
-                    style={{ background: 'rgba(107,31,162,0.15)' }}>
-                    <Edit3 size={18} className="text-brand-400 flex-shrink-0" />
-                    <p className="text-white/70 text-sm flex-1">Complete your profile to get more matches</p>
+                  <div className="rounded-2xl p-4 flex items-center gap-3 bg-purple-50 border border-purple-200">
+                    <Edit3 size={18} className="text-brand-500 flex-shrink-0" />
+                    <p className="text-gray-600 text-sm flex-1">Complete your profile to get more matches</p>
                     <Link href="/settings"
                       className="text-white text-xs font-bold px-3.5 py-2 rounded-xl flex-shrink-0"
                       style={{ background: 'linear-gradient(135deg, #4A0072, #6B1FA2)' }}>Edit</Link>
                   </div>
                 )}
                 <Link href="/settings"
-                  className="flex items-center justify-center gap-2 py-3.5 rounded-2xl font-bold text-sm text-white/80 border border-white/10 hover:border-white/20 hover:text-white transition-all"
-                  style={{ background: 'rgba(255,255,255,0.05)' }}>
+                  className="flex items-center justify-center gap-2 py-3.5 rounded-2xl font-bold text-sm text-gray-700 bg-white border border-gray-200 hover:border-gray-300 hover:text-gray-900 transition-all shadow-sm">
                   <Edit3 size={16} /> Edit Profile
                 </Link>
-                <div className="pt-2 border-t border-white/5">
+                <div className="pt-2 border-t border-gray-100">
                   <Link href="/contact"
-                    className="flex items-center gap-2 text-xs text-white/25 hover:text-brand-400 transition-colors py-1">
+                    className="flex items-center gap-2 text-xs text-gray-300 hover:text-brand-500 transition-colors py-1">
                     <MessageCircle size={12} /> Have an issue? Contact Us
                   </Link>
                 </div>
@@ -507,15 +503,15 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
             {/* ── Bio ── */}
             {user.bio && (
               <div className="mb-5">
-                <p className="text-white/55 text-xs font-semibold uppercase tracking-widest mb-2">About</p>
-                <p className="text-white/75 text-sm leading-relaxed">{htmlDecode(user.bio)}</p>
+                <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-2">About</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{htmlDecode(user.bio)}</p>
               </div>
             )}
 
             {/* ── Interests ── */}
             {interestDetails.length > 0 && (
               <div className="mb-5">
-                <p className="text-white/55 text-xs font-semibold uppercase tracking-widest mb-3">Interests</p>
+                <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-3">Interests</p>
                 <div className="flex flex-wrap gap-2">
                   {interestDetails.map(interest => {
                     const isShared = sharedInterestIds.includes(interest.id)
@@ -536,25 +532,23 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
             {/* ── About / Extended info ── */}
             {user.userExtended && Object.values(user.userExtended).some((v: any) => v && v !== '' && v !== '[]') && (
               <div className="mb-5">
-                <p className="text-white/55 text-xs font-semibold uppercase tracking-widest mb-3">Details</p>
+                <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-3">Details</p>
                 <div className="grid grid-cols-2 gap-2">
                   {zodiac && (
-                    <div className="flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 border border-white/5"
-                      style={{ background: 'rgba(255,255,255,0.04)' }}>
+                    <div className="flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 bg-white border border-gray-100 shadow-sm">
                       <span className="text-lg leading-none">{zodiac.split(' ')[0]}</span>
                       <div>
-                        <p className="text-[10px] text-white/35 leading-none mb-0.5">Zodiac</p>
-                        <p className="text-xs font-semibold text-white/80">{zodiac.split(' ').slice(1).join(' ')}</p>
+                        <p className="text-[10px] text-gray-400 leading-none mb-0.5">Zodiac</p>
+                        <p className="text-xs font-semibold text-gray-700">{zodiac.split(' ').slice(1).join(' ')}</p>
                       </div>
                     </div>
                   )}
                   {user.looking && (
-                    <div className="flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 border border-white/5"
-                      style={{ background: 'rgba(255,255,255,0.04)' }}>
+                    <div className="flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 bg-white border border-gray-100 shadow-sm">
                       <span className="text-lg leading-none">💞</span>
                       <div>
-                        <p className="text-[10px] text-white/35 leading-none mb-0.5">Looking for</p>
-                        <p className="text-xs font-semibold text-white/80">{lookingForLabel(user.looking)}</p>
+                        <p className="text-[10px] text-gray-400 leading-none mb-0.5">Looking for</p>
+                        <p className="text-xs font-semibold text-gray-700">{lookingForLabel(user.looking)}</p>
                       </div>
                     </div>
                   )}
@@ -570,31 +564,30 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
                     ['👶', 'Children', user.userExtended.children],
                     ['💬', 'Languages', user.userExtended.languages],
                   ].filter(([, , v]) => v && v !== '[]').map(([emoji, label, value]) => (
-                    <div key={label as string} className="flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 border border-white/5"
-                      style={{ background: 'rgba(255,255,255,0.04)' }}>
+                    <div key={label as string} className="flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 bg-white border border-gray-100 shadow-sm">
                       <span className="text-lg leading-none">{emoji}</span>
                       <div className="min-w-0">
-                        <p className="text-[10px] text-white/35 leading-none mb-0.5">{label}</p>
-                        <p className="text-xs font-semibold text-white/80 truncate">{value}</p>
+                        <p className="text-[10px] text-gray-400 leading-none mb-0.5">{label}</p>
+                        <p className="text-xs font-semibold text-gray-700 truncate">{value}</p>
                       </div>
                     </div>
                   ))}
                 </div>
                 {user.userExtended.selfDescription && (
-                  <div className="mt-3 p-4 rounded-2xl border border-white/5" style={{ background: 'rgba(255,255,255,0.03)' }}>
-                    <p className="text-white/55 text-sm leading-relaxed italic">"{user.userExtended.selfDescription}"</p>
+                  <div className="mt-3 p-4 rounded-2xl bg-white border border-gray-100">
+                    <p className="text-gray-500 text-sm leading-relaxed italic">"{user.userExtended.selfDescription}"</p>
                   </div>
                 )}
                 {user.userExtended.passions && (
                   <div className="mt-2">
-                    <p className="text-[10px] text-white/35 uppercase tracking-widest mb-1.5">Passions</p>
-                    <p className="text-white/65 text-sm leading-relaxed">{user.userExtended.passions}</p>
+                    <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Passions</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{user.userExtended.passions}</p>
                   </div>
                 )}
                 {user.userExtended.idealDate && (
                   <div className="mt-3">
-                    <p className="text-[10px] text-white/35 uppercase tracking-widest mb-1.5">Ideal date</p>
-                    <p className="text-white/65 text-sm leading-relaxed">{user.userExtended.idealDate}</p>
+                    <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Ideal date</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{user.userExtended.idealDate}</p>
                   </div>
                 )}
               </div>
@@ -603,11 +596,11 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
             {/* ── Photo grid ── */}
             {allPhotos.length > 1 && (
               <div className="mb-5">
-                <p className="text-white/55 text-xs font-semibold uppercase tracking-widest mb-3">Photos ({allPhotos.length})</p>
+                <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-3">Photos ({allPhotos.length})</p>
                 <div className="grid grid-cols-3 gap-2">
                   {allPhotos.map((p: any, i: number) => (
                     <button key={p.id || i} onClick={() => setActivePhotoIdx(i)}
-                      className="aspect-[3/4] rounded-xl overflow-hidden hover:opacity-90 hover:scale-[1.02] transition-all border border-white/5">
+                      className="aspect-[3/4] rounded-xl overflow-hidden hover:opacity-90 hover:scale-[1.02] transition-all border border-gray-100 shadow-sm">
                       <img src={getPhotoUrl(p.thumb || p.photo)} alt="" className="w-full h-full object-cover" loading="lazy" />
                     </button>
                   ))}
@@ -618,7 +611,7 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
             {/* ── Stories / Videos ── */}
             {stories.length > 0 && (
               <div className="mb-5">
-                <p className="text-white/55 text-xs font-semibold uppercase tracking-widest mb-3">
+                <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-3">
                   Videos & Stories ({stories.length})
                 </p>
                 <div className="grid grid-cols-3 gap-2">
@@ -628,11 +621,11 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
                     return (
                       <button key={s.id}
                         onClick={() => hasVideo ? setActiveVideo(getPhotoUrl(s.video)) : null}
-                        className={`relative aspect-[3/4] rounded-xl overflow-hidden bg-gray-800 border border-white/5 ${hasVideo ? 'cursor-pointer' : 'cursor-default'} hover:opacity-90 transition-opacity`}>
+                        className={`relative aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 border border-gray-100 ${hasVideo ? 'cursor-pointer' : 'cursor-default'} hover:opacity-90 transition-opacity`}>
                         {thumb && <img src={thumb} alt="" className="w-full h-full object-cover" loading="lazy" />}
                         {!thumb && hasVideo && (
-                          <div className="w-full h-full bg-gray-800 flex items-center justify-center">
-                            <Video size={24} className="text-white/40" />
+                          <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                            <Video size={24} className="text-gray-400" />
                           </div>
                         )}
                         {hasVideo && (
@@ -694,21 +687,21 @@ export default function ProfileView({ user, photos, isOwnProfile, myId, hasLiked
 
       {/* ── Report Modal ── */}
       {showReportModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-4" onClick={() => setShowReportModal(false)}>
-          <div className="rounded-2xl p-6 w-full max-w-sm shadow-2xl border border-white/10" style={{ background: '#1a1a2e' }} onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-end sm:items-center justify-center p-4" onClick={() => setShowReportModal(false)}>
+          <div className="rounded-2xl p-6 w-full max-w-sm shadow-2xl bg-white border border-gray-200" onClick={e => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-bold text-white flex items-center gap-2">
+              <h3 className="font-bold text-gray-900 flex items-center gap-2">
                 <Flag size={16} className="text-orange-400" /> Report {user.name}
               </h3>
-              <button onClick={() => setShowReportModal(false)} className="text-white/40 hover:text-white/70">
+              <button onClick={() => setShowReportModal(false)} className="text-gray-400 hover:text-gray-600">
                 <X size={18} />
               </button>
             </div>
-            <p className="text-white/50 text-sm mb-4">Why are you reporting this profile?</p>
+            <p className="text-gray-500 text-sm mb-4">Why are you reporting this profile?</p>
             <div className="space-y-2 mb-5">
               {REPORT_REASONS.map(reason => (
                 <button key={reason} onClick={() => setReportReason(reason)}
-                  className={`w-full text-left px-4 py-3 rounded-xl text-sm border-2 transition-all font-medium ${reportReason === reason ? 'border-brand-500 bg-brand-500/20 text-brand-300' : 'border-white/10 text-white/60 hover:border-white/20 hover:text-white/80'}`}>
+                  className={`w-full text-left px-4 py-3 rounded-xl text-sm border-2 transition-all font-medium ${reportReason === reason ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-gray-200 text-gray-600 hover:border-gray-300 hover:text-gray-800'}`}>
                   {reason}
                 </button>
               ))}
