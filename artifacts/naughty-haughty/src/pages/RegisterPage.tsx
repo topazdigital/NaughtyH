@@ -527,10 +527,10 @@ export default function RegisterPage() {
               <span className="bg-white/10 backdrop-blur border border-white/20 text-white/80 text-xs font-medium px-3 py-1.5 rounded-full">100% Free to Join</span>
             </div>
             <h2 className="text-4xl font-black text-white leading-tight mb-4">
-              Start Your<br />Love Story<br />
-              <span className="text-yellow-300">Today</span>
+              Start Getting<br />Naughty<br />
+              <span className="text-pink-300">Tonight 😈</span>
             </h2>
-            <p className="text-white/60 text-sm mb-10 leading-relaxed">Join the most exclusive dating network for successful, ambitious singles worldwide.</p>
+            <p className="text-white/60 text-sm mb-10 leading-relaxed">Join the hottest adult hookup network — real hotties, zero judgment, all the fun you can handle.</p>
             <div className="grid grid-cols-3 gap-3 mb-8">
               {STATS.map((s, i) => (
                 <div key={i} className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-4 text-center">
@@ -541,9 +541,9 @@ export default function RegisterPage() {
             </div>
             <div className="space-y-3">
               {[
-                { icon: <Shield size={14} />, text: 'Verified & safe profiles only' },
-                { icon: <Crown size={14} />, text: 'Premium matching algorithm' },
-                { icon: <Users size={14} />, text: 'Thousands of verified members' },
+                { icon: <Shield size={14} />, text: 'Verified hotties — zero fakes' },
+                { icon: <Crown size={14} />, text: 'Smart matching for naughty minds' },
+                { icon: <Users size={14} />, text: 'Thousands of open-minded adults' },
               ].map((f, i) => (
                 <div key={i} className="flex items-center gap-3 text-white/70 text-sm">
                   <div className="w-6 h-6 rounded-lg bg-white/10 flex items-center justify-center text-white/60">{f.icon}</div>
@@ -577,7 +577,7 @@ export default function RegisterPage() {
               {isSocial ? 'Complete your profile' : 'Create your account'}
             </h1>
             <p className="text-gray-500 text-xs">
-              {isSocial ? 'Just a few more details to start matching' : 'Find your perfect match — free, fast, and secure'}
+              {isSocial ? 'Just a few more details to start the fun' : 'Find your perfect hookup — free, fast, and discreet'}
             </p>
           </div>
 

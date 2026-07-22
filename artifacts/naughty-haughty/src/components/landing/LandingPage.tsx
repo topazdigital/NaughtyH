@@ -10,18 +10,18 @@ declare global {
 }
 
 const FEATURES = [
-  { icon: MapPin, title: 'Local & Worldwide', desc: 'Find adventurous singles near you or discover passion across the globe.' },
-  { icon: Shield, title: 'Verified Profiles', desc: 'Every member is verified for authenticity — real people, real chemistry.' },
-  { icon: Zap, title: 'Real-Time Messaging', desc: 'Instant chat with typing indicators. No delays, no games.' },
-  { icon: Star, title: 'Smart Matching', desc: 'Advanced algorithms connect you with open-minded singles who share your vibe.' },
-  { icon: Crown, title: 'VIP Features', desc: 'Stand out with superlikes, profile boosts, and priority placement.' },
-  { icon: Heart, title: 'Real Chemistry', desc: 'Thousands of success stories. Bold, passionate connections that actually happen.' },
+  { icon: MapPin, title: 'Near You & Worldwide', desc: 'Find naughty hotties right around the corner or connect with bold adults across the globe.' },
+  { icon: Shield, title: 'Verified Members', desc: 'Every hottie is verified — real people, real desires, zero fake profiles.' },
+  { icon: Zap, title: 'Instant Messaging', desc: 'Chat, flirt, and make plans — lightning-fast messaging with no delays or gatekeeping.' },
+  { icon: Star, title: 'Smart Matching', desc: "Our algorithm finds adults who match your energy, kinks, and what you're actually looking for." },
+  { icon: Crown, title: 'VIP Perks', desc: 'Stand out with superlikes, profile boosts, and priority placement among the hotties.' },
+  { icon: Heart, title: 'Real Encounters', desc: 'Thousands of steamy success stories. Bold connections that go from chat to reality.' },
 ]
 
 const TESTIMONIALS = [
-  { name: 'Robert T.', city: 'Toronto', text: 'I was skeptical at first, but within a week I was chatting with amazing women. Refreshingly honest platform.', rating: 5 },
-  { name: 'David M.', city: 'London', text: 'Finally a site that doesn\'t judge. Met someone fantastic who matched my energy completely.', rating: 5 },
-  { name: 'James K.', city: 'Sydney', text: 'Location-based matching is brilliant. Met someone incredible just 15 minutes away!', rating: 5 },
+  { name: 'Robert T.', city: 'Toronto', text: 'I was skeptical at first, but within a week I had three dates lined up. Refreshingly honest platform — no judgment, just fun.', rating: 5 },
+  { name: 'David M.', city: 'London', text: "Finally a site that doesn't pretend everyone wants a relationship. Met someone who matched my energy perfectly.", rating: 5 },
+  { name: 'James K.', city: 'Sydney', text: 'Location-based matching is brilliant. Found someone incredible just 10 minutes away — she was just as naughty as me!', rating: 5 },
 ]
 
 const STATS = [
@@ -336,8 +336,8 @@ export default function LandingPage() {
             <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-600 rounded-full px-3 py-1 text-xs font-medium mb-2">
               <Star size={12} /> Why Choose Us
             </div>
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Everything You Need to Find Passion</h2>
-            <p className="text-gray-500 text-xs max-w-xl mx-auto">A bold adult dating experience built for mature people who know exactly what they want.</p>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Everything You Need to Get Naughty 🔥</h2>
+            <p className="text-gray-500 text-xs max-w-xl mx-auto">The boldest adult hookup platform on the planet — built for people who know what they want and aren't afraid to go get it.</p>
           </div>
           <div className="flex gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:overflow-visible" style={{ scrollSnapType: 'x mandatory' }}>
             {FEATURES.map((f, i) => (
@@ -359,12 +359,12 @@ export default function LandingPage() {
           <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-600 rounded-full px-3 py-1 text-xs font-medium mb-2">
             <Zap size={12} /> Simple Process
           </div>
-          <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Find Love in 3 Easy Steps</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Get Naughty in 3 Easy Steps 😈</h2>
           <div className="grid grid-cols-3 gap-4 md:gap-8">
             {[
-              { step: '01', title: 'Create Profile', desc: 'Sign up free and show the real you.', icon: '😈' },
-              { step: '02', title: 'Discover Matches', desc: 'Browse bold, open-minded adults near you or worldwide.', icon: '🔥' },
-              { step: '03', title: 'Connect & Meet', desc: 'Chat, flirt, and turn sparks into something real!', icon: '💋' },
+              { step: '01', title: 'Create Profile', desc: 'Sign up free, show off your naughty side, and let the hotties come to you.', icon: '😈' },
+              { step: '02', title: 'Browse Hotties', desc: 'Discover bold, open-minded adults near you or spice things up worldwide.', icon: '🔥' },
+              { step: '03', title: 'Meet & Play', desc: 'Chat, flirt, exchange gifts and turn that tension into real action. 💋', icon: '💋' },
             ].map((s, i) => (
               <div key={i} className="relative">
                 {i < 2 && (
@@ -386,8 +386,8 @@ export default function LandingPage() {
       <section className="py-8 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-5 px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Real Stories, Real Chemistry</h2>
-            <p className="text-gray-500 text-xs">Join thousands of mature adults who found what they were looking for</p>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Real Stories, Real Heat 🔥</h2>
+            <p className="text-gray-500 text-xs">Join thousands of naughty adults who stopped fantasising and started doing something about it</p>
           </div>
           {/* Horizontally scrollable row, cards snap into place */}
           <div className="flex gap-4 overflow-x-auto px-4 pb-4" style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
@@ -427,38 +427,37 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-lg font-bold text-gray-900 mb-3">Where Ambition Meets Attraction</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-3">Where Naughty Meets Haughty 😈</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-3">
-                NaughtyHaughty is a premium dating platform built exclusively for successful, motivated singles
-                who understand the value of a genuine connection. Our members are accomplished professionals —
-                executives, entrepreneurs, doctors, lawyers, and high-achievers — from Kenya, Nigeria, South Africa,
-                the UK, USA, Dubai, and 180+ countries worldwide.
+                NaughtyHaughty is the boldest adult hookup platform online — built for open-minded, adventurous adults
+                who know exactly what they want and aren't shy about going after it. Our hotties come from Kenya,
+                Nigeria, South Africa, the UK, USA, Dubai, and 180+ countries worldwide. No judgment, no labels, just
+                real adults having real fun.
               </p>
               <p className="text-sm text-gray-500 leading-relaxed">
-                Whether you are seeking a long-term relationship, a meaningful companionship, or simply someone
-                who matches your drive and lifestyle, NaughtyHaughty brings together people who have standards —
-                and the means to enjoy life together.
+                Whether you're after a steamy one-night connection, a naughty regular thing, or something deliciously
+                complicated — NaughtyHaughty connects you with the right kind of wrong. Life's too short to be boring.
               </p>
             </div>
             <div>
-              <h2 className="text-lg font-bold text-gray-900 mb-3">Why Members Choose Us</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-3">Why Hotties Choose Us</h2>
               <ul className="space-y-2 text-sm text-gray-500">
-                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>Verified profiles</strong> — members go through identity checks for authenticity</span></li>
-                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>M-Pesa, Paystack &amp; card payments</strong> — convenient African and global payment options</span></li>
-                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>180+ countries</strong> — connect locally or discover love across borders</span></li>
-                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>Free to join</strong> — browse and receive messages at no cost</span></li>
-                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>Privacy first</strong> — your data is encrypted and never sold to third parties</span></li>
-                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>Real-time messaging</strong> — instant chat with no delays or hidden barriers</span></li>
+                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>Verified hotties only</strong> — every member goes through identity checks, zero fakes</span></li>
+                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>M-Pesa, Paystack &amp; card</strong> — convenient African and global payment options</span></li>
+                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>180+ countries</strong> — find hot connections locally or explore your naughty side worldwide</span></li>
+                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>Free to join</strong> — browse, flirt, and receive messages at no cost</span></li>
+                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>Discreet &amp; private</strong> — your data is encrypted and your secrets are safe with us</span></li>
+                <li className="flex items-start gap-2"><span className="text-brand-500 font-bold mt-0.5">✓</span> <span><strong>Real-time messaging</strong> — instant chat so you never miss a hot opportunity</span></li>
               </ul>
             </div>
           </div>
 
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {[
-              { label: 'Mature Men', icon: '🎩', desc: 'Confident, experienced men who know what they want' },
-              { label: 'Adventurous Women', icon: '💃', desc: 'Bold, open-minded women seeking real chemistry' },
-              { label: 'Passionate Adults', icon: '🔥', desc: 'Adults 18+ who are honest about their desires' },
-              { label: 'Global Singles', icon: '🌍', desc: 'Members from 180+ countries, all walks of life' },
+              { label: 'Naughty Men', icon: '😈', desc: 'Bold, experienced men who know how to have a good time' },
+              { label: 'Naughty Women', icon: '💃', desc: 'Confident, open-minded women who say what they want' },
+              { label: 'Passionate Adults', icon: '🔥', desc: 'Adults 18+ who are honest about their desires, no games' },
+              { label: 'Global Hotties', icon: '🌍', desc: 'Hot members from 180+ countries, every flavour imaginable' },
             ].map((c, i) => (
               <div key={i} className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
                 <div className="text-2xl mb-2">{c.icon}</div>
@@ -477,9 +476,9 @@ export default function LandingPage() {
           <div className="absolute bottom-6 left-20 w-36 h-36 bg-white/5 rounded-full blur-3xl" />
         </div>
         <div className="max-w-2xl mx-auto text-center relative z-10">
-          <div className="text-3xl mb-3">🔥</div>
-          <h2 className="text-xl md:text-2xl font-bold mb-2">Ready to Meet Someone Exciting?</h2>
-          <p className="text-white/80 mb-5 text-sm">Join thousands of mature, bold adults who stopped waiting and started living. Free to join, always.</p>
+          <div className="text-3xl mb-3">😈</div>
+          <h2 className="text-xl md:text-2xl font-bold mb-2">Ready to Get Naughty Tonight?</h2>
+          <p className="text-white/80 mb-5 text-sm">Join thousands of verified hotties who stopped fantasising and started doing something about it. Free to join, always discreet.</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link href="/register"
               className="bg-white text-brand-600 font-bold px-7 py-2.5 rounded-2xl shadow-2xl hover:shadow-3xl transition-all hover:-translate-y-1 inline-flex items-center gap-2 text-sm">

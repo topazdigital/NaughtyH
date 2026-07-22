@@ -52,42 +52,42 @@ declare global {
 
 const PROFILE_POOLS: Record<string, { name: string; age: number; city: string; img: string; tag: string }[]> = {
   KE: [
-    { name: 'Amara', age: 26, city: 'Nairobi', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Looking for successful men' },
-    { name: 'Lucia', age: 29, city: 'Mombasa', img: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=120&h=120&fit=crop&crop=face', tag: 'Ready for love 💕' },
-    { name: 'Grace', age: 24, city: 'Nairobi', img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop&crop=face', tag: 'Loves adventure' },
-    { name: 'David', age: 52, city: 'Nairobi', img: 'https://images.unsplash.com/photo-1542178243-bc20204b769f?w=120&h=120&fit=crop&crop=face', tag: 'Successful entrepreneur' },
-    { name: 'James', age: 48, city: 'Nairobi', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&h=120&fit=crop&crop=face', tag: 'Looking for true love' },
+    { name: 'Amara', age: 26, city: 'Nairobi', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Here for a good time 😏' },
+    { name: 'Lucia', age: 29, city: 'Mombasa', img: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=120&h=120&fit=crop&crop=face', tag: 'No strings attached 🔥' },
+    { name: 'Grace', age: 24, city: 'Nairobi', img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop&crop=face', tag: 'Naughty by nature 😈' },
+    { name: 'David', age: 52, city: 'Nairobi', img: 'https://images.unsplash.com/photo-1542178243-bc20204b769f?w=120&h=120&fit=crop&crop=face', tag: 'Discreet & adventurous 😏' },
+    { name: 'James', age: 48, city: 'Nairobi', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&h=120&fit=crop&crop=face', tag: "Let's have some fun 🔥" },
   ],
   NG: [
-    { name: 'Chioma', age: 27, city: 'Lagos', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Ambitious & beautiful' },
-    { name: 'Blessing', age: 25, city: 'Abuja', img: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=120&h=120&fit=crop&crop=face', tag: 'Ready to mingle 😊' },
-    { name: 'Emmanuel', age: 45, city: 'Lagos', img: 'https://images.unsplash.com/photo-1542178243-bc20204b769f?w=120&h=120&fit=crop&crop=face', tag: 'Successful businessman' },
+    { name: 'Chioma', age: 27, city: 'Lagos', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Naughty & confident 😈' },
+    { name: 'Blessing', age: 25, city: 'Abuja', img: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=120&h=120&fit=crop&crop=face', tag: 'Looking for fun tonight 🔥' },
+    { name: 'Emmanuel', age: 45, city: 'Lagos', img: 'https://images.unsplash.com/photo-1542178243-bc20204b769f?w=120&h=120&fit=crop&crop=face', tag: 'Discreet & generous 😏' },
   ],
   ZA: [
-    { name: 'Lerato', age: 28, city: 'Johannesburg', img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop&crop=face', tag: 'Looking for real love' },
-    { name: 'Nomvula', age: 31, city: 'Cape Town', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Beach lover 🌊' },
-    { name: 'Trevor', age: 50, city: 'Cape Town', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&h=120&fit=crop&crop=face', tag: 'Wine & dine kind of guy' },
+    { name: 'Lerato', age: 28, city: 'Johannesburg', img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop&crop=face', tag: 'Here for the fun 😏' },
+    { name: 'Nomvula', age: 31, city: 'Cape Town', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Wild & free 🌊' },
+    { name: 'Trevor', age: 50, city: 'Cape Town', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&h=120&fit=crop&crop=face', tag: 'Discreet gentleman 😏' },
   ],
   GB: [
-    { name: 'Sophie', age: 28, city: 'London', img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop&crop=face', tag: 'Coffee & conversation' },
-    { name: 'Emma', age: 31, city: 'Manchester', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Art & culture lover' },
-    { name: 'Oliver', age: 44, city: 'London', img: 'https://images.unsplash.com/photo-1542178243-bc20204b769f?w=120&h=120&fit=crop&crop=face', tag: 'Gentleman & professional' },
+    { name: 'Sophie', age: 28, city: 'London', img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop&crop=face', tag: 'Naughty mind, big heart 💋' },
+    { name: 'Emma', age: 31, city: 'Manchester', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Bad girl energy 🔥' },
+    { name: 'Oliver', age: 44, city: 'London', img: 'https://images.unsplash.com/photo-1542178243-bc20204b769f?w=120&h=120&fit=crop&crop=face', tag: 'Discreet & passionate 😏' },
   ],
   AE: [
-    { name: 'Fatima', age: 27, city: 'Dubai', img: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=120&h=120&fit=crop&crop=face', tag: 'Ready for something real' },
-    { name: 'Sara', age: 29, city: 'Abu Dhabi', img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop&crop=face', tag: 'Luxury lifestyle ✨' },
-    { name: 'Khalid', age: 47, city: 'Dubai', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&h=120&fit=crop&crop=face', tag: 'Business & adventure' },
+    { name: 'Fatima', age: 27, city: 'Dubai', img: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=120&h=120&fit=crop&crop=face', tag: 'Here for a good time 😈' },
+    { name: 'Sara', age: 29, city: 'Abu Dhabi', img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop&crop=face', tag: 'Naughty & bold ✨' },
+    { name: 'Khalid', age: 47, city: 'Dubai', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&h=120&fit=crop&crop=face', tag: 'Discreet & generous 😏' },
   ],
   IN: [
-    { name: 'Priya', age: 26, city: 'Mumbai', img: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=120&h=120&fit=crop&crop=face', tag: 'Smart & ambitious 💼' },
-    { name: 'Ananya', age: 28, city: 'Delhi', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Culture & family values' },
-    { name: 'Raj', age: 51, city: 'Bangalore', img: 'https://images.unsplash.com/photo-1542178243-bc20204b769f?w=120&h=120&fit=crop&crop=face', tag: 'Tech founder, loves travel' },
+    { name: 'Priya', age: 26, city: 'Mumbai', img: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=120&h=120&fit=crop&crop=face', tag: 'Bold & unapologetic 😈' },
+    { name: 'Ananya', age: 28, city: 'Delhi', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Keeping it fun & discreet 🔥' },
+    { name: 'Raj', age: 51, city: 'Bangalore', img: 'https://images.unsplash.com/photo-1542178243-bc20204b769f?w=120&h=120&fit=crop&crop=face', tag: 'Adventurous & discreet 😏' },
   ],
   DEFAULT: [
-    { name: 'Sophie', age: 28, city: 'New York', img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop&crop=face', tag: 'Looking for real connection' },
-    { name: 'Emma', age: 31, city: 'London', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Art, travel & love ✈️' },
-    { name: 'Priya', age: 26, city: 'Dubai', img: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=120&h=120&fit=crop&crop=face', tag: 'Ready to find my person' },
-    { name: 'James', age: 48, city: 'Toronto', img: 'https://images.unsplash.com/photo-1542178243-bc20204b769f?w=120&h=120&fit=crop&crop=face', tag: 'Successful & caring' },
+    { name: 'Sophie', age: 28, city: 'New York', img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop&crop=face', tag: 'Here for a good time 😏' },
+    { name: 'Emma', age: 31, city: 'London', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face', tag: 'Naughty & adventurous ✈️' },
+    { name: 'Priya', age: 26, city: 'Dubai', img: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=120&h=120&fit=crop&crop=face', tag: 'Fun, not feelings 🔥' },
+    { name: 'James', age: 48, city: 'Toronto', img: 'https://images.unsplash.com/photo-1542178243-bc20204b769f?w=120&h=120&fit=crop&crop=face', tag: 'Discreet & generous 😏' },
   ],
 }
 
@@ -310,15 +310,15 @@ export default function LoginPage() {
           <div className="flex-1 flex flex-col justify-center mt-12">
             <div className="mb-3">
               <span className="bg-white/10 backdrop-blur border border-white/20 text-white/80 text-xs font-medium px-3 py-1.5 rounded-full">
-                👑 Exclusive Luxury Platform
+                🔞 Adults Only • 18+
               </span>
             </div>
             <h2 className="text-4xl xl:text-5xl font-black text-white leading-tight mb-4">
-              Where Affluent<br />Singles Find<br />
-              <span className="text-yellow-300">Real Love</span>
+              Where Naughty<br />Hotties Come<br />
+              <span className="text-pink-300">to Play 😈</span>
             </h2>
             <p className="text-white/60 text-base mb-10 leading-relaxed max-w-md">
-              Join thousands of successful, verified singles. Real-time matching based on your location, lifestyle, and preferences.
+              Join thousands of verified, open-minded adults ready for fun. Real-time matching based on your vibe, location, and naughty desires.
             </p>
 
             <div className="flex flex-col gap-3 max-w-xs">
@@ -346,9 +346,9 @@ export default function LoginPage() {
 
           <div className="flex items-center gap-6 mt-10 pt-8 border-t border-white/10">
             {[
-              { icon: <Shield size={14} />, label: 'Verified Profiles' },
+              { icon: <Shield size={14} />, label: 'Verified Hotties' },
               { icon: <Star size={14} />, label: '4.9★ Rating' },
-              { icon: <Crown size={14} />, label: 'VIP Members' },
+              { icon: <Crown size={14} />, label: '🔥 Hot Members' },
             ].map((t, i) => (
               <div key={i} className="flex items-center gap-2 text-white/50 text-xs">{t.icon} {t.label}</div>
             ))}
