@@ -45,19 +45,19 @@ export default function LikesPage() {
   }
 
   return (
-    <div className="w-full min-h-screen" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+    <div className="w-full">
       <div className="max-w-6xl mx-auto px-4 py-6">
 
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <div className="w-11 h-11 rounded-2xl flex items-center justify-center"
-              style={{ background: 'rgba(236,72,153,0.2)', border: '1px solid rgba(236,72,153,0.3)' }}>
-              <Heart size={20} className="text-pink-400 fill-pink-400" />
+              style={{ background: 'rgba(236,72,153,0.1)', border: '1px solid rgba(236,72,153,0.2)' }}>
+              <Heart size={20} className="text-pink-500 fill-pink-500" />
             </div>
             <div>
-              <h1 className="text-2xl font-black text-white tracking-tight">Likes & Matches</h1>
-              <p className="text-white/40 text-xs mt-0.5">
+              <h1 className="text-2xl font-black text-gray-900 tracking-tight">Likes & Matches</h1>
+              <p className="text-gray-500 text-xs mt-0.5">
                 {data.matches.length} match{data.matches.length !== 1 ? 'es' : ''}
               </p>
             </div>
@@ -65,17 +65,17 @@ export default function LikesPage() {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-1.5 mb-6 p-1 rounded-2xl" style={{ background: 'rgba(255,255,255,0.05)' }}>
+        <div className="flex gap-1.5 mb-6 p-1 rounded-2xl" style={{ background: 'rgba(0,0,0,0.05)' }}>
           {TABS.map(t => (
             <button key={t} onClick={() => setTab(t)}
               className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold transition-all"
               style={tab === t
                 ? { background: 'linear-gradient(135deg, #4A0072, #6B1FA2)', color: '#fff', boxShadow: '0 4px 12px rgba(107,31,162,0.35)' }
-                : { background: 'transparent', color: 'rgba(255,255,255,0.4)' }}>
+                : { background: 'transparent', color: '#6b7280' }}>
               {tabIcons[t as keyof typeof tabIcons]}
               {t}
               {tabCounts[t as keyof typeof tabCounts] > 0 && (
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${tab === t ? 'bg-white/20 text-white' : 'bg-white/10 text-white/50'}`}>
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${tab === t ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-600'}`}>
                   {tabCounts[t as keyof typeof tabCounts]}
                 </span>
               )}
@@ -87,10 +87,10 @@ export default function LikesPage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
             {Array.from({ length: 10 }).map((_, i) => (
               <div key={i} className="rounded-2xl overflow-hidden animate-pulse">
-                <div className="aspect-[3/4] bg-white/5" />
+                <div className="aspect-[3/4] bg-gray-200" />
                 <div className="p-3 space-y-1.5">
-                  <div className="h-3 bg-white/5 rounded w-3/4" />
-                  <div className="h-2.5 bg-white/5 rounded w-1/2" />
+                  <div className="h-3 bg-gray-200 rounded w-3/4" />
+                  <div className="h-2.5 bg-gray-200 rounded w-1/2" />
                 </div>
               </div>
             ))}
@@ -98,13 +98,13 @@ export default function LikesPage() {
         ) : list.length === 0 ? (
           <div className="text-center py-24">
             <div className="w-20 h-20 rounded-3xl mx-auto mb-5 flex items-center justify-center"
-              style={{ background: 'rgba(236,72,153,0.1)', border: '1px solid rgba(236,72,153,0.2)' }}>
-              {tab === 'Matches' ? <Users size={36} className="text-pink-400/60" /> : <Heart size={36} className="text-pink-400/60" />}
+              style={{ background: 'rgba(236,72,153,0.08)', border: '1px solid rgba(236,72,153,0.15)' }}>
+              {tab === 'Matches' ? <Users size={36} className="text-pink-400" /> : <Heart size={36} className="text-pink-400" />}
             </div>
-            <h2 className="text-xl font-bold text-white mb-2">
+            <h2 className="text-xl font-bold text-gray-900 mb-2">
               {tab === 'Matches' ? 'No matches yet' : tab === 'Liked Me' ? 'Nobody liked you yet' : "You haven't liked anyone yet"}
             </h2>
-            <p className="text-white/40 text-sm mb-6 max-w-xs mx-auto">
+            <p className="text-gray-500 text-sm mb-6 max-w-xs mx-auto">
               {tab === 'Matches' ? 'Keep liking people — when they like you back, it\'s a match!' : 'Discover and like people to get likes back!'}
             </p>
             <button onClick={() => setLocation('/discover')}
@@ -119,11 +119,11 @@ export default function LikesPage() {
               const online = isOnline(u.lastAccess)
               return (
                 <div key={u.id}
-                  className="group relative rounded-2xl overflow-hidden cursor-pointer transition-all hover:-translate-y-1 hover:shadow-2xl"
-                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}
+                  className="group relative rounded-2xl overflow-hidden cursor-pointer transition-all hover:-translate-y-1 hover:shadow-xl"
+                  style={{ background: '#ffffff', border: '1px solid rgba(0,0,0,0.06)' }}
                   onClick={() => setLocation(profileUrl(u))}>
                   {/* Photo */}
-                  <div className="relative aspect-[3/4] bg-gray-900">
+                  <div className="relative aspect-[3/4] bg-gray-100">
                     <img
                       src={getPhotoUrl(u.photoThumb || u.photo)}
                       alt={u.name}
@@ -143,7 +143,7 @@ export default function LikesPage() {
                         )}
                       </div>
                       {online && (
-                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 border-2" style={{ borderColor: '#1a1a1a' }} />
+                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 border-2" style={{ borderColor: '#ffffff' }} />
                       )}
                     </div>
 

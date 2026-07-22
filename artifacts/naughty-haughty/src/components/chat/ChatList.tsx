@@ -35,15 +35,15 @@ export default function ChatList({ userId, conversations: initial }: Props) {
   useEffect(() => () => { typingTimers.current.forEach(t => clearTimeout(t)) }, [])
 
   return (
-    <div className="w-full min-h-screen" style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #111827 100%)' }}>
+    <div className="w-full">
       <div className="max-w-2xl mx-auto px-4 py-6">
 
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-black text-white tracking-tight">Messages</h1>
+            <h1 className="text-2xl font-black text-gray-900 tracking-tight">Messages</h1>
             {convos.length > 0 && (
-              <p className="text-white/40 text-sm mt-0.5">{convos.length} conversation{convos.length !== 1 ? 's' : ''}</p>
+              <p className="text-gray-500 text-sm mt-0.5">{convos.length} conversation{convos.length !== 1 ? 's' : ''}</p>
             )}
           </div>
           <Link href="/discover"
@@ -56,11 +56,11 @@ export default function ChatList({ userId, conversations: initial }: Props) {
         {convos.length === 0 ? (
           <div className="text-center py-24">
             <div className="w-20 h-20 rounded-3xl mx-auto mb-5 flex items-center justify-center"
-              style={{ background: 'rgba(107,31,162,0.2)', border: '1px solid rgba(107,31,162,0.3)' }}>
-              <MessageCircle size={36} className="text-brand-400" />
+              style={{ background: 'rgba(107,31,162,0.08)', border: '1px solid rgba(107,31,162,0.15)' }}>
+              <MessageCircle size={36} className="text-brand-500" />
             </div>
-            <h2 className="text-xl font-bold text-white mb-2">No conversations yet</h2>
-            <p className="text-white/40 text-sm mb-6">Start by discovering new people near you</p>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">No conversations yet</h2>
+            <p className="text-gray-500 text-sm mb-6">Start by discovering new people near you</p>
             <Link href="/discover"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-white text-sm shadow-xl"
               style={{ background: 'linear-gradient(135deg, #4A0072, #6B1FA2)', boxShadow: '0 8px 24px rgba(107,31,162,0.35)' }}>
@@ -77,14 +77,14 @@ export default function ChatList({ userId, conversations: initial }: Props) {
                 <Link key={c.otherId} href={`/chat/${c.otherId}`}
                   className="flex items-center gap-4 px-4 py-3.5 rounded-2xl transition-all group hover:-translate-y-0.5"
                   style={{
-                    background: unread ? 'rgba(107,31,162,0.15)' : 'rgba(255,255,255,0.04)',
-                    border: unread ? '1px solid rgba(107,31,162,0.35)' : '1px solid rgba(255,255,255,0.06)',
+                    background: unread ? 'rgba(107,31,162,0.06)' : '#ffffff',
+                    border: unread ? '1px solid rgba(107,31,162,0.2)' : '1px solid rgba(0,0,0,0.06)',
                   }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = unread ? 'rgba(107,31,162,0.22)' : 'rgba(255,255,255,0.07)'}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = unread ? 'rgba(107,31,162,0.15)' : 'rgba(255,255,255,0.04)'}>
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = unread ? 'rgba(107,31,162,0.1)' : '#f9fafb'}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = unread ? 'rgba(107,31,162,0.06)' : '#ffffff'}>
                   {/* Avatar — API returns flat fields: c.photoThumb, c.photo, c.lastAccess */}
                   <div className="relative flex-shrink-0">
-                    <div className={`w-13 h-13 rounded-2xl overflow-hidden ring-2 ${online ? 'ring-emerald-400' : 'ring-white/10'}`}
+                    <div className={`w-13 h-13 rounded-2xl overflow-hidden ring-2 ${online ? 'ring-emerald-400' : 'ring-gray-200'}`}
                       style={{ width: '3.25rem', height: '3.25rem' }}>
                       <img
                         src={getPhotoUrl(c.photoThumb || c.photo)}
@@ -95,22 +95,22 @@ export default function ChatList({ userId, conversations: initial }: Props) {
                     </div>
                     {online && (
                       <div className="absolute bottom-0.5 right-0.5 w-3 h-3 bg-emerald-400 border-2 rounded-full"
-                        style={{ borderColor: '#111827' }} />
+                        style={{ borderColor: '#ffffff' }} />
                     )}
                   </div>
 
                   {/* Content — API flat fields: c.name, c.verified, c.premium, c.lastMsg */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 mb-0.5">
-                      <span className={`font-bold text-sm truncate ${unread ? 'text-white' : 'text-white/80'}`}>
+                      <span className={`font-bold text-sm truncate ${unread ? 'text-gray-900' : 'text-gray-700'}`}>
                         {c.name || 'Unknown'}
                       </span>
                       {c.verified === 1 && <BadgeCheck size={13} className="text-blue-400 flex-shrink-0" />}
                       {c.premium === 1 && <Crown size={12} className="text-amber-400 flex-shrink-0" />}
                     </div>
-                    <p className={`text-xs truncate leading-snug ${unread ? 'text-white/70 font-medium' : 'text-white/35'}`}>
+                    <p className={`text-xs truncate leading-snug ${unread ? 'text-gray-600 font-medium' : 'text-gray-400'}`}>
                       {isTyping ? (
-                        <span className="text-brand-400 font-semibold">typing…</span>
+                        <span className="text-brand-600 font-semibold">typing…</span>
                       ) : (
                         truncate(c.lastMsg || 'Say hello!', 46)
                       )}
@@ -120,7 +120,7 @@ export default function ChatList({ userId, conversations: initial }: Props) {
                   {/* Right meta */}
                   <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
                     {c.lastTime && (
-                      <span className="text-[10px] text-white/30">{timeAgo(c.lastTime)}</span>
+                      <span className="text-[10px] text-gray-400">{timeAgo(c.lastTime)}</span>
                     )}
                     {unread && (
                       <span className="flex items-center justify-center min-w-[1.25rem] h-5 rounded-full text-[10px] font-bold text-white px-1.5"
