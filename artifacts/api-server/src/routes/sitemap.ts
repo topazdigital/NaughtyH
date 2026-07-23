@@ -104,18 +104,37 @@ const PLACES = [
 ]
 
 const CATEGORY_PREFIXES = [
+  // ── Core hookup / adult categories ─────────────────────────────────────────
+  "naughty-girls",
+  "hookup",
+  "nsa-dating",
+  "older-men-younger-women",
+  "discreet-dating",
+  "milf-dating",
+  "naughty-women",
+  "daddy-dating",
+  "cougar-dating",
+  // ── Sugar / wealth categories ───────────────────────────────────────────────
   "sugar-daddy","sugar-mummy","rich-men","rich-women",
   "wealthy-men","wealthy-women","millionaire-dating",
-  "cougar-dating","older-men","luxury-dating",
-  // expanded
+  "older-men","luxury-dating",
   "dating-events","find-sponsor","sugar-baby","generous-men","rich-singles",
 ]
 
 const GENERIC_SLUGS = [
+  // ── Core hookup / adult hub pages ──────────────────────────────────────────
+  "naughty-girls-dating",
+  "older-men-younger-women",
+  "hookup-site",
+  "nsa-dating",
+  "discreet-dating",
+  "milf-dating",
+  "daddy-dating",
+  // ── Sugar / wealth hub pages ────────────────────────────────────────────────
   "sugar-daddy","sugar-mummy","rich-men-dating","rich-women-dating",
   "millionaire-dating","cougar-dating","luxury-dating",
   "seeking-arrangement","wealthy-singles","rich-dating",
-  // expanded — app/site pages (high autocomplete volume)
+  // app / site pages (high autocomplete volume)
   "sugar-mummy-dating-sites","sugar-mummy-dating-app",
   "sugar-daddy-dating-sites","sugar-daddy-dating-app",
   "rich-men-dating-app","rich-women-dating-app",
