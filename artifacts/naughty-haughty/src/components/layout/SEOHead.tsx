@@ -11,51 +11,140 @@ const COUNTRY_SEO: Record<string, {
 }> = {
   US: {
     siteTitle: 'NaughtyHaughty USA',
-    keywords: ['adult dating USA', 'mature dating America', 'older men dating USA', 'senior dating USA', 'NSA dating America', 'casual adult dating USA', 'dating for men over 50 USA', 'discreet adult dating', 'mature singles USA', 'older singles New York', 'adult dating site USA', 'hookup site USA', 'older men dating younger women USA', 'dating in New York', 'dating in Los Angeles', 'dating in Chicago', 'dating in Miami', 'dating in Houston'],
-    description: 'NaughtyHaughty — the premier adult dating site for mature, confident singles across the USA. Meet real, open-minded women in New York, Los Angeles, Chicago, Miami, and beyond. Join free.',
-    ageGroups: ['men over 50 dating USA', 'mature men dating app USA', 'older men singles USA', 'dating for men 55+ America'],
-    cities: ['New York', 'Los Angeles', 'Chicago', 'Miami', 'Houston', 'Las Vegas', 'Phoenix'],
+    keywords: [
+      'naughty dating USA', 'hookup site USA', 'adult hookup USA', 'NSA dating USA', 'casual sex USA',
+      'older men younger women USA', 'mature men dating younger women USA', 'naughty women USA',
+      'naughty girls USA', 'discreet dating USA', 'MILF dating USA', 'cougar dating USA',
+      'older man younger woman USA', 'daddy dating USA', 'sugar daddy USA',
+      'mature men hookup USA', 'no strings attached USA', 'adult dating site USA',
+      'hookup in New York', 'naughty women New York', 'hookup in Los Angeles', 'hookup in Chicago',
+      'hookup in Miami', 'hookup in Las Vegas', 'naughty girls near me USA', 'one night stand USA',
+      'casual encounters USA', 'men over 50 dating USA', 'older men dating younger women USA',
+      'rich men dating younger women USA', 'wealthy older men USA', 'discreet affairs USA',
+      'free hookup site USA', 'best hookup app USA', 'adult singles USA',
+    ],
+    description: 'NaughtyHaughty USA — where older, wealthy men meet naughty younger women and bold adults find no-strings-attached fun. Verified hotties in New York, Los Angeles, Chicago, Miami & beyond. Join free.',
+    ageGroups: ['men over 50 dating USA', 'mature men USA', 'older men younger women USA', 'daddy dating USA', 'silver fox dating USA'],
+    cities: ['New York', 'Los Angeles', 'Chicago', 'Miami', 'Houston', 'Las Vegas', 'Phoenix', 'Atlanta', 'Dallas', 'Seattle'],
   },
   CA: {
     siteTitle: 'NaughtyHaughty Canada',
-    keywords: ['adult dating Canada', 'mature dating Canada', 'older men dating Canada', 'senior dating Canada', 'NSA dating Canada', 'casual adult dating Canada', 'dating for men over 50 Canada', 'discreet dating Canada', 'mature singles Toronto', 'adult dating Vancouver', 'hookup site Canada', 'older men dating Canada', 'dating in Toronto', 'dating in Vancouver', 'dating in Calgary', 'dating in Montreal'],
-    description: 'NaughtyHaughty Canada — meet adventurous, open-minded singles across Canada. Mature adult dating in Toronto, Vancouver, Calgary, and Montreal. Join free today.',
-    ageGroups: ['men over 50 dating Canada', 'mature men Canada', 'older singles Toronto', 'dating for men 55+ Canada'],
-    cities: ['Toronto', 'Vancouver', 'Calgary', 'Montreal', 'Ottawa', 'Edmonton'],
+    keywords: [
+      'naughty dating Canada', 'hookup site Canada', 'adult hookup Canada', 'NSA dating Canada', 'casual sex Canada',
+      'older men younger women Canada', 'naughty women Canada', 'naughty girls Canada', 'discreet dating Canada',
+      'MILF dating Canada', 'cougar dating Canada', 'daddy dating Canada', 'sugar daddy Canada',
+      'mature men hookup Canada', 'no strings attached Canada', 'hookup in Toronto', 'hookup in Vancouver',
+      'naughty girls Toronto', 'naughty girls Vancouver', 'naughty women Calgary', 'one night stand Canada',
+      'casual encounters Canada', 'men over 50 dating Canada', 'rich men dating Canada',
+      'adult dating site Canada', 'free hookup site Canada', 'discreet affairs Canada',
+    ],
+    description: 'NaughtyHaughty Canada — meet naughty girls and bold older men for NSA fun, casual hookups, and discreet dating in Toronto, Vancouver, Calgary, Montreal & more. Join free.',
+    ageGroups: ['men over 50 Canada', 'mature men Canada', 'older men younger women Canada', 'daddy dating Canada', 'silver fox Canada'],
+    cities: ['Toronto', 'Vancouver', 'Calgary', 'Montreal', 'Ottawa', 'Edmonton', 'Winnipeg'],
   },
   AU: {
     siteTitle: 'NaughtyHaughty Australia',
-    keywords: ['adult dating Australia', 'mature dating Australia', 'older men dating Australia', 'senior dating Australia', 'NSA dating Australia', 'casual adult dating Australia', 'dating for men over 50 Australia', 'discreet adult dating Australia', 'mature singles Sydney', 'adult dating Melbourne', 'hookup site Australia', 'older men dating Australia', 'dating in Sydney', 'dating in Melbourne', 'dating in Brisbane', 'dating in Perth'],
-    description: 'NaughtyHaughty Australia — adult dating for confident, mature singles. Meet adventurous singles in Sydney, Melbourne, Brisbane, Perth, and across Australia. Join free.',
-    ageGroups: ['men over 50 dating Australia', 'mature men Australia', 'older singles Sydney', 'dating for men 55+ Australia'],
-    cities: ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Adelaide'],
+    keywords: [
+      'naughty dating Australia', 'hookup site Australia', 'adult hookup Australia', 'NSA dating Australia',
+      'casual sex Australia', 'older men younger women Australia', 'naughty women Australia',
+      'naughty girls Australia', 'discreet dating Australia', 'MILF dating Australia', 'cougar dating Australia',
+      'daddy dating Australia', 'sugar daddy Australia', 'hookup in Sydney', 'hookup in Melbourne',
+      'naughty girls Sydney', 'naughty girls Melbourne', 'one night stand Australia',
+      'casual encounters Australia', 'men over 50 dating Australia', 'rich men dating Australia',
+      'adult dating site Australia', 'discreet affairs Australia', 'no strings attached Australia',
+    ],
+    description: 'NaughtyHaughty Australia — naughty hookups, NSA fun, and discreet encounters for older men and hot women in Sydney, Melbourne, Brisbane, Perth & across Australia. Join free.',
+    ageGroups: ['men over 50 Australia', 'mature men Australia', 'older men younger women Australia', 'daddy dating Australia', 'silver fox Australia'],
+    cities: ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Adelaide', 'Gold Coast', 'Canberra'],
   },
   GB: {
     siteTitle: 'NaughtyHaughty UK',
-    keywords: ['adult dating UK', 'mature dating UK', 'older men dating UK', 'senior dating Britain', 'NSA dating UK', 'casual adult dating UK', 'dating for men over 50 UK', 'discreet adult dating UK', 'mature singles London', 'adult dating Manchester', 'hookup site UK', 'older men dating UK', 'dating in London', 'dating in Manchester', 'dating in Birmingham', 'dating in Edinburgh'],
-    description: 'NaughtyHaughty UK — the adult dating site for mature, confident British singles. Meet real, open-minded women in London, Manchester, Birmingham, and across the UK. Join free.',
-    ageGroups: ['men over 50 dating UK', 'mature men UK', 'older singles London', 'dating for men 55+ Britain'],
-    cities: ['London', 'Manchester', 'Birmingham', 'Edinburgh', 'Leeds', 'Bristol'],
+    keywords: [
+      'naughty dating UK', 'hookup site UK', 'adult hookup UK', 'NSA dating UK', 'casual sex UK',
+      'older men younger women UK', 'naughty women UK', 'naughty girls UK', 'discreet dating UK',
+      'MILF dating UK', 'cougar dating UK', 'daddy dating UK', 'sugar daddy UK', 'hookup in London',
+      'hookup in Manchester', 'naughty girls London', 'naughty women London', 'one night stand UK',
+      'casual encounters UK', 'men over 50 dating UK', 'rich men dating UK', 'wealthy older men UK',
+      'adult dating site UK', 'discreet affairs UK', 'no strings attached UK', 'naughty dating site UK',
+    ],
+    description: 'NaughtyHaughty UK — older, wealthy British men meet naughty younger women for discreet hookups, NSA fun, and casual encounters in London, Manchester, Birmingham & beyond. Join free.',
+    ageGroups: ['men over 50 UK', 'mature men UK', 'older men younger women UK', 'daddy dating UK', 'silver fox UK', 'distinguished men UK'],
+    cities: ['London', 'Manchester', 'Birmingham', 'Edinburgh', 'Leeds', 'Bristol', 'Glasgow', 'Cardiff'],
   },
   NZ: {
     siteTitle: 'NaughtyHaughty New Zealand',
-    keywords: ['adult dating New Zealand', 'mature dating NZ', 'older men dating New Zealand', 'casual dating NZ', 'dating for men over 50 NZ', 'discreet dating New Zealand', 'mature singles Auckland', 'adult dating NZ'],
-    description: 'NaughtyHaughty New Zealand — adult dating for mature, open-minded singles. Meet adventurous women in Auckland, Wellington, and across New Zealand.',
-    ageGroups: ['men over 50 NZ', 'mature men New Zealand', 'older singles Auckland'],
+    keywords: [
+      'naughty dating New Zealand', 'hookup site NZ', 'NSA dating NZ', 'casual sex NZ',
+      'older men younger women NZ', 'naughty women NZ', 'naughty girls NZ', 'discreet dating NZ',
+      'MILF dating NZ', 'hookup in Auckland', 'naughty girls Auckland', 'one night stand NZ',
+      'casual encounters NZ', 'men over 50 NZ', 'adult dating site NZ', 'sugar daddy NZ',
+    ],
+    description: 'NaughtyHaughty New Zealand — hookups, NSA fun, and naughty dating for bold adults in Auckland, Wellington, Christchurch & beyond. Join free.',
+    ageGroups: ['men over 50 NZ', 'mature men New Zealand', 'older men younger women NZ', 'daddy dating NZ'],
     cities: ['Auckland', 'Wellington', 'Christchurch'],
   },
   IE: {
     siteTitle: 'NaughtyHaughty Ireland',
-    keywords: ['adult dating Ireland', 'mature dating Ireland', 'older men dating Ireland', 'casual dating Ireland', 'dating for men over 50 Ireland', 'discreet dating Ireland', 'mature singles Dublin', 'adult dating site Ireland'],
-    description: 'NaughtyHaughty Ireland — meet adventurous, open-minded singles across Ireland. Adult dating in Dublin and beyond.',
-    ageGroups: ['men over 50 Ireland', 'mature men Dublin', 'older singles Ireland'],
-    cities: ['Dublin', 'Cork', 'Galway'],
+    keywords: [
+      'naughty dating Ireland', 'hookup site Ireland', 'NSA dating Ireland', 'casual sex Ireland',
+      'older men younger women Ireland', 'naughty women Ireland', 'naughty girls Ireland',
+      'discreet dating Ireland', 'hookup Dublin', 'naughty girls Dublin', 'one night stand Ireland',
+      'adult dating site Ireland', 'sugar daddy Ireland', 'men over 50 dating Ireland',
+    ],
+    description: 'NaughtyHaughty Ireland — meet naughty girls and older men for casual fun and discreet hookups in Dublin, Cork, Galway & beyond. Join free.',
+    ageGroups: ['men over 50 Ireland', 'mature men Ireland', 'older men younger women Ireland', 'daddy dating Ireland'],
+    cities: ['Dublin', 'Cork', 'Galway', 'Limerick'],
+  },
+  ZA: {
+    siteTitle: 'NaughtyHaughty South Africa',
+    keywords: [
+      'naughty dating South Africa', 'hookup site South Africa', 'NSA dating South Africa',
+      'older men younger women South Africa', 'naughty women South Africa', 'naughty girls South Africa',
+      'blesser dating South Africa', 'sugar daddy South Africa', 'hookup Johannesburg',
+      'naughty girls Cape Town', 'hookup Durban', 'discreet dating South Africa',
+      'casual sex South Africa', 'adult dating South Africa', 'meet older men South Africa',
+    ],
+    description: 'NaughtyHaughty South Africa — meet naughty girls and wealthy older men for discreet hookups and NSA fun in Johannesburg, Cape Town, Durban & beyond. Join free.',
+    ageGroups: ['blesser South Africa', 'older men South Africa', 'sugar daddy South Africa', 'mature men South Africa'],
+    cities: ['Johannesburg', 'Cape Town', 'Durban', 'Pretoria', 'Sandton'],
+  },
+  AE: {
+    siteTitle: 'NaughtyHaughty UAE',
+    keywords: [
+      'naughty dating Dubai', 'hookup Dubai', 'NSA dating Dubai', 'casual dating Dubai',
+      'older men younger women Dubai', 'naughty girls Dubai', 'discreet dating Dubai',
+      'sugar daddy Dubai', 'adult dating Dubai', 'hookup Abu Dhabi', 'naughty women UAE',
+      'rich men Dubai', 'wealthy men Dubai', 'expat dating Dubai', 'fun dating Dubai',
+    ],
+    description: 'NaughtyHaughty UAE — where wealthy older men meet naughty girls for discreet hookups and fun dating in Dubai, Abu Dhabi & beyond. Join free.',
+    ageGroups: ['sugar daddy Dubai', 'older men Dubai', 'wealthy men UAE', 'mature men Dubai'],
+    cities: ['Dubai', 'Abu Dhabi', 'Sharjah'],
+  },
+  DE: {
+    siteTitle: 'NaughtyHaughty Germany',
+    keywords: [
+      'naughty dating Germany', 'hookup site Germany', 'NSA dating Germany', 'casual sex Germany',
+      'older men younger women Germany', 'naughty girls Germany', 'discreet dating Germany',
+      'hookup Berlin', 'naughty girls Berlin', 'adult dating Germany', 'sugar daddy Germany',
+    ],
+    description: 'NaughtyHaughty Germany — naughty hookups and discreet adult dating for older men and bold women in Berlin, Munich, Hamburg & beyond. Join free.',
+    ageGroups: ['older men Germany', 'mature men Germany', 'daddy dating Germany'],
+    cities: ['Berlin', 'Munich', 'Hamburg', 'Frankfurt', 'Cologne'],
   },
   DEFAULT: {
     siteTitle: 'NaughtyHaughty',
-    keywords: ['adult dating', 'mature dating', 'older men dating', 'NSA dating', 'casual adult dating', 'senior dating site', 'discreet dating', 'dating for men over 50', 'hookup site', 'mature singles', 'older singles', 'adult dating site free', 'meet singles online', 'adult personals'],
-    description: 'NaughtyHaughty — the premier adult dating site for mature, confident singles worldwide. Real connections with open-minded people. Join free.',
-    ageGroups: ['men over 50 dating', 'mature men dating', 'older singles dating', 'senior adult dating'],
+    keywords: [
+      'naughty dating', 'hookup site', 'adult hookup', 'NSA dating', 'casual sex dating',
+      'older men younger women', 'naughty girls dating', 'naughty women', 'discreet dating',
+      'MILF dating', 'cougar dating', 'daddy dating site', 'sugar daddy dating',
+      'mature men hookup', 'no strings attached dating', 'adult dating site free',
+      'one night stand site', 'casual encounters', 'free hookup site', 'men over 50 dating',
+      'older men dating younger women', 'rich men dating younger women', 'older gentleman dating',
+      'adult personals', 'naughty singles near me', 'hookup near me', 'discreet adult dating',
+      'naughty dating app', 'best hookup site', 'top hookup app', 'adult dating app',
+    ],
+    description: 'NaughtyHaughty — the #1 adult hookup site where wealthy older men meet naughty younger women and bold adults find real, discreet fun. Verified hotties worldwide. Join free.',
+    ageGroups: ['men over 50 dating', 'older men younger women', 'daddy dating', 'silver daddy dating', 'mature men hookup'],
   },
 }
 
@@ -88,36 +177,46 @@ function buildTitle(path: string, countryCode: string, city: string): string {
   const siteTitle = COUNTRY_SEO[countryCode]?.siteTitle || COUNTRY_SEO.DEFAULT.siteTitle
   const loc = city || countryName
 
-  if (path === '/') return `${siteTitle} | Adult Dating for Mature Singles${loc ? ` in ${loc}` : ''}`
-  if (path === '/discover') return `Discover Singles${loc ? ` in ${loc}` : ' Worldwide'} | NaughtyHaughty`
-  if (path === '/meet') return `Meet Singles${loc ? ` in ${loc}` : ''} | NaughtyHaughty`
-  if (path === '/likes') return `Your Likes & Matches${loc ? ` in ${loc}` : ''} | NaughtyHaughty`
-  if (path === '/chat') return `Messages | NaughtyHaughty`
+  if (path === '/')        return `${siteTitle} | #1 Adult Hookup & Naughty Dating${loc ? ` in ${loc}` : ''}`
+  if (path === '/discover') return `Discover Naughty Hotties${loc ? ` in ${loc}` : ' Near You'} | NaughtyHaughty`
+  if (path === '/meet')    return `Meet Naughty Singles${loc ? ` in ${loc}` : ''} | NaughtyHaughty`
+  if (path === '/likes')   return `Likes & Matches${loc ? ` in ${loc}` : ''} | NaughtyHaughty`
+  if (path === '/chat')    return `Messages | NaughtyHaughty`
   if (path.startsWith('/chat/')) return `Chat | NaughtyHaughty`
-  if (path === '/visitors') return `Profile Visitors | NaughtyHaughty`
-  if (path === '/gifts') return `Gifts | NaughtyHaughty`
-  if (path === '/login') return `Sign In | NaughtyHaughty`
-  if (path === '/register') return `Join Free${loc ? ` — Meet Singles in ${loc}` : ''} | NaughtyHaughty`
-  if (path === '/premium') return `VIP Premium Membership | NaughtyHaughty`
-  if (path === '/credits') return `Credits & Payments | NaughtyHaughty`
-  if (path === '/boost') return `Boost Your Profile | NaughtyHaughty`
-  if (path === '/home') return `Your Matches${loc ? ` in ${loc}` : ''} | NaughtyHaughty`
+  if (path === '/visitors') return `Who Viewed Your Profile | NaughtyHaughty`
+  if (path === '/gifts')   return `Send Naughty Gifts | NaughtyHaughty`
+  if (path === '/login')   return `Sign In & Get Naughty${loc ? ` — ${loc}` : ''} | NaughtyHaughty`
+  if (path === '/register') return `Join Free${loc ? ` — Meet Naughty Hotties in ${loc}` : ' — Meet Naughty Hotties'} | NaughtyHaughty`
+  if (path === '/premium') return `VIP Access — More Hotties, More Fun | NaughtyHaughty`
+  if (path === '/credits') return `Credits & Gifts | NaughtyHaughty`
+  if (path === '/boost')   return `Boost Profile — Get More Matches | NaughtyHaughty`
+  if (path === '/home')    return `Your Naughty Matches${loc ? ` in ${loc}` : ''} | NaughtyHaughty`
   if (path === '/settings') return `Settings | NaughtyHaughty`
-  if (path === '/referrals') return `Referrals | NaughtyHaughty`
+  if (path === '/referrals') return `Invite Friends & Earn | NaughtyHaughty`
   if (path === '/contact') return `Contact Us | NaughtyHaughty`
-  if (path === '/terms') return `Terms of Service | NaughtyHaughty`
+  if (path === '/terms')   return `Terms of Service | NaughtyHaughty`
   if (path === '/privacy') return `Privacy Policy | NaughtyHaughty`
-  if (path.startsWith('/profile/') || path.startsWith('/@')) return `Profile | NaughtyHaughty`
-  return `${siteTitle}${loc ? ` — ${loc}` : ''}`
+  if (path.startsWith('/profile/') || path.startsWith('/@')) return `Naughty Profile | NaughtyHaughty`
+  return `${siteTitle}${loc ? ` — ${loc}` : ''} | Adult Hookup Dating`
 }
 
-function buildDescription(countryCode: string, city: string): string {
+function buildDescription(countryCode: string, city: string, path: string): string {
   const seoData = COUNTRY_SEO[countryCode] || COUNTRY_SEO.DEFAULT
+
+  if (path === '/register') {
+    const loc = city || (COUNTRY_SEO[countryCode]?.cities?.[0] ?? '')
+    return `Join NaughtyHaughty free and meet verified naughty hotties${loc ? ` in ${loc}` : ''}. Older men, younger women, bold adults — no judgment, just real fun. Sign up in 30 seconds.`
+  }
+  if (path === '/login') {
+    return `Sign back in to NaughtyHaughty and keep the fun going. Your naughty matches are waiting. 100% discreet.`
+  }
+  if (path === '/discover' || path === '/meet') {
+    const loc = city || (COUNTRY_SEO[countryCode]?.cities?.[0] ?? '')
+    return `Browse verified naughty hotties${loc ? ` in ${loc}` : ' near you'}. Older men, younger women, cougars, MILFs, and bold adults looking for real hookups. 100% free to join.`
+  }
+
   if (city) {
-    return seoData.description.replace(
-      /in [A-Z][a-z]+/g,
-      `in ${city}`
-    )
+    return `NaughtyHaughty ${city} — meet naughty girls and wealthy older men for real hookups, NSA fun, and discreet encounters in ${city}. Verified hotties only. Join free.`
   }
   return seoData.description
 }
@@ -133,17 +232,30 @@ export default function SEOHead() {
     const title = buildTitle(location, countryCode, userCity)
     document.title = title
 
-    const description = buildDescription(countryCode, userCity)
+    const description = buildDescription(countryCode, userCity, location)
     const allKeywords = [
       ...seoData.keywords,
       ...seoData.ageGroups,
-      ...(userCity ? [`adult dating in ${userCity}`, `singles in ${userCity}`, `mature singles ${userCity}`] : []),
+      ...(userCity ? [
+        `naughty girls in ${userCity}`,
+        `hookup in ${userCity}`,
+        `naughty dating ${userCity}`,
+        `older men younger women ${userCity}`,
+        `naughty women ${userCity}`,
+        `discreet dating ${userCity}`,
+        `casual sex ${userCity}`,
+        `NSA dating ${userCity}`,
+        `adult dating ${userCity}`,
+        `sugar daddy ${userCity}`,
+        `mature men ${userCity}`,
+      ] : []),
     ].join(', ')
 
     upsertMeta('description', description)
     upsertMeta('keywords', allKeywords)
     upsertMeta('robots', 'index, follow')
     upsertMeta('author', 'NaughtyHaughty')
+    upsertMeta('rating', 'adult')
     upsertMeta('geo.region', countryCode !== 'DEFAULT' ? countryCode : '')
     if (userCity) upsertMeta('geo.placename', userCity)
 
@@ -153,7 +265,7 @@ export default function SEOHead() {
     upsertMeta('og:type', 'website', true)
     upsertMeta('og:site_name', 'NaughtyHaughty', true)
     upsertMeta('og:image', '/og-image.jpg', true)
-    if (userCity) upsertMeta('og:locale', countryCode !== 'DEFAULT' ? `en_${countryCode}` : 'en_US', true)
+    if (countryCode !== 'DEFAULT') upsertMeta('og:locale', `en_${countryCode}`, true)
 
     // Twitter Card
     upsertMeta('twitter:card', 'summary_large_image')
